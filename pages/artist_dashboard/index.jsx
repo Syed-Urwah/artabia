@@ -11,7 +11,6 @@ const ReactApexChart = dynamic(() => import("react-apexcharts"), {
 });
 
 const Dashboard = () => {
-  
   const [saleOrderName, setSaleOrderName] = useState();
 
   const monthNames = [
@@ -19,6 +18,11 @@ const Dashboard = () => {
     'July', 'August', 'September', 'October', 'November', 'December'
   ];
   const [currentMonth, setCurrentMonth] = useState(monthNames[new Date().getMonth()]);
+
+ 
+
+
+
   const [salesData, setSalesData] = useState({
     series: [
       {
