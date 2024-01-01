@@ -33,15 +33,11 @@ const Dashboard = () => {
           "Sep",
           "Oct",
           "Nov",
-          "Dec",
+          "Dc",
         ],
       },
     },
   });
-
-
-
-
 
 
 
