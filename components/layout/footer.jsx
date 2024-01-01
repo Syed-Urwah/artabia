@@ -1,0 +1,152 @@
+"use client";
+import { Footer } from "flowbite-react";
+import { BsFacebook, BsInstagram, BsLinkedin, BsYoutube } from "react-icons/bs";
+
+function Footerr() {
+  const iconColor = "#8C0D81";
+  const searchBarBorderColor = "#8C0D81";
+  const BorderColor = "#ed99c0";
+
+  return (
+    <Footer container className="bg-[#F4C7DC] rounded-none">
+      <div className="w-full">
+        <div className="grid grid-cols-12 ">
+          <div className="box col-span-12 lg:col-span-3 md:col-span-3 lg:ml-8">
+            <img
+              src="/img/artibia_logo.png"
+              className="w-[255px] h-[70px] lg:mx-5  mt-4"
+              alt="Search"
+            />
+            <div className="flex  flex-col justify-left lg:ml-8 gap-2 lg:mt-20 ">
+              <h5 className="text-1xl font-semibold text-left">Contact Us</h5>
+              <h5 className="text-1xl font-semibold text-left ">
+                Terms & Conditions
+              </h5>
+              <h5 className="text-1xl font-semibold text-left ">
+                Account Setting
+              </h5>
+            </div>
+          </div>
+
+          <div className="box col-span-12 flex flex-row justify-center lg:col-span-6 md:col-span-6">
+            <div className="flex justify-center  mt-8 mx-1 lg:mx-8">
+              <div className="flex flex-col gap-2 ">
+                <h5 className="text-[18px] font-bold text-left">FOR CLIENT</h5>
+                <p className=" font-normal ">Lorem ipsum</p>
+                <p className=" font-normal ">Lorem ipsum</p>
+                <p className=" font-normal ">Lorem ipsum</p>
+                <p className=" font-normal ">Lorem ipsum</p>
+              </div>
+            </div>
+
+            <div className="flex justify-center gap-1 mt-8 mx-1 lg:mx-8 ">
+              <div className="flex flex-col gap-2">
+                <h5 className="text-[18px] font-bold text-left">FOR ARTISTS</h5>
+                <p className=" font-normal ">Lorem ipsum</p>
+                <p className=" font-normal ">Lorem ipsum</p>
+                <p className=" font-normal ">Lorem ipsum</p>
+                <p className=" font-normal ">Lorem ipsum</p>
+              </div>
+            </div>
+
+            <div className="flex justify-center gap-1 mt-8 mx-1 lg:mx-8 ">
+              <div className="flex flex-col gap-2">
+                <h5 className="text-[18px] font-bold text-left">ABOUT US</h5>
+                <p className=" font-normal ">Lorem ipsum</p>
+                <p className=" font-normal ">Lorem ipsum</p>
+                <p className=" font-normal ">Lorem ipsum</p>
+                <p className=" font-normal ">Lorem ipsum</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="box col-span-12 lg:col-span-3 md:col-span-3">
+            <div className="mt-8 ">
+              <h5 className="text-[18px] font-bold text-left lg:ml-14">
+                FOLLOW US
+              </h5>
+
+              <div className="mt-2 flex space-x-4 lg:ml-12">
+                <Footer.Icon
+                  href="#"
+                  icon={BsLinkedin}
+                  style={{ color: iconColor }}
+                />
+                <Footer.Icon
+                  href="#"
+                  icon={BsInstagram}
+                  style={{ color: iconColor }}
+                />
+                <Footer.Icon
+                  href="#"
+                  icon={BsYoutube}
+                  style={{ color: iconColor }}
+                />
+                <Footer.Icon
+                  href="#"
+                  icon={BsFacebook}
+                  style={{ color: iconColor }}
+                />
+              </div>
+            </div>
+
+            <div className="flex  flex-col justify-left  lg:block hidden gap-1 mt-14  ">
+              <img
+                src="/img/artibia_logo.png"
+                className="w-[155px] h-[40px] ml-12"
+                alt="Search"
+              />
+              <p className=" font-normal mr-20 text-center">
+                Be the first to know about exclusive deals and join the
+                collective.
+              </p>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  width: "60%",
+                  marginLeft: "30px",
+                }}
+              >
+                <input
+                  type="text"
+                  placeholder="Search"
+                  style={{
+                    border: `2px solid ${searchBarBorderColor}`,
+                    padding: "5px",
+                    marginTop: "7px",
+                    width: "70%",
+                    background: "transparent", // Transparent background
+                  }}
+                />
+                {/* Merged "Join Us" button */}
+                <button
+                  style={{
+                    border: `2px solid ${searchBarBorderColor}`,
+                    width: "30%",
+                    padding: "5px",
+                    marginTop: "7px",
+                    background: searchBarBorderColor, // Set color to #8C0D81
+                    color: "#FFFFFF", // Set text color to white
+                  }}
+                >
+                  Join Us
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <Footer.Divider
+          className="w-full mx-0 p-0"
+          style={{ borderColor: BorderColor }}
+        />
+        <div className="w-full flex items-center justify-center">
+          <Footer.Copyright by="Copyright 2023 ARTABIA. All rights reserved." />
+        </div>
+      </div>
+    </Footer>
+  );
+}
+
+export default Footerr;
