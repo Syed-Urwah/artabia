@@ -47,7 +47,7 @@ const Login = () => {
         if (data.data.perst_type === "user") {
           router.push("/main");
         } else {
-          router.push("/artist_homePage");
+          router.push("/artist_dashboard");
         }
       }
       if (data.status === "false") {
