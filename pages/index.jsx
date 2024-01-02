@@ -5,7 +5,7 @@ import Main from "./main";
 import { useLayoutEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { getPayload, getUserType } from "./enviroment/auth";
-import HomePage from "./artist_homePage";
+
 import Login from "./login";
 
 const inter = Inter({ subsets: ["latin"] });
