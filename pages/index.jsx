@@ -18,6 +18,7 @@ export default function Home({ children }) {
   useLayoutEffect(() => {
     const checkUserType = getUserType();
     setUserType(checkUserType);
+    console.log(checkUserType);
 
     if (checkUserType === 'artist') {
       const payload = getPayload();
@@ -32,8 +33,13 @@ export default function Home({ children }) {
 
   console.log("child" , children);
   if (userType === 'artist') {
-    content = children ? children : <HomePage />;
-  } else {
+    // content = children ? children : <HomePage />;
+    router.push("/artist_homePage");
+  }else if(userType === 'user'){
+    router.push("/main");
+    // content = children ? children : <Main />;
+  }
+   else {
     content = children ? children : <Login />;
   }
 
@@ -41,6 +47,7 @@ export default function Home({ children }) {
     <main className="bg-white">
       {/* <Header /> */}
       {content}
+      {/* <Login /> */}
       {/* <Footer /> */}
     </main>
   );
