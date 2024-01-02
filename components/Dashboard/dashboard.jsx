@@ -2,8 +2,9 @@
 
 import { getLocalToken } from "@/pages/enviroment/auth";
 import axios from "axios";
-import { Table, Tabs } from "flowbite-react";
+import { Button, Table, Tabs } from "flowbite-react";
 import { useEffect, useState } from "react";
+import Swal from 'sweetalert2';
 
 
 const DashboardTab = () => {
@@ -19,7 +20,7 @@ const DashboardTab = () => {
         const getCompleteOrder = async () => {
             try {
                 const { data } = await axios.post(
-                    "http://admin.artabiasa.com/api/get-active-completed",
+                    "http://admin.artabiasa.com/api/get-active-completed-artist",
                     {
                         api_password: process.env.REACT_APP_API_PASSWORD,
                     },
@@ -42,7 +43,28 @@ const DashboardTab = () => {
         getCompleteOrder();
     }, []);
 
+    const getActiveOrder = async () => {
+        try {
+            const { data } = await axios.post(
+                "http://admin.artabiasa.com/api/get-active-order-artist",
+                {
+                    api_password: process.env.REACT_APP_API_PASSWORD,
+                },
+                {
+                    headers: {
+                        Authorization: 'Bearer ' + getLocalToken(),
+                    },
+                }
+            );
+            console.log("API Response =>", data.data);
 
+            if (data.status === "true") {
+                setActiveOrder(data.data)
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        }
+    };
     useEffect(() => {
         const getActiveOrder = async () => {
             try {
@@ -70,6 +92,39 @@ const DashboardTab = () => {
         getActiveOrder();
     }, []);
 
+
+    const ApprovedOrderArtist = async (id) => {
+        try {
+            const { data } = await axios.post(
+                "http://admin.artabiasa.com/api/approved-order-artist",
+                {
+                    id:id,
+                    api_password: process.env.REACT_APP_API_PASSWORD,
+                },
+                {
+                    headers: {
+                        Authorization: 'Bearer ' + getLocalToken(),
+                    },
+                }
+            );
+            console.log("API  =>", data.data);
+
+            if (data.status === "true") {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: 'Approved Order!',
+                }).then((result) => {
+                    if (result.isConfirmed || result.isDismissed) {
+                        getActiveOrder();
+                    }
+                });
+                
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        }
+    }
     return (
         <>
 
@@ -97,11 +152,8 @@ const DashboardTab = () => {
                             <Table.HeadCell style={{ backgroundColor: "lightgray" }}>
                                 Order Status
                             </Table.HeadCell>
-
-                            <Table.HeadCell
-                                style={{ backgroundColor: "lightgray", borderRadius: 0 }}
-                            >
-                                <span className="sr-only">Submit</span>
+                            <Table.HeadCell style={{ backgroundColor: "lightgray" }}>
+                                Action
                             </Table.HeadCell>
                         </Table.Head>
 
@@ -117,6 +169,9 @@ const DashboardTab = () => {
                                         <Table.Cell>
                                             <span className="active-status">{order.ordersstatus_id.ordersstatus_etext}</span>
                                         </Table.Cell>
+                                        <Table.Cell>
+                                            <Button  onClick={() => ApprovedOrderArtist(order.id)} color="light">Change Status</Button>
+                                        </Table.Cell>
                                     </Table.Row>
                                 ))
                             ) : (
@@ -128,7 +183,7 @@ const DashboardTab = () => {
                     </Table>
                 </Tabs.Item>
                 <Tabs.Item title="Completed Order" >
-                <Table>
+                    <Table>
                         <Table.Head>
                             <Table.HeadCell
                                 style={{ backgroundColor: "lightgray", borderRadius: 0 }}
@@ -150,6 +205,7 @@ const DashboardTab = () => {
                             <Table.HeadCell style={{ backgroundColor: "lightgray" }}>
                                 Order Status
                             </Table.HeadCell>
+                           
 
                             <Table.HeadCell
                                 style={{ backgroundColor: "lightgray", borderRadius: 0 }}
@@ -170,6 +226,7 @@ const DashboardTab = () => {
                                         <Table.Cell>
                                             <span className="active-status">{order.ordersstatus_id.ordersstatus_etext}</span>
                                         </Table.Cell>
+                                       
                                     </Table.Row>
                                 ))
                             ) : (
