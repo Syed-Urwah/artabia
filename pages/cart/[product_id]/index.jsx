@@ -205,7 +205,7 @@ const Cart = () => {
               </button>
             </div> */}
 
-            <div className="lg:flex lg:flex-row ml-8 lg:ml-0 lg:justify-end gap-2 mt-6 items-center">
+            {/* <div className="lg:flex lg:flex-row ml-8 lg:ml-0 lg:justify-end gap-2 mt-6 items-center">
               <span>Use promo code</span>
               <input
                 type="text"
@@ -215,7 +215,7 @@ const Cart = () => {
               <button className="bg-opacity-20 lg:rounded-full px-6 py-1 border border-black bg-[#dcdada]">
                 Insert
               </button>
-            </div>
+            </div> */}
 
             <div className="flex flex-row justify-end gap-4 mt-3 ">
               <div class="max-w-sm p-6 bg-[#F8F8F8] border border-gray-200 rounded-3xl shadow dark:bg-gray-800 dark:border-gray-700">
