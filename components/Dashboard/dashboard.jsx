@@ -4,8 +4,7 @@ import { getLocalToken } from "@/pages/enviroment/auth";
 import axios from "axios";
 import { Button, Table, Tabs } from "flowbite-react";
 import { useEffect, useState } from "react";
-import Swal from 'sweetalert2';
-
+import Swal from "sweetalert2";
 
 const DashboardTab = () => {
     const [activeTab, setActiveTab] = useState(0);
@@ -26,14 +25,14 @@ const DashboardTab = () => {
                     },
                     {
                         headers: {
-                            Authorization: 'Bearer ' + getLocalToken(),
+                            Authorization: "Bearer " + getLocalToken(),
                         },
                     }
                 );
                 console.log("API Response =>", data.data);
 
                 if (data.status === "true") {
-                    setCompleteOrder(data.data)
+                    setCompleteOrder(data.data);
                 }
             } catch (error) {
                 console.error("Error fetching data:", error);
@@ -41,6 +40,33 @@ const DashboardTab = () => {
         };
 
         getCompleteOrder();
+    }, []);
+
+    useEffect(() => {
+        const getActiveOrder = async () => {
+            try {
+                const { data } = await axios.post(
+                    "http://admin.artabiasa.com/api/get-active-order-artist",
+                    {
+                        api_password: process.env.REACT_APP_API_PASSWORD,
+                    },
+                    {
+                        headers: {
+                            Authorization: "Bearer " + getLocalToken(),
+                        },
+                    }
+                );
+                console.log("API Response =>", data.data);
+
+                if (data.status === "true") {
+                    setActiveOrder(data.data);
+                }
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        };
+
+        getActiveOrder();
     }, []);
 
     const getActiveOrder = async () => {
@@ -52,47 +78,19 @@ const DashboardTab = () => {
                 },
                 {
                     headers: {
-                        Authorization: 'Bearer ' + getLocalToken(),
+                        Authorization: "Bearer " + getLocalToken(),
                     },
                 }
             );
             console.log("API Response =>", data.data);
 
             if (data.status === "true") {
-                setActiveOrder(data.data)
+                setActiveOrder(data.data);
             }
         } catch (error) {
             console.error("Error fetching data:", error);
         }
     };
-    useEffect(() => {
-        const getActiveOrder = async () => {
-            try {
-                const { data } = await axios.post(
-                    "http://admin.artabiasa.com/api/get-active-order-artist",
-                    {
-                        api_password: process.env.REACT_APP_API_PASSWORD,
-                    },
-                    {
-                        headers: {
-                            Authorization: 'Bearer ' + getLocalToken(),
-                        },
-                    }
-                );
-                console.log("API Response =>", data.data);
-
-                if (data.status === "true") {
-                    setActiveOrder(data.data)
-                }
-            } catch (error) {
-                console.error("Error fetching data:", error);
-            }
-        };
-
-        getActiveOrder();
-    }, []);
-
-
     const ApprovedOrderArtist = async (id) => {
         try {
             const { data } = await axios.post(
@@ -125,11 +123,17 @@ const DashboardTab = () => {
             console.error("Error fetching data:", error);
         }
     }
+
     return (
         <>
-
-            <Tabs className=" flex justify-center gap-10" activeIndex={activeTab} onChange={handleTabChange} aria-label="Default tabs" style="default">
-                <Tabs.Item title="Active Order" >
+            <Tabs
+                className=" flex justify-center gap-10 overflow-x-auto pt-1 pb-1 "
+                activeIndex={activeTab}
+                onChange={handleTabChange}
+                aria-label="Default tabs"
+                style="default"
+            >
+                <Tabs.Item title="Active Order">
                     <Table>
                         <Table.Head>
                             <Table.HeadCell
@@ -149,7 +153,10 @@ const DashboardTab = () => {
                             <Table.HeadCell style={{ backgroundColor: "lightgray" }}>
                                 Total
                             </Table.HeadCell>
-                            <Table.HeadCell style={{ backgroundColor: "lightgray" }}>
+
+                            <Table.HeadCell
+                                style={{ backgroundColor: "lightgray", borderRadius: 0 }}
+                            >
                                 Order Status
                             </Table.HeadCell>
                             <Table.HeadCell style={{ backgroundColor: "lightgray" }}>
@@ -167,7 +174,9 @@ const DashboardTab = () => {
                                         <Table.Cell>{order.delivery_price}</Table.Cell>
                                         <Table.Cell>{order.final_total}</Table.Cell>
                                         <Table.Cell>
-                                            <span className="active-status">{order.ordersstatus_id.ordersstatus_etext}</span>
+                                            <span className="active-status">
+                                                {order.ordersstatus_id.ordersstatus_etext}
+                                            </span>
                                         </Table.Cell>
                                         <Table.Cell>
                                             <Button  onClick={() => ApprovedOrderArtist(order.id)} color="light">Change Status</Button>
@@ -182,7 +191,7 @@ const DashboardTab = () => {
                         </Table.Body>
                     </Table>
                 </Tabs.Item>
-                <Tabs.Item title="Completed Order" >
+                <Tabs.Item title="Completed Order">
                     <Table>
                         <Table.Head>
                             <Table.HeadCell
@@ -202,15 +211,10 @@ const DashboardTab = () => {
                             <Table.HeadCell style={{ backgroundColor: "lightgray" }}>
                                 Total
                             </Table.HeadCell>
-                            <Table.HeadCell style={{ backgroundColor: "lightgray" }}>
-                                Order Status
-                            </Table.HeadCell>
-                           
-
                             <Table.HeadCell
                                 style={{ backgroundColor: "lightgray", borderRadius: 0 }}
                             >
-                                <span className="sr-only">Submit</span>
+                                Order Status
                             </Table.HeadCell>
                         </Table.Head>
 
@@ -224,9 +228,10 @@ const DashboardTab = () => {
                                         <Table.Cell>{order.delivery_price}</Table.Cell>
                                         <Table.Cell>{order.final_total}</Table.Cell>
                                         <Table.Cell>
-                                            <span className="active-status">{order.ordersstatus_id.ordersstatus_etext}</span>
+                                            <span className="active-status">
+                                                {order.ordersstatus_id.ordersstatus_etext}
+                                            </span>
                                         </Table.Cell>
-                                       
                                     </Table.Row>
                                 ))
                             ) : (
@@ -240,5 +245,5 @@ const DashboardTab = () => {
             </Tabs>
         </>
     );
-}
+};
 export default DashboardTab;
