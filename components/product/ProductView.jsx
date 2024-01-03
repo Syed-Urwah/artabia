@@ -50,7 +50,7 @@ function ProductView({ artwork }) {
       return;
     }
     setIsAddingToCart(true);
-      setOpenModal(true)
+    setOpenModal(true);
 
     try {
       const { data } = await axios.post(
@@ -71,22 +71,22 @@ function ProductView({ artwork }) {
       console.log(data);
       if (data.status === "true") {
         setAddedToCart(true);
-        setOpenModal(true)
+        setOpenModal(true);
         // router.push('/cart');
       } else if (data.status === "false_exist") {
         setErrors([data.error]);
-        setOpenModal(true)
+        setOpenModal(true);
 
         // router.push('/cart')
       } else if (data.status == "false_artist") {
         setErrors([data.error]);
-        setOpenModal(true)
-        console.log('noor hire');
+        setOpenModal(true);
+        console.log("noor hire");
         // router.push('/cart')
-      }else if (data.status == "false_exist_owner") {
+      } else if (data.status == "false_exist_owner") {
         setErrors([data.error]);
-        setOpenModal(true)
-        console.log('noor hire');
+        setOpenModal(true);
+        console.log("noor hire");
         // router.push('/cart')
       }
     } catch (error) {
@@ -98,7 +98,6 @@ function ProductView({ artwork }) {
   const [zoomedImage, setZoomedImage] = useState(null);
 
   const handleZoom = (imageSrc) => {
-    
     setZoomedImage(imageSrc);
   };
 
@@ -114,7 +113,6 @@ function ProductView({ artwork }) {
   const handleImageClick = (imageSrc) => {
     console.log("img->>>>", imageSrc);
     setMainImage(imageSrc);
-
   };
 
   return (
@@ -225,8 +223,9 @@ function ProductView({ artwork }) {
                     <div className="grid grid-cols-12  mt-7">
                       <div className="box col-span-12 flex justify-center lg:col-span-6 md:col-span-6">
                         <div className="flex items-center">
-                        {(errors && errors.length === 0) ? 'Product has been successfully added to the cart' : errors}
-
+                          {errors && errors.length === 0
+                            ? "Product has been successfully added to the cart"
+                            : errors}
                         </div>
                       </div>
                       <div className="box col-span-12 flex justify-center lg:col-span-6 md:col-span-6 ">
@@ -272,10 +271,12 @@ function ProductView({ artwork }) {
               </div>
             </div>
             <div className="flex flex-row items-center justify-end  pt-10 ">
-              <Button className="bg-white rounded-full text-black border-black">
-                <HiOutlineQuestionMarkCircle className="mr-1 h-5 w-7 " />
-                Ask a Question
-              </Button>
+              <Link href="/main">
+                <Button className="bg-white rounded-full text-black border-black">
+                  <HiOutlineQuestionMarkCircle className="mr-1 h-5 w-7 " />
+                  Back to Homepage
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

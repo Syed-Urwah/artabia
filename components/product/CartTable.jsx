@@ -106,11 +106,11 @@ function CartTable({ cart, removeArtworkFromCart, setTotalQuantity,setCart, cart
             </td>
             <td className="px-6 py-4 text-center">{cart_data.price} SAR</td>
             <td className="px-6 py-4 text-center">
-              <button className="font-bold text-3xl mr-2" onClick={() => handleDecrement()}>-</button>
+              {/* <button className="font-bold text-3xl mr-2" onClick={() => handleDecrement()}>-</button> */}
               <div className="border border-black rounded-full inline-block px-6">
                 {quantity}
               </div>
-              <button className="font-bold text-2xl ml-1"  onClick={() => handleIncrement()}>+</button>
+              {/* <button className="font-bold text-2xl ml-1"  onClick={() => handleIncrement()}>+</button> */}
             </td>
             <td className="px-6 py-4 text-center">{cart_data.price * quantity} SAR</td>
             <td className="py-4">

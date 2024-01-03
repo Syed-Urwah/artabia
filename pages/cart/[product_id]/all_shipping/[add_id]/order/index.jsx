@@ -255,13 +255,14 @@ const Order = () => {
 
 
   const handleSubmitOrder = async () => {
-    console.log(artwID);
+    console.log("",product_id);
     try {
       const { data } = await axios.post(
         "http://admin.artabiasa.com/api/execute-order",
         {
           user_id: getPayload().sub,
           artist_id: artwID,
+          artw_fk:product_id,
           addres_id: address_id,
           description: "any thing",
           sub_total: totalPrice,

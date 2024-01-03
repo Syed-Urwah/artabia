@@ -5,14 +5,14 @@ import Main from "./main";
 import { useLayoutEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { getPayload, getUserType } from "./enviroment/auth";
+// import Dashboard from "./artist_dashboard";
 
 import Login from "./login";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({ children }) {
-
-  const [userType, setUserType] = useState(false);
+  const [userType, setUserType] = useState("");
   const router = useRouter();
 
   useLayoutEffect(() => {
@@ -20,7 +20,7 @@ export default function Home({ children }) {
     setUserType(checkUserType);
     console.log(checkUserType);
 
-    if (checkUserType === 'artist') {
+    if (checkUserType === "artist") {
       const payload = getPayload();
       if (!payload) {
         router.push("/login");
