@@ -60,7 +60,7 @@ const Login = () => {
         setLocalToken(data.access_token);
 
         if (data.data.perst_type === "user") {
-          router.push("/main");
+          router.push("/customer");
         } else {
           router.push("/artist/artist_dashboard");
         }

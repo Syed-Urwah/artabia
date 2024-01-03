@@ -271,7 +271,7 @@ function ProductView({ artwork }) {
               </div>
             </div>
             <div className="flex flex-row items-center justify-end  pt-10 ">
-              <Link href="/main">
+              <Link href="/customer">
                 <Button className="bg-white rounded-full text-black border-black">
                   <HiOutlineQuestionMarkCircle className="mr-1 h-5 w-7 " />
                   Back to Homepage

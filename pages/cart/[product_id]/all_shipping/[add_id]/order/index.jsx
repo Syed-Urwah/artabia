@@ -524,7 +524,7 @@ const Order = () => {
                       <p className="text-sm font-normal">
                         Thank You FOR YOUR ORDER! GREAT CHOICE!
                       </p>
-                      <Link href={'/main'}>
+                      <Link href={'/customer'}>
                         <button className="text-sm bg-opacity-20 rounded-full px-2 py-1 mt-5 mb-5 bg-[#F21079]">
                           Proceed to checkout
                         </button>
