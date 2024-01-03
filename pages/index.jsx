@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
-import Main from "./main";
+import Main from "./customer";
 import { useLayoutEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { getPayload, getUserType } from "./enviroment/auth";
@@ -36,7 +36,7 @@ export default function Home({ children }) {
     // content = children ? children : <HomePage />;
     router.push("/artist/artist_dashboard");
   }else if(userType === 'user'){
-    router.push("/main");
+    router.push("/customer");
     // content = children ? children : <Main />;
   }
    else {

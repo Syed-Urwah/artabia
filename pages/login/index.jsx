@@ -16,7 +16,7 @@ const Login = () => {
         router.push('/artist/artist_dashboard')
       }
       if(payload.user_type == 'user'){
-        router.push('/main')
+        router.push('/customer')
       }
       
     }

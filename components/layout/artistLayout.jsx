@@ -31,7 +31,7 @@ const ArtistLayout = ({ children }) => {
       setUserDetails(payload);
 
       if(payload.user_type !== 'artist'){
-        router.push('/main')
+        router.push('/customer')
         // alert("not a artist")
       }
     } else {
