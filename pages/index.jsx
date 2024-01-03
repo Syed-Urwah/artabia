@@ -5,13 +5,13 @@ import Main from "./main";
 import { useLayoutEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { getPayload, getUserType } from "./enviroment/auth";
+import Dashboard from "./artist_dashboard";
 
 import Login from "./login";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({ children }) {
-
   const [userType, setUserType] = useState(false);
   const router = useRouter();
 
@@ -19,7 +19,7 @@ export default function Home({ children }) {
     const checkUserType = getUserType();
     setUserType(checkUserType);
 
-    if (checkUserType === 'artist') {
+    if (checkUserType === "artist") {
       const payload = getPayload();
       if (!payload) {
         router.push("/login");
@@ -30,9 +30,9 @@ export default function Home({ children }) {
 
   let content;
 
-  console.log("child" , children);
-  if (userType === 'artist') {
-    content = children ? children : <HomePage />;
+  console.log("child", children);
+  if (userType === "artist") {
+    content = children ? children : <Dashboard />;
   } else {
     content = children ? children : <Login />;
   }
