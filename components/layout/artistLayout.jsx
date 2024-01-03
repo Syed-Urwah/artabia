@@ -7,8 +7,9 @@ import { getPayload, getUserType, userIsAuthenticated } from "@/pages/enviroment
 
 const ArtistLayout = ({ children }) => {
 
-  const [userType, setUserType] = useState(false);
+  const [userType, setUserType] = useState("");
   const [userDetails, setUserDetails] = useState(null);
+  const [loading, setLoading] = useState(true);
   const router = useRouter();
 //   useLayoutEffect(() => {
 //     const checkUserType =  getUserType();
@@ -29,6 +30,7 @@ const ArtistLayout = ({ children }) => {
       const payload = getPayload();
       console.log(payload.user_type)
       setUserDetails(payload);
+      setUserType(payload.user_type)
 
       if(payload.user_type !== 'artist'){
         router.push('/customer')
@@ -43,15 +45,19 @@ const ArtistLayout = ({ children }) => {
 
       
     }
+
+    setLoading(false);
   },[])
 
   return (
+    loading ? 'loading' :
+  
     <div>
-      
       <Header userType={userType} setUserType={setUserType} userDetails={userDetails} setUserDetails={setUserDetails} />
       {children}
       <Footer />
     </div>
+  
   );
 };
 
