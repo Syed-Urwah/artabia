@@ -3,9 +3,10 @@ import React, { useState, useEffect } from "react";
 import { Blockquote } from "flowbite-react";
 
 import dynamic from "next/dynamic";
-import { getLocalToken } from "../enviroment/auth";
+import { getLocalToken } from "../../enviroment/auth";
 import axios from "axios";
 import DashboardTab from "@/components/Dashboard/dashboard";
+import ArtistLayout from "@/components/layout/artistLayout";
 const ReactApexChart = dynamic(() => import("react-apexcharts"), {
   ssr: false,
 });
@@ -248,7 +249,7 @@ const Dashboard = () => {
   };
 
   return (
-    <Layout>
+    <ArtistLayout>
       <div className="grid grid-cols-12  py-5">
         <div className="col-span-12  lg:col-span-12 lg:mx-32 flex flex-col   justify-center">
           <p className="font-bold text-center text-[#BE55A9] text-2xl lg:mt-20 lg:mb-0 mt-10 mb-10">
@@ -320,7 +321,7 @@ const Dashboard = () => {
           <DashboardTab />
         </div>
       </div>
-    </Layout>
+    </ArtistLayout>
   );
 };
 

@@ -34,7 +34,7 @@ export default function Home({ children }) {
   console.log("child" , children);
   if (userType === 'artist') {
     // content = children ? children : <HomePage />;
-    router.push("/artist_homePage");
+    router.push("/artist/artist_dashboard");
   }else if(userType === 'user'){
     router.push("/main");
     // content = children ? children : <Main />;

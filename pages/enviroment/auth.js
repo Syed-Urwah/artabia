@@ -30,7 +30,9 @@ export const userIsAuthenticated = () => {
   const payload = getPayload();
   if (!payload) return;
   const currentTime = Math.round(Date.now() / 1000);
-  return currentTime < payload.exp;
+  const expTimeInSecond = 60 * 60; 
+  const oneHourFromNow = currentTime + expTimeInSecond;
+  return currentTime < oneHourFromNow;
 };
 
 export const getUserType = () => {

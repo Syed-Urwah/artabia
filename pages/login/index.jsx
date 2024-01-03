@@ -3,9 +3,24 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { setLocalToken } from "../enviroment/auth";
+import { getPayload, setLocalToken, userIsAuthenticated } from "../enviroment/auth";
 const Login = () => {
   const router = useRouter();
+
+  useEffect(()=>{
+    if (userIsAuthenticated()) {
+      const payload = getPayload();
+      console.log(payload.user_type)
+      
+      if(payload.user_type == 'artist'){
+        router.push('/artist/artist_dashboard')
+      }
+      if(payload.user_type == 'user'){
+        router.push('/main')
+      }
+      
+    }
+  },[])
 
   const [formData, setFormData] = useState({
     password: "",
@@ -47,7 +62,7 @@ const Login = () => {
         if (data.data.perst_type === "user") {
           router.push("/main");
         } else {
-          router.push("/artist_dashboard");
+          router.push("/artist/artist_dashboard");
         }
       }
       if (data.status === "false") {

@@ -5,12 +5,23 @@ import { useRouter } from "next/router";
 import { useEffect, useLayoutEffect, useState } from "react";
 import { getPayload, getUserType, userIsAuthenticated } from "@/pages/enviroment/auth";
 
-const Layout = ({ children }) => {
+const ArtistLayout = ({ children }) => {
 
   const [userType, setUserType] = useState(false);
   const [userDetails, setUserDetails] = useState(null);
-  const [loading, setLoading] = useState(true)
   const router = useRouter();
+//   useLayoutEffect(() => {
+//     const checkUserType =  getUserType();
+//     setUserType(checkUserType);
+//     if(checkUserType === 'artist')
+//     {
+      
+     
+//     }
+    
+   
+   
+//   }, [])
 
   useEffect(()=>{
     // console.log(getPayload())
@@ -19,9 +30,9 @@ const Layout = ({ children }) => {
       console.log(payload.user_type)
       setUserDetails(payload);
 
-      if(payload.user_type !== 'user'){
-        router.push('/artist/artist_dashboard')
-        // alert("not a customer")
+      if(payload.user_type !== 'artist'){
+        router.push('/main')
+        // alert("not a artist")
       }
     } else {
       const payload = getPayload();
@@ -44,4 +55,4 @@ const Layout = ({ children }) => {
   );
 };
 
-export default Layout;
+export default ArtistLayout;
