@@ -53,12 +53,12 @@ const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
                 alt="Subtract"
               />
             </div>
-            <div className="flex gap-1">
+            {/* <div className="flex gap-1">
               <div className="flex items-center lighten-icon">
                 <img src="/img/cart.png" className="h-5 w-5" alt="Cart" />
               </div>
               <span className="text-base font-bold text-gray-500">(0)</span>
-            </div>
+            </div> */}
             <button
               onClick={handleMobileMenuToggle}
               type="button"

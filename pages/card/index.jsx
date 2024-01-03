@@ -21,8 +21,9 @@ const Card = () => {
 
         <div className="py-3 w-full">
           <div
-            className={`col-span-full  font-bold bg-[#8C0D81] bg-opacity-30 px-4 py-2 rounded-full relative z-20 mt-6 flex justify-between items-center ${selectedCard === 1 ? "bg-pink-500" : ""
-              }`}
+            className={`col-span-full  font-bold bg-[#8C0D81] bg-opacity-30 px-4 py-2 rounded-full relative z-20 mt-6 flex justify-between items-center ${
+              selectedCard === 1 ? "bg-pink-500" : ""
+            }`}
           >
             <label className="flex items-center">
               {/* Checkbox */}
@@ -38,8 +39,9 @@ const Card = () => {
             </label>
           </div>
           <div
-            className={`col-span-full  font-bold bg-[#8C0D81] bg-opacity-30 px-4 py-2 rounded-full relative z-20 mt-6 flex justify-between items-center ${selectedCard === 2 ? "bg-pink-500" : ""
-              }`}
+            className={`col-span-full  font-bold bg-[#8C0D81] bg-opacity-30 px-4 py-2 rounded-full relative z-20 mt-6 flex justify-between items-center ${
+              selectedCard === 2 ? "bg-pink-500" : ""
+            }`}
           >
             <label className="flex items-center">
               {/* Checkbox */}
@@ -53,13 +55,12 @@ const Card = () => {
               {/* Card Text */}
               <p>Card</p>
             </label>
-
           </div>
 
           <div className="relative overflow-x-auto rounded-lg mt-[-15px]">
             <div className="p-6 bg-[#F8F8F8] border border-gray-200 rounded-3xl shadow dark:bg-gray-800 dark:border-gray-700 ">
               <div className="flex lg:flex-row flex-col py-4 gap-x-5 gap-y-4 overflow-x-auto">
-                <div className='bg-[#fef3f8] rounded-xl px-5 py-5 border-[#BE55A9] border-2 h-100 w-[266px]'>
+                <div className="bg-[#fef3f8] rounded-xl px-5 py-5 border-[#BE55A9] border-2 h-100 w-[266px]">
                   <div className="flex justify-between">
                     <p className="font-bold">Card 1:</p>
                     <HiOutlineTrash
@@ -84,7 +85,7 @@ const Card = () => {
                   </div>
                 </div>
 
-                <div className='bg-[#fef3f8] rounded-xl px-5 py-5 border-[#BE55A9] border-2 h-100 w-[266px]'>
+                <div className="bg-[#fef3f8] rounded-xl px-5 py-5 border-[#BE55A9] border-2 h-100 w-[266px]">
                   <div className="flex justify-between">
                     <p className="font-bold">Card 1:</p>
                     <HiOutlineTrash
@@ -108,7 +109,7 @@ const Card = () => {
                     <h1>11/2023</h1>
                   </div>
                 </div>
-                <div className='bg-[#fef3f8] rounded-xl px-5 py-5 border-[#BE55A9] border-2 h-100 w-[266px]'>
+                <div className="bg-[#fef3f8] rounded-xl px-5 py-5 border-[#BE55A9] border-2 h-100 w-[266px]">
                   <div className="flex justify-between">
                     <p className="font-bold">Card 1:</p>
                     <HiOutlineTrash
@@ -138,13 +139,12 @@ const Card = () => {
                       style={{ border: "2px solid #F1C4D9", color: "black" }}
                       className="px-10 rounded-full flex items-center"
                     >
-                      Add New Card info{" "}
-                      <span className="font-bold text-2xl ml-1 mb-1">+</span>
+                      Comming Soon{" "}
+                      <span className="font-bold text-2xl ml-1 mb-1">-</span>
                     </button>
                   </Link>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
@@ -152,7 +152,8 @@ const Card = () => {
         <div className="flex flex-row justify-between gap-4 mt-5">
           <Link href="/all_shipping">
             <button className="flex flex-row bg-opacity-20 lg:rounded-full px-4 py-2 border border-black bg-[#b9b4b4] items-center">
-              <HiOutlineArrowLeft className="mr-1 h-5 w-7 " /> Back to the Shipping Address
+              <HiOutlineArrowLeft className="mr-1 h-5 w-7 " /> Back to the
+              Shipping Address
             </button>
           </Link>
           <Link href="/order">

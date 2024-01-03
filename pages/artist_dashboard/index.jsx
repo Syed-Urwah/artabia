@@ -310,7 +310,7 @@ const Dashboard = () => {
       <div className="grid grid-cols-12  lg:mx-auto lg:pb-20 color_home">
         <div className="box col-span-12 text-center lg:ml-[85px]  mt-16 lg:text-left mb-3">
           <Blockquote className="text-2xl not-italic font-bold text-[#BE55A9]">
-            ORDER HISTORY
+            ORDERS
           </Blockquote>
           <Blockquote className="text-lg mt-6 not-italic font-semibold">
             My Orders

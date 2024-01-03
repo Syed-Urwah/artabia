@@ -158,7 +158,7 @@ const Card = () => {
                       style={{ border: "2px solid #F1C4D9", color: "black" }}
                       className="px-10 rounded-full flex items-center"
                     >
-                      Add New Card info{" "}
+                    Comming Soon{" "}
                       <span className="font-bold text-2xl ml-1 mb-1">+</span>
                     </button>
                   </Link>
