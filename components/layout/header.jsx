@@ -2,9 +2,10 @@
 import { getPayload, logout } from "@/pages/enviroment/auth";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
+  console.log(userType);
   const router = useRouter();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   // const payload = getPayload();
@@ -93,23 +94,22 @@ const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
           </div>
 
           <div
-            className={`${
-              isMobileMenuOpen ? "block" : "hidden"
-            } justify-between items-center w-full lg:flex lg:w-auto lg:order-1`}
+            className={`${isMobileMenuOpen ? "block" : "hidden"
+              } justify-between items-center w-full lg:flex lg:w-auto lg:order-1`}
             id="mobile-menu-2"
           >
             <ul className="flex flex-col mt-4 font-bold gap-10 lg:flex-row lg:space-x-8 lg:mt-0">
               {userType === "artist" ? (
                 <>
                   <li>
-                    <Link href="/artist_dashboard">
+                    <Link href="/artist/artist_dashboard">
                       <div className="block py-2 pr-4 pl-3 text-black-700 border-b border-black-100 hover:bg-black-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0">
                         DASHBOARD
                       </div>
                     </Link>
                   </li>
                   <li>
-                    <Link href="/artwork">
+                    <Link href="/artist/artwork">
                       <div className="block py-2 pr-4 pl-3 text-black-700 border-b border-black-100 hover:bg-black-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0">
                         ARTISTS
                       </div>
@@ -126,6 +126,16 @@ const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
                     >
                       SHOP
                     </a>
+                  </li>
+                  <li>
+
+                    <Link href="/order_history">
+                      <div className="block py-2 pr-4 pl-3 text-black rounded bg-primary-700 lg:bg-transparent lg:text-primary-900 lg:p-0 "
+                        aria-current="page">
+
+                        Order History
+                      </div>
+                    </Link>
                   </li>
                 </>
               )}
@@ -153,7 +163,7 @@ const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
                   ABOUT
                 </a>
               </li>
-              {!userType ? (
+              {userType ? (
                 <li>
                   <a
                     href=""
