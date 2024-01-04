@@ -13,7 +13,7 @@ const Layout = ({ children }) => {
   const router = useRouter();
 
   useEffect(()=>{
-    // console.log(getPayload())
+    console.log(getPayload())
     if (userIsAuthenticated()) {
       const payload = getPayload();
       console.log(payload.user_type)

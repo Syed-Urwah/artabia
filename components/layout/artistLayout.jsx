@@ -30,7 +30,7 @@ const ArtistLayout = ({ children }) => {
       const payload = getPayload();
       console.log(payload.user_type)
       setUserDetails(payload);
-      setUserType(payload.user_type)
+      // setUserType(payload.user_type)
 
       if(payload.user_type !== 'artist'){
         router.push('/customer')

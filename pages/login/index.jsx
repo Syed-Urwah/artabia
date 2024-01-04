@@ -78,6 +78,9 @@ const Login = () => {
       // Handle error, e.g., show error messages
     }
   };
+
+  
+
   return (
     <Layout>
       <div className="lg:px-16 px-4 py-16">
@@ -188,7 +191,7 @@ const Login = () => {
               <p className="mt-2">Registration</p>
             </Link>
 
-            <p className="mt-2">I have forgotten my password.</p>
+            <Link href={process.env.NEXT_PUBLIC_FRONT_END_URL + '/forget_password'}><p className="mt-2">I have forgotten my password.</p></Link>
           </div>
         </form>
       </div>
