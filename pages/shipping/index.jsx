@@ -361,7 +361,7 @@ const Shipping = () => {
           </div>
 
           <div className="flex flex-row justify-center gap-4 mt-5">
-            <Link href="/all_shipping">
+            < Linkhref="/all_shipping">
             <button type="submit"
               style={{ border: "2px solid #F1C4D9", color: "black" }}
               className="px-10 py-1 rounded-full flex items-center"
