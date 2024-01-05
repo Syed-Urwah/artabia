@@ -3,24 +3,30 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { getPayload, setLocalToken, userIsAuthenticated } from "../enviroment/auth";
+import {
+  getPayload,
+  setLocalToken,
+  userIsAuthenticated,
+} from "../enviroment/auth";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/bootstrap.css";
 const Login = () => {
+  const [phone, setPhone] = useState("");
   const router = useRouter();
 
-  useEffect(()=>{
+  useEffect(() => {
     if (userIsAuthenticated()) {
       const payload = getPayload();
-      console.log(payload.user_type)
-      
-      if(payload.user_type == 'artist'){
-        router.push('/artist/artist_dashboard')
+      console.log(payload.user_type);
+
+      if (payload.user_type == "artist") {
+        router.push("/artist/artist_dashboard");
       }
-      if(payload.user_type == 'user'){
-        router.push('/customer')
+      if (payload.user_type == "user") {
+        router.push("/customer");
       }
-      
     }
-  },[])
+  }, []);
 
   const [formData, setFormData] = useState({
     password: "",
@@ -43,6 +49,7 @@ const Login = () => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+    formData.pers_phone = '+'+ phone;
     console.log(formData);
     try {
       const { data } = await axios.post(
@@ -79,8 +86,6 @@ const Login = () => {
     }
   };
 
-  
-
   return (
     <Layout>
       <div className="lg:px-16 px-4 py-16">
@@ -91,49 +96,24 @@ const Login = () => {
         </div>
         <form onSubmit={handleFormSubmit}>
           <div className="py-8 w-full">
-            <div className="flex flex-col items-center gap-2">
+            <div className="flex flex-col items-center gap-2 py-6">
               <label
                 htmlFor="email"
                 className="font-semibold text-lg lg:w-2/6 "
               >
                 Enter Phone Number
               </label>
-              <div className="flex items-center ">
-                <button
-                  id="dropdown-phone-button"
-                  data-dropdown-toggle="dropdown-phone"
-                  className=" flex-shrink-0 z-10 inline-flex items-center p-4 text-sm font-medium text-center text-gray-900 bg-[#E8F0FE] border border-[#CCC] "
-                  type="button"
-                >
-                  + Code{" "}
-                  <svg
-                    className="w-2.5 h-2.5 ms-2.5"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 10 6"
-                  >
-                    <path
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="m1 1 4 4 4-4"
-                    />
-                  </svg>
-                </button>
-
-                <div className="flex flex-col relative w-full">
-                  <input
-                    onChange={handelChange}
-                    id="pers_phone"
-                    name="pers_phone"
-                    type="text"
-                    defaultValue={formData.pers_phone}
-                    className="block bg-[#E8F0FE] border border-[#CCC] p-4 lg:w-[366px] z-20 text-sm text-gray-900"
-                    placeholder="PHONE NUMBER"
-                  />
-                </div>
+              <div className="flex flex-col">
+                <PhoneInput
+                  country={"eg"}
+                  enableSearch={true}
+                  id="pers_phone"
+                  name="pers_phone"
+                  value={phone}
+                  defaultValue={formData.pers_phone}
+                  className="w-full bg-[#E8F0FE] border border-[#CCC]     "
+                  onChange={(phone) => setPhone(phone)}
+                />
               </div>
               {formErrors.pers_phone &&
                 formErrors.pers_phone.map((err, i) => (
@@ -191,7 +171,11 @@ const Login = () => {
               <p className="mt-2">Registration</p>
             </Link>
 
-            <Link href={process.env.NEXT_PUBLIC_FRONT_END_URL + '/forget_password'}><p className="mt-2">I have forgotten my password.</p></Link>
+            <Link
+              href={process.env.NEXT_PUBLIC_FRONT_END_URL + "/forget_password"}
+            >
+              <p className="mt-2">I have forgotten my password.</p>
+            </Link>
           </div>
         </form>
       </div>
