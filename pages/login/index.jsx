@@ -106,7 +106,7 @@ const Login = () => {
               <div className="flex flex-col">
                 <PhoneInput
                   country={"eg"}
-                  enableSearch={true}
+                  enableSearch={false}
                   id="pers_phone"
                   name="pers_phone"
                   value={phone}

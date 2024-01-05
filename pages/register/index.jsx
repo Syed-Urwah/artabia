@@ -213,7 +213,7 @@ const Register = () => {
                 <div className="flex items-center lg:ml-16 relative w-full">
                   <PhoneInput
                     country={"eg"}
-                    enableSearch={true}
+                    enableSearch={false}
                     id="pers_phone"
                     name="pers_phone"
                     value={phone}
