@@ -96,14 +96,14 @@ const Login = () => {
         </div>
         <form onSubmit={handleFormSubmit}>
           <div className="py-8 w-full">
-            <div className="flex flex-col items-center gap-2 py-6">
+            <div className="flex flex-col items-center gap-2 py-6 max-w-[300px] mx-auto">
               <label
                 htmlFor="email"
-                className="font-semibold text-lg lg:w-2/6 "
+                className="font-semibold text-lg w-full"
               >
                 Enter Phone Number
               </label>
-              <div className="flex flex-col">
+              <div className="flex flex-col w-full">
                 <PhoneInput
                   country={"eg"}
                   enableSearch={false}
@@ -123,14 +123,14 @@ const Login = () => {
                 ))}
             </div>
 
-            <div className="flex flex-col items-center gap-2 py-6">
+            <div className="flex flex-col items-center gap-2 py-6 max-w-[300px] mx-auto">
               <label
                 htmlFor="email"
-                className="font-semibold text-lg lg:w-2/6 "
+                className="font-semibold text-lg w-full"
               >
                 Enter Password
               </label>
-              <div className="flex flex-col">
+              <div className="flex flex-col w-full">
                 <input
                   onChange={handelChange}
                   type="password"
@@ -138,7 +138,7 @@ const Login = () => {
                   name="password"
                   defaultValue={formData.password}
                   aria-describedby="helper-text-explanation"
-                  className=" bg-[#E8F0FE] border border-[#CCC] text-gray-900 text-sm block p-4 w-[299px] lg:w-[466px] "
+                  className=" bg-[#E8F0FE] border border-[#CCC] text-gray-900 text-sm block p-4 w-full"
                   placeholder="PASSWORD"
                 />
                 {formErrors.password &&
