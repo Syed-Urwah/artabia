@@ -16,12 +16,12 @@ const Layout = ({ children }) => {
     console.log(getPayload())
     if (userIsAuthenticated()) {
       const payload = getPayload();
+      setUserType(payload.user_type0);
       console.log(payload.user_type)
       setUserDetails(payload);
 
       if(payload.user_type !== 'user'){
         router.push('/artist/artist_dashboard')
-        // alert("not a customer")
       }
     } else {
       const payload = getPayload();

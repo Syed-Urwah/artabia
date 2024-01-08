@@ -125,7 +125,7 @@ const OrderHistory = () => {
                       </span>
                     </Table.Cell>
                     <Table.Cell>
-                      <Link href="/Detail">
+                      <Link href={`order_history/${order.id}`}>
                         <Button color="light">Detail </Button>
                       </Link>
                     </Table.Cell>
