@@ -7,7 +7,7 @@ import {
   getPayload,
   setLocalToken,
   userIsAuthenticated,
-} from "../enviroment/auth";
+} from "../../enviroment/auth";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/bootstrap.css";
 const Login = () => {

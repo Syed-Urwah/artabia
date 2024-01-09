@@ -1,7 +1,7 @@
 "use client";
 import OrderHistory from "@/components/OrderHistory/orderHistory";
 import Layout from "@/components/layout/layout";
-import { getLocalToken } from "@/pages/enviroment/auth";
+import { getLocalToken } from "@/enviroment/auth";
 import axios from "axios";
 import { Button } from "flowbite-react";
 import Link from "next/link";

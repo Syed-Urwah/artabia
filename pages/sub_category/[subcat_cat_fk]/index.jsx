@@ -11,7 +11,7 @@ import {
   getPayload,
   logout,
   userIsAuthenticated,
-} from "@/pages/enviroment/auth";
+} from "@/enviroment/auth";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 

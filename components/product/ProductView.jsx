@@ -12,7 +12,7 @@ import {
 } from "react-icons/hi";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { getLocalToken, getPayload } from "@/pages/enviroment/auth";
+import { getLocalToken, getPayload } from "@/enviroment/auth";
 import axios from "axios";
 
 function ProductView({ artwork }) {

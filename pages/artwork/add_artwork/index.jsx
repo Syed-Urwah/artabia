@@ -12,7 +12,7 @@ import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import ImageFile from "@/components/Artwork/image";
 import Category from "@/components/Artwork/category";
-import { getLocalToken, getPayload } from "@/pages/enviroment/auth";
+import { getLocalToken, getPayload } from "@/enviroment/auth";
 import { useRouter } from "next/router";
 
 const AddArtwork = () => {

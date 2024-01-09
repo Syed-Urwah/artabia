@@ -3,7 +3,7 @@ import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import { useRouter } from "next/router";
 import { useEffect, useLayoutEffect, useState } from "react";
-import { getPayload, getUserType, userIsAuthenticated } from "@/pages/enviroment/auth";
+import { getPayload, getUserType, userIsAuthenticated } from "@/enviroment/auth";
 
 const Layout = ({ children }) => {
 

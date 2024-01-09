@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Layout from "@/components/layout/layout";
 import ProductView from "@/components/product/ProductView";
 import axios from "axios";
-import { getPayload } from "@/pages/enviroment/auth";
+import { getPayload } from "@/enviroment/auth";
 import ArtworkView from "@/components/product/ArtworkView";
 import ArtistLayout from "@/components/layout/artistLayout";
 

@@ -1,5 +1,5 @@
 "use client";
-import { getPayload } from "@/pages/enviroment/auth";
+import { getPayload } from "@/enviroment/auth";
 import axios from "axios";
 import { Blockquote } from "flowbite-react";
 import Link from "next/link";

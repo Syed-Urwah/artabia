@@ -1,7 +1,7 @@
 import Footerr from '@/components/layout/footer'
 import Header from '@/components/layout/header'
 import React, { useState } from 'react'
-import { getPayload } from '../enviroment/auth';
+import { getPayload } from '../../enviroment/auth';
 import axios from 'axios';
 import LoadingSpinner from '@/components/Loading/LoadingSpinner';
 import { Spinner, Toast } from 'flowbite-react';

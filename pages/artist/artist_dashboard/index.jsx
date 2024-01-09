@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Blockquote } from "flowbite-react";
 
 import dynamic from "next/dynamic";
-import { getLocalToken } from "../../enviroment/auth";
+import { getLocalToken } from "../../../enviroment/auth";
 import axios from "axios";
 import DashboardTab from "@/components/Dashboard/dashboard";
 import ArtistLayout from "@/components/layout/artistLayout";

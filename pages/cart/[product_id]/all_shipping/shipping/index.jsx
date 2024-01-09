@@ -4,7 +4,7 @@ import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { HiOutlineArrowLeft } from "react-icons/hi";
-import { getLocalToken, getPayload } from "@/pages/enviroment/auth";
+import { getLocalToken, getPayload } from "@/enviroment/auth";
 import { useRouter } from "next/router";
 import Swal from 'sweetalert2';
 

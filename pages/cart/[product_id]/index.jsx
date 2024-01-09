@@ -2,7 +2,7 @@
 import Layout from "@/components/layout/layout";
 import Link from "next/link";
 import { HiOutlineArrowLeft } from "react-icons/hi";
-import { getLocalToken, getPayload, getUserType } from "../../enviroment/auth";
+import { getLocalToken, getPayload, getUserType } from "../../../enviroment/auth";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import CartTable from "@/components/product/CartTable";

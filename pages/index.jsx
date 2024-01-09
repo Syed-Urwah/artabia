@@ -4,7 +4,7 @@ import Footer from "@/components/layout/footer";
 import Main from "./customer";
 import { useLayoutEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { getPayload, getUserType } from "./enviroment/auth";
+import { getPayload, getUserType } from "../enviroment/auth";
 // import Dashboard from "./artist_dashboard";
 
 import Login from "./login";

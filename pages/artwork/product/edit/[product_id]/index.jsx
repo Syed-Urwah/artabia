@@ -6,7 +6,7 @@ import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import ImageFile from "@/components/Artwork/image";
 import Category from "@/components/Artwork/categoryEdit";
-import { getLocalToken, getPayload } from "@/pages/enviroment/auth";
+import { getLocalToken, getPayload } from "@/enviroment/auth";
 import { useRouter } from "next/router";
 import ImageFileEdit from "@/components/Artwork/imageEdit";
 import CategoryEdit from "@/components/Artwork/categoryEdit";

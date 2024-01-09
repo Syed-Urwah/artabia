@@ -7,7 +7,7 @@ import { Modal } from "flowbite-react";
 import CartTable from "@/components/product/CartTable";
 import { useRouter } from "next/router";
 import axios from "axios";
-import { getLocalToken, getPayload, getUserType } from "@/pages/enviroment/auth";
+import { getLocalToken, getPayload, getUserType } from "@/enviroment/auth";
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 const MySwal = withReactContent(Swal);

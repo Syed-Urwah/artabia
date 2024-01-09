@@ -1,5 +1,5 @@
 "use client";
-import { getPayload, logout } from "@/pages/enviroment/auth";
+import { getPayload, logout } from "@/enviroment/auth";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
@@ -165,13 +165,13 @@ const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
               </li> */}
               {userType ? (
                 <li>
-                  <a
-                    href=""
-                    onClick={handleLogin}
+                  <Link
+                    href="/login"
+                    // onClick={handleLogin}
                     className="block py-2 pr-4 pl-3 text-black-700 border-b border-black-100 hover:bg-black-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0"
                   >
                     login
-                  </a>
+                  </Link>
                 </li>
               ) : (
                 <li>

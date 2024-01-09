@@ -3,7 +3,7 @@ import Layout from "@/components/layout/layout";
 import Link from "next/link";
 import { HiOutlineArrowLeft, HiOutlineTrash } from "react-icons/hi";
 import { useEffect, useState } from "react";
-import { getLocalToken, getPayload } from "@/pages/enviroment/auth";
+import { getLocalToken, getPayload } from "@/enviroment/auth";
 import axios from "axios";
 
 import Swal from 'sweetalert2';

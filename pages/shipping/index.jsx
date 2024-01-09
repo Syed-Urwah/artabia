@@ -4,7 +4,7 @@ import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { HiOutlineArrowLeft } from "react-icons/hi";
-import { getLocalToken, getPayload } from "../enviroment/auth";
+import { getLocalToken, getPayload } from "../../enviroment/auth";
 import { useRouter } from "next/router";
 import Swal from 'sweetalert2';
 
@@ -361,7 +361,7 @@ const Shipping = () => {
           </div>
 
           <div className="flex flex-row justify-center gap-4 mt-5">
-            < Linkhref="/all_shipping">
+            < Link href="/all_shipping">
             <button type="submit"
               style={{ border: "2px solid #F1C4D9", color: "black" }}
               className="px-10 py-1 rounded-full flex items-center"

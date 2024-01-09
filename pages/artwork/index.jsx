@@ -8,7 +8,7 @@ import {
   HiOutlineTrash,
 } from "react-icons/hi";
 import { useEffect, useState } from "react";
-import { getLocalToken, getPayload } from "../enviroment/auth";
+import { getLocalToken, getPayload } from "../../enviroment/auth";
 import axios from "axios";
 import { useRouter } from "next/router";
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { getLocalToken } from "@/pages/enviroment/auth";
+import { getLocalToken } from "@/enviroment/auth";
 import axios from "axios";
 import { Button, Table, Tabs } from "flowbite-react";
 import { useEffect, useState } from "react";

@@ -1,5 +1,5 @@
 "use client";
-import { getLocalToken, getPayload } from "@/pages/enviroment/auth";
+import { getLocalToken, getPayload } from "@/enviroment/auth";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
