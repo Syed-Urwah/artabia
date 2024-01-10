@@ -257,7 +257,7 @@ function ProductView({ artwork }) {
                         Continue Shopping
                       </button>
 
-                      <Link href={`/cart/${artwork.artw_pk}`}>
+                      <Link href={`${process.env.NEXT_PUBLIC_FRONT_END_URL}/customer/cart/${artwork.artw_pk}`}>
                         <button
                           style={{ background: "#f19ec5" }}
                           className="px-4 py-1  lg:rounded-full text-black text-[16px]"
@@ -271,7 +271,7 @@ function ProductView({ artwork }) {
               </div>
             </div>
             <div className="flex flex-row items-center justify-end  pt-10 ">
-              <Link href="/customer">
+              <Link href="/">
                 <Button className="bg-white rounded-full text-black border-black">
                   <HiOutlineQuestionMarkCircle className="mr-1 h-5 w-7 " />
                   Back to Homepage

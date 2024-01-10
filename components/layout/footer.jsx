@@ -90,7 +90,7 @@ function Footerr() {
               </div>
             </div>
 
-            <div className="flex  flex-col justify-left hidden lg:block md:hidden gap-1 mt-14  ">
+            <div className="  flex-col justify-left hidden lg:block md:hidden gap-1 mt-14  ">
               <img
                 src="/img/artibia_logo.png"
                 className="w-[155px] h-[40px] ml-12"

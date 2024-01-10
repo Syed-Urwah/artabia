@@ -8,6 +8,11 @@ import { getPayload, getUserType } from "../enviroment/auth";
 // import Dashboard from "./artist_dashboard";
 
 import Login from "./login";
+import Hero from "@/components/landing/hero";
+import Offer from "@/components/landing/offer";
+import About from "@/components/landing/about";
+import Explore from "@/components/landing/explore";
+import Gallery from "@/components/landing/gallery";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,40 +20,45 @@ export default function Home({ children }) {
   const [userType, setUserType] = useState("");
   const router = useRouter();
 
-  useLayoutEffect(() => {
-    const checkUserType = getUserType();
-    setUserType(checkUserType);
-    console.log(checkUserType);
+  // useLayoutEffect(() => {
+  //   const checkUserType = getUserType();
+  //   setUserType(checkUserType);
+  //   console.log(checkUserType);
 
-    if (checkUserType === "artist") {
-      const payload = getPayload();
-      if (!payload) {
-        router.push("/login");
-        return;
-      }
-    }
-  }, []);
+  //   if (checkUserType === "artist") {
+  //     const payload = getPayload();
+  //     if (!payload) {
+  //       router.push("/login");
+  //       return;
+  //     }
+  //   }
+  // }, []);
 
-  let content;
+  // let content;
 
-  console.log("child" , children);
-  if (userType === 'artist') {
-    // content = children ? children : <HomePage />;
-    router.push("/artist/artist_dashboard");
-  }else if(userType === 'user'){
-    router.push("/customer");
-    // content = children ? children : <Main />;
-  }
-   else {
-    content = children ? children : <Login />;
-  }
+  // console.log("child", children);
+  // if (userType === 'artist') {
+  //   // content = children ? children : <HomePage />;
+  //   router.push("/artist/artist_dashboard");
+  // } else if (userType === 'user') {
+  //   router.push("/customer");
+  //   // content = children ? children : <Main />;
+  // }
+  // else {
+  //   content = children ? children : <Login />;
+  // }
 
   return (
     <main className="bg-white">
       {/* <Header /> */}
-      {content}
-      {/* <Login /> */}
-      {/* <Footer /> */}
+      {/* {content} */}
+      <Header/>
+      <Hero />
+      <Offer />
+      <About />
+      <Explore />
+      <Gallery />
+      <Footer />
     </main>
   );
 }

@@ -1,20 +1,38 @@
 "use client";
 import { getPayload, logout } from "@/enviroment/auth";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
   console.log(userType);
   const router = useRouter();
+  const path = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
   // const payload = getPayload();
   const handleMobileMenuToggle = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+
+  useEffect(()=>{
+    const payload = getPayload();
+    console.log(path);
+    console.log(payload)
+      if (!payload) {
+        setIsLogin(false)
+        // return;
+      }else{
+        setIsLogin(true);
+      }
+
+  },[path])
+
   const handleLogout = (e) => {
     e.preventDefault();
+    console.log("logout");
     logout(setUserDetails, setUserType, "/login", router);
   };
   const handleLogin = (e) => {
@@ -119,13 +137,13 @@ const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
               ) : (
                 <>
                   <li>
-                    <a
-                      href="#"
+                    <Link
+                      href="/"
                       className="block py-2 pr-4 pl-3 text-black rounded bg-primary-700 lg:bg-transparent lg:text-primary-900 lg:p-0 "
                       aria-current="page"
                     >
                       SHOP
-                    </a>
+                    </Link>
                   </li>
                   <li>
 
@@ -163,7 +181,7 @@ const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
                   ABOUT
                 </a>
               </li> */}
-              {userType ? (
+              {!isLogin ? (
                 <li>
                   <Link
                     href="/login"
@@ -176,7 +194,6 @@ const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
               ) : (
                 <li>
                   <a
-                    href=""
                     onClick={handleLogout}
                     className="block py-2 pr-4 pl-3 text-black-700 border-b border-black-100 hover:bg-black-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0"
                   >

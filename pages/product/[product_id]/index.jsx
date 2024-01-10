@@ -4,6 +4,8 @@ import Layout from "@/components/layout/layout";
 import ProductView from "@/components/product/ProductView";
 import axios from "axios";
 import { getPayload } from "@/enviroment/auth";
+import Footerr from "@/components/layout/footer";
+import Header from "@/components/layout/header";
 
 const Product = () => {
   const router = useRouter();
@@ -57,19 +59,23 @@ const Product = () => {
   }
 
   return (
-    <Layout>
-      {isLoadingArtworks ? (
-        <p>Loading...</p>
-      ) : (
-        <>
-          {artwork ? (
-            <ProductView artwork={artwork} />
-          ) : (
-            <p>No artwork found</p>
-          )}
-        </>
-      )}
-    </Layout>
+    <>
+      <Header />
+      {
+        isLoadingArtworks ? (
+          <p>Loading...</p>
+        ) : (
+          <>
+            {artwork ? (
+              <ProductView artwork={artwork} />
+            ) : (
+              <p>No artwork found</p>
+            )}
+          </>
+        )}
+
+      <Footerr />
+    </>
   );
 };
 

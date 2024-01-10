@@ -18,6 +18,7 @@ const Shipping = () => {
   useEffect(() => {
     if (router.query.product_id) {
       setProductID(router.query.product_id);
+      console.log(router.query.product_id);
     }
   }, [router.query.product_id]);
   const getCity = async (id) => {
@@ -157,7 +158,7 @@ const Shipping = () => {
           text: 'Data successfully added!',
         }).then((result) => {
           if (result.isConfirmed || result.isDismissed) {
-            router.push(`/cart/${product_id}/all_shipping`);
+            router.push(`/customer/cart/${product_id}/all_shipping`);
           }
         });
       }

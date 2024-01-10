@@ -31,7 +31,7 @@ const Card = () => {
   const handleOrder = () => {
     if (address_id) {
       const add_id = address_id;
-      router.push(`/cart/${product_id}/all_shipping/${add_id}/order`);
+      router.push(`customer/cart/${product_id}/all_shipping/${add_id}/order`);
     }
   };
   return (
@@ -175,11 +175,11 @@ const Card = () => {
               <HiOutlineArrowLeft className="mr-1 h-5 w-7 " /> Back to the Shipping Address
             </button>
           </Link>
-          {/* <Link href="/order"> */}
-            <button onClick={handleOrder} className="bg-opacity-20 lg:rounded-full px-6 py-2  bg-[#F21079]">
+          <Link href={`${process.env.NEXT_PUBLIC_FRONT_END_URL}/customer/cart/${product_id}/all_shipping/${address_id}/order`}>
+            <button className="bg-opacity-20 lg:rounded-full px-6 py-2  bg-[#F21079]">
               Continue to Review Your Order
             </button>
-          {/* </Link> */}
+          </Link>
         </div>
       </div>
     </Layout>

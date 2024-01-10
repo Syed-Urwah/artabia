@@ -2,7 +2,7 @@
 import Layout from "@/components/layout/layout";
 import Link from "next/link";
 import { HiOutlineArrowLeft } from "react-icons/hi";
-import { getLocalToken, getPayload, getUserType } from "../../../enviroment/auth";
+import { getLocalToken, getPayload, getUserType } from "@/enviroment/auth";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import CartTable from "@/components/product/CartTable";
@@ -239,7 +239,7 @@ const Cart = () => {
                   shop
                 </button>
               </Link>
-              <Link href={`/cart/${product_id}/all_shipping`}>
+              <Link href={`${process.env.NEXT_PUBLIC_FRONT_END_URL}/customer/cart/${product_id}/all_shipping`}>
                 <button className="bg-opacity-20 lg:rounded-full px-6 py-2  bg-[#F21079]">
                   Choosing a Shipping & Payment Method
                 </button>

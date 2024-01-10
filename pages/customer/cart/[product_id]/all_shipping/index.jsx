@@ -21,6 +21,7 @@ const Address = () => {
 
   useEffect(() => {
     if (router.query.product_id) {
+      console.log(router.query);
       setProductID(router.query.product_id);
     }
   }, [router.query.product_id]);
@@ -61,7 +62,8 @@ const Address = () => {
   const handlePaymentMethod = () => {
     if (addressId) {
       const add_id = selectedAddress;
-      router.push(`/cart/${product_id}/all_shipping/${addressId}`);
+      // const product_id2 = router.query.product_id;
+      router.replace(`customer/cart/${product_id}/all_shipping/${addressId}`);
     }
   };
 
@@ -168,7 +170,7 @@ const Address = () => {
 
         </div>
         <div className="flex justify-center ">
-          <Link href={`/cart/${product_id}/all_shipping/shipping`}>
+          <Link href={`${process.env.NEXT_PUBLIC_FRONT_END_URL}/customer/cart/${product_id}/all_shipping/shipping`}>
             <button
               style={{ border: "2px solid #F1C4D9", color: "black" }}
               className="px-10 rounded-full flex items-center"
@@ -179,16 +181,16 @@ const Address = () => {
           </Link>
         </div>
         <div className="flex flex-row justify-between gap-4 mt-5">
-          <Link href="/cart">
+          <Link href={`${process.env.NEXT_PUBLIC_FRONT_END_URL}/customer/cart/${product_id}`}>
             <button className="flex flex-row bg-opacity-20 lg:rounded-full px-4 py-2 border border-black bg-[#b9b4b4] items-center">
               <HiOutlineArrowLeft className="mr-1 h-5 w-7 " /> Back to the Cart
             </button>
           </Link>
-          {/* <Link href={`/cart/${product_id}/shipping/card/${}/`}> */}
-            <button onClick={handlePaymentMethod} className="bg-opacity-20 lg:rounded-full px-6 py-2  bg-[#F21079]">
+          <Link href={`${process.env.NEXT_PUBLIC_FRONT_END_URL}/customer/cart/${product_id}/all_shipping/${addressId}/`}>
+            <button  className="bg-opacity-20 lg:rounded-full px-6 py-2  bg-[#F21079]">
               Choosing a Payment Method
             </button>
-          {/* </Link> */}
+          </Link>
         </div>
       </div>
     </Layout>
