@@ -80,7 +80,7 @@ const Explore = () => {
               >
                 <button
                   style={{ border: "2px solid #F1C4D9", color: "black" }}
-                  className="px-6 py-1 mt-3 mx-32 rounded-full lg:mx-48"
+                  className="px-6 py-1 mt-3 mx-32 rounded-full lg:mx-auto flex justify-center"
                 >
                   EXPLORE
                 </button>
