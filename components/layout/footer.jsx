@@ -100,39 +100,6 @@ function Footerr() {
                 Be the first to know about exclusive deals and join the
                 collective.
               </p>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  width: "60%",
-                  marginLeft: "30px",
-                }}
-              >
-                <input
-                  type="text"
-                  placeholder="Search"
-                  style={{
-                    border: `2px solid ${searchBarBorderColor}`,
-                    padding: "5px",
-                    marginTop: "7px",
-                    width: "70%",
-                    background: "transparent", // Transparent background
-                  }}
-                />
-                {/* Merged "Join Us" button */}
-                <button
-                  style={{
-                    border: `2px solid ${searchBarBorderColor}`,
-                    width: "30%",
-                    padding: "5px",
-                    marginTop: "7px",
-                    background: searchBarBorderColor, // Set color to #8C0D81
-                    color: "#FFFFFF", // Set text color to white
-                  }}
-                >
-                  Join Us
-                </button>
-              </div>
             </div>
           </div>
         </div>
