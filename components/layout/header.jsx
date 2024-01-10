@@ -10,6 +10,7 @@ const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
   const router = useRouter();
   const path = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [loginUser, setLoginUser] = useState({});
   const [isLogin, setIsLogin] = useState(false);
   // const payload = getPayload();
   const handleMobileMenuToggle = () => {
@@ -21,6 +22,7 @@ const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
     const payload = getPayload();
     console.log(path);
     console.log(payload)
+    setLoginUser(payload)
       if (!payload) {
         setIsLogin(false)
         // return;
@@ -117,7 +119,7 @@ const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
             id="mobile-menu-2"
           >
             <ul className="flex flex-col mt-4 font-bold gap-10 lg:flex-row lg:space-x-8 lg:mt-0">
-              {userType === "artist" ? (
+              {loginUser.user_type === "artist" ? (
                 <>
                   <li>
                     <Link href="/artist/artist_dashboard">

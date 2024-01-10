@@ -14,6 +14,8 @@ import {
 } from "@/enviroment/auth";
 import { useParams } from "next/navigation";
 import Link from "next/link";
+import Header from "@/components/layout/header";
+import Footerr from "@/components/layout/footer";
 
 const Category = () => {
   const router = useRouter();
@@ -159,7 +161,8 @@ const Category = () => {
   );
 
   return (
-    <Layout>
+    <>
+    <Header/>
       <div className="bg-white mt-0.5 color_home">
         <div className="grid grid-cols-12 lg:mx-auto mb-4">
           <div className=" box col-span-12 ml-5 mt-10 flex flex-col justify-center items-start lg:col-span-6  lg:ml-32 lg:-mt-6 md:col-span-6 ">
@@ -274,7 +277,8 @@ const Category = () => {
             ))}
         </Tabs>
       </div>
-    </Layout>
+    <Footerr/>
+    </>
   );
 };
 

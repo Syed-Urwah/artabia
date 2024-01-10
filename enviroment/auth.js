@@ -20,7 +20,7 @@ export const getPayload = () => {
   const token = getLocalToken();
 
   console.log(token);
-  if (!token) return;
+  if (!token) return false;
   const splitToken = token.split(".");
   if (splitToken.length !== 3) return;
   return JSON.parse(Buffer.from(splitToken[1], "base64"));
@@ -61,8 +61,8 @@ export const logout = (setUserDetails, setUserType, navigateTo, router) => {
   try {
     console.log("Logging out...");
     window.localStorage.removeItem("artabia-token");
-    setUserDetails({});
-    setUserType(getUserType());
+    // setUserDetails({});
+    // setUserType(getUserType());
     console.log(router);
     router.push(navigateTo);
   } catch (error) {

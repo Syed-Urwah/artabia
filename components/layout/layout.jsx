@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
     console.log(getPayload())
     if (userIsAuthenticated()) {
       const payload = getPayload();
-      setUserType(payload.user_type0);
+      setUserType(payload.user_type);
       console.log(payload.user_type)
       setUserDetails(payload);
 

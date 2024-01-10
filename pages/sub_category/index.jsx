@@ -7,6 +7,8 @@ import SculptureIcon from "../../public/img/scu.png";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Header from "@/components/layout/header";
+import Footerr from "@/components/layout/footer";
 
 const Category = () => {
 
@@ -112,7 +114,8 @@ const Category = () => {
     </div>
   );
   return (
-    <Layout>
+    <>
+    <Header/>
       <div className="bg-white mt-0.5 color_home">
         <div className="grid grid-cols-12 lg:mx-auto mb-4">
           <div className=" box col-span-12 ml-5 mt-10 flex flex-col justify-center items-start lg:col-span-6  lg:ml-32 lg:-mt-6 md:col-span-6 ">
@@ -455,7 +458,8 @@ const Category = () => {
           </Tabs.Item>
         </Tabs>
       </div>
-    </Layout>
+    <Footerr/>
+    </>
   );
 };
 
