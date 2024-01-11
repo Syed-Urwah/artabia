@@ -11,12 +11,12 @@ const Hero = () => {
             </h2>
             <p className="font-bold mt-8 ">EXPLORE VICTORY ART</p>
 
-            <button
+            <a href="#exploreSection"
               style={{ background: "#C38EBF", color: "black" }}
               className="px-4 py-1 mt-8 rounded-full "
             >
               Explore Collections
-            </button>
+            </a>
           </div>
           <div className="box col-span-12 lg:col-span-6 md:col-span-6 mt-12 flex flex-col items-center  mb-14">
             <img

@@ -61,11 +61,14 @@ const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
           </a>
           <div className="flex items-center lg:order-2 gap-12">
             <div className="lighten-icon">
+              <a href="#search">
               <img
                 src="/img/search.png"
                 className="mr-2 h-5 w-5"
                 alt="Search"
               />
+              </a>
+              
             </div>
             <div className="lighten-icon">
               <img
