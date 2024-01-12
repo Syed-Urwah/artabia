@@ -5,7 +5,7 @@ import { Blockquote } from "flowbite-react";
 const Offer = () => {
   return (
     <>
-      <div className="grid grid-cols-12 text-center lg:mx-auto">
+      <div className="grid grid-cols-12 text-center lg:mx-auto lg:mb-20 lg:mt-20 mb-10 mx-2">
         <div className="col-span-12 mt-16">
           <Blockquote className="text-lg not-italic font-bold">
             WHAT ARTABIA OFFERS
@@ -15,12 +15,11 @@ const Offer = () => {
           </Blockquote>
         </div>
 
-        <div className="box col-span-6 flex justify-center  lg:justify-end lg:col-span-4 md:col-span-4">
+        <div className="box col-span-6 flex justify-center   lg:justify-end lg:col-span-4 md:col-span-4">
           <button
             style={{ background: "#F1C4D9", color: "black" }}
             className=" px-5 py-2 mt-14 rounded-full  "
-          >
-            Purchase Art
+          > Artistic Showcase
           </button>
         </div>
         <div className="box col-span-6 flex justify-center lg:justify-center lg:col-span-2 md:col-span-2">
@@ -28,7 +27,7 @@ const Offer = () => {
             style={{ background: "#F1C4D9", color: "black" }}
             className=" px-5 py-2 mt-14 rounded-full "
           >
-            Rent It
+            Excellence Curation
           </button>
         </div>
         <div className="box col-span-6 flex justify-center lg:justify-start lg:col-span-2 md:col-span-3">
@@ -36,7 +35,7 @@ const Offer = () => {
             style={{ background: "#F1C4D9", color: "black" }}
             className=" px-5 py-2 mt-14 rounded-full "
           >
-            Clients Consultancy
+           Connectivity & Elevation
           </button>
         </div>
         <div className="box col-span-6 flex justify-center lg:justify-start lg:col-span-2 md:col-span-3">
@@ -44,15 +43,16 @@ const Offer = () => {
             style={{ background: "#F1C4D9", color: "black" }}
             className=" px-5 py-2 mt-14 rounded-full "
           >
-            Art on Comission
+           Client Frinedly
+
           </button>
         </div>
 
-        <div className="col-span-12 mt-20 lg:mx-24 py-8 mb-10 bg-[#D9D9D9]">
+        {/* <div className="col-span-12 mt-20 lg:mx-24 py-8 mb-10 bg-[#D9D9D9]">
           <Blockquote className="text-3xl not-italic text-center font-bold">
             Sponsers
           </Blockquote>
-        </div>
+        </div> */}
       </div>
     </>
   );

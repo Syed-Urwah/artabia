@@ -17,20 +17,18 @@ const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-
-  useEffect(()=>{
+  useEffect(() => {
     const payload = getPayload();
     console.log(path);
-    console.log(payload)
-    setLoginUser(payload)
-      if (!payload) {
-        setIsLogin(false)
-        // return;
-      }else{
-        setIsLogin(true);
-      }
-
-  },[path])
+    console.log(payload);
+    setLoginUser(payload);
+    if (!payload) {
+      setIsLogin(false);
+      // return;
+    } else {
+      setIsLogin(true);
+    }
+  }, [path]);
 
   const handleLogout = (e) => {
     e.preventDefault();
@@ -62,21 +60,20 @@ const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
           <div className="flex items-center lg:order-2 gap-12">
             <div className="lighten-icon">
               <a href="#search">
-              <img
-                src="/img/search.png"
-                className="mr-2 h-5 w-5"
-                alt="Search"
-              />
+                <img
+                  src="/img/search.png"
+                  className="mr-2 h-5 w-5"
+                  alt="Search"
+                />
               </a>
-              
             </div>
-            <div className="lighten-icon">
+            {/* <div className="lighten-icon">
               <img
                 src="/img/icon_1.png"
                 className="mr-2 h-5 w-5"
                 alt="Subtract"
               />
-            </div>
+            </div> */}
             {/* <div className="flex gap-1">
               <div className="flex items-center lighten-icon">
                 <img src="/img/cart.png" className="h-5 w-5" alt="Cart" />
@@ -117,8 +114,9 @@ const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
           </div>
 
           <div
-            className={`${isMobileMenuOpen ? "block" : "hidden"
-              } justify-between items-center w-full lg:flex lg:w-auto lg:order-1`}
+            className={`${
+              isMobileMenuOpen ? "block" : "hidden"
+            } justify-between items-center w-full lg:flex lg:w-auto lg:order-1`}
             id="mobile-menu-2"
           >
             <ul className="flex flex-col mt-4 font-bold gap-10 lg:flex-row lg:space-x-8 lg:mt-0">
@@ -147,15 +145,15 @@ const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
                       className="block py-2 pr-4 pl-3 text-black rounded bg-primary-700 lg:bg-transparent lg:text-primary-900 lg:p-0 "
                       aria-current="page"
                     >
-                      SHOP
+                      Shop
                     </Link>
                   </li>
                   <li>
-
                     <Link href="/order_history">
-                      <div className="block py-2 pr-4 pl-3 text-black rounded bg-primary-700 lg:bg-transparent lg:text-primary-900 lg:p-0 "
-                        aria-current="page">
-
+                      <div
+                        className="block py-2 pr-4 pl-3 text-black rounded bg-primary-700 lg:bg-transparent lg:text-primary-900 lg:p-0 "
+                        aria-current="page"
+                      >
                         Order History
                       </div>
                     </Link>

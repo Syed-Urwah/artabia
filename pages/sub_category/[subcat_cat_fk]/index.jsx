@@ -61,12 +61,10 @@ const Category = () => {
 
   useEffect(() => {
     if (!subcat_cat_fk) {
-      return
+      return;
     }
     getSubCat(subcat_cat_fk);
   }, [subcat_cat_fk]);
-
-
 
   const handleFavorite = async (artw_fk, index) => {
     getPayload();
@@ -78,7 +76,7 @@ const Category = () => {
     try {
       const isAlreadyFavorite = isFavorite[index];
       const { data } = await axios.post(
-        'http://admin.artabiasa.com/api/add-to-favoraite',
+        "http://admin.artabiasa.com/api/add-to-favoraite",
         {
           pers_fk: getPayload() && getPayload().sub,
           artw_fk: artw_fk,
@@ -89,17 +87,15 @@ const Category = () => {
             Authorization: `Bearer ${getLocalToken()}`,
           },
         }
-      )
+      );
 
       console.log("Favorite operation result ->", data);
 
       handleTabClick(index, subcat);
-
     } catch (error) {
       console.log(error);
     }
   };
-
 
   const handleTabClick = async (index, subcat) => {
     setProducts(null);
@@ -130,7 +126,6 @@ const Category = () => {
           setProducts(data.data.data);
           setIsFavorite(data.data.data.map((product) => product.isFavorite));
         }
-
       } catch (error) {
         console.error(error);
       } finally {
@@ -138,7 +133,6 @@ const Category = () => {
       }
     }
   };
-
 
   if (!subcat_cat_fk) {
     return <p>Loading...</p>;
@@ -162,7 +156,7 @@ const Category = () => {
 
   return (
     <>
-    <Header/>
+      <Header />
       <div className="bg-white mt-0.5 color_home">
         <div className="grid grid-cols-12 lg:mx-auto mb-4">
           <div className=" box col-span-12 ml-5 mt-10 flex flex-col justify-center items-start lg:col-span-6  lg:ml-32 lg:-mt-6 md:col-span-6 ">
@@ -170,8 +164,8 @@ const Category = () => {
               {categoryData.cat_etext}
             </h1>
             <h2 className=" text-2xl font-semibold">
-              Artabia has an extensive online art collection of unique paintings
-              by over 100 emerging artists.
+              Elevate Your Walls with Artabia: Where Every Stroke Speaks
+              Sophistication and Every Canvas Echoes Timeless Beauty.
             </h2>
 
             <button
@@ -221,9 +215,7 @@ const Category = () => {
                               padding: "8px",
                               borderRadius: "50%",
                               cursor: "pointer",
-                              color: isFavorite[index]
-                                ? "red"
-                                : "black",
+                              color: isFavorite[index] ? "red" : "black",
                             }}
                             onClick={() =>
                               handleFavorite(product_data.artw_pk, index1)
@@ -231,7 +223,7 @@ const Category = () => {
                           >
                             <HiOutlineHeart />
                           </div>
-                          <Link href={`/product/${product_data.artw_pk}`} >
+                          <Link href={`/product/${product_data.artw_pk}`}>
                             <img
                               src={
                                 product_data.artw_cover_image
@@ -243,16 +235,18 @@ const Category = () => {
                             />
                           </Link>
 
-
                           <div className="flex  flex-col text-left gap-1 mt-1">
-                            <h5 className="text-1xl font-bold">{product_data.artw_atext}</h5>
-                            <h5 className="text-1xl font-bold">By:{product_data.owner_id.pers_etext}</h5>
+                            <h5 className="text-1xl font-bold">
+                              {product_data.artw_atext}
+                            </h5>
+                            <h5 className="text-1xl font-bold">
+                              By:{product_data.owner_id.pers_etext}
+                            </h5>
                             <h5 className="text-1xl font-bold ">
                               {product_data.isFavorite &&
                                 product_data.isFavorite.pers_fk}
                             </h5>
                             <div className="flex flex-row justify-between items-center">
-
                               <p className="text-gray-600 text-sm font-semibold">
                                 {`${product_data.artw_width} X  ${product_data.artw_length} cm`}
                               </p>
@@ -277,7 +271,7 @@ const Category = () => {
             ))}
         </Tabs>
       </div>
-    <Footerr/>
+      <Footerr />
     </>
   );
 };
