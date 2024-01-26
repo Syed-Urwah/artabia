@@ -166,7 +166,7 @@ function ProductView({ artwork }) {
 
         <div className="box col-span-12 lg:col-span-6 md:col-span-6 w-full ">
           <div className="flex flex-col text-left gap-1 mt-16 lg:ml-16 mr-18">
-            <h5 className="text-2xl font-bold">THAT ANIMAL LOVE</h5>
+            <h5 className="text-2xl font-bold">{artwork.artw_atext}</h5>
             <h3 className="text-gray-600 text-sm font-bold mb-2">
               BY {artwork.user_id.pers_etext}
             </h3>

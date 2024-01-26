@@ -7,9 +7,9 @@ const Hero = () => {
         <div className="grid grid-cols-12 ">
           <div className=" box col-span-12 ml-5 mt-10 flex flex-col justify-center items-start lg:col-span-6  lg:ml-32 lg:-mt-6 md:col-span-6 ">
             <h2 className=" text-3xl lg:w-[590px]">
-              CONTEMPORARY ART FROM EASTERN EUROPE
+            Contemporary Art Middle East: Vibrant Perspectives.
             </h2>
-            <p className="font-bold mt-8 ">EXPLORE VICTORY ART</p>
+           
 
             <a href="#exploreSection"
               style={{ background: "#C38EBF", color: "black" }}

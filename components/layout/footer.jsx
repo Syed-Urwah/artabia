@@ -26,12 +26,12 @@ function Footerr() {
                 Account Setting
               </h5>
             </div> */}
-            <div className="  flex-col justify-left hidden lg:block md:hidden gap-1 mt-14  ">
-              <img
+            <div className="  flex-col justify-left hidden lg:block md:hidden gap-1 mt-4  ">
+              {/* <img
                 src="/img/artibia_logo.png"
                 className="w-[155px] h-[40px] ml-14"
                 alt="Search"
-              />
+              /> */}
               <p className=" font-normal mr-10 text-center">
                 Be the first to know about exclusive deals and join the
                 collective.
