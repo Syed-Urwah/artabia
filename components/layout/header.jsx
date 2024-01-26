@@ -4,14 +4,21 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
+import { FormattedMessage, useIntl } from "react-intl";
 
 const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDropdown = () => setIsOpen(!isOpen);
   console.log(userType);
   const router = useRouter();
   const path = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [loginUser, setLoginUser] = useState({});
   const [isLogin, setIsLogin] = useState(false);
+  const { locales } = useRouter();
+  const intl = useIntl();
+  const title = intl.formatMessage({ id: "welcome" })
   // const payload = getPayload();
   const handleMobileMenuToggle = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -114,9 +121,8 @@ const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
           </div>
 
           <div
-            className={`${
-              isMobileMenuOpen ? "block" : "hidden"
-            } justify-between items-center w-full lg:flex lg:w-auto lg:order-1`}
+            className={`${isMobileMenuOpen ? "block" : "hidden"
+              } justify-between items-center w-full lg:flex lg:w-auto lg:order-1`}
             id="mobile-menu-2"
           >
             <ul className="flex flex-col mt-4 font-bold gap-10 lg:flex-row lg:space-x-8 lg:mt-0">
@@ -125,7 +131,7 @@ const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
                   <li>
                     <Link href="/artist/artist_dashboard">
                       <div className="block py-2 pr-4 pl-3 text-black-700 border-b border-black-100 hover:bg-black-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0">
-                        DASHBOARD
+                        <FormattedMessage id="DASHBOARD" values={{ b: (info) => <b>{info}</b> }} />
                       </div>
                     </Link>
                   </li>
@@ -145,7 +151,7 @@ const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
                       className="block py-2 pr-4 pl-3 text-black rounded bg-primary-700 lg:bg-transparent lg:text-primary-900 lg:p-0 "
                       aria-current="page"
                     >
-                      Shop
+                      <FormattedMessage id="Shop" values={{ b: (info) => <b>{info}</b> }} />
                     </Link>
                   </li>
                   <li>
@@ -203,7 +209,22 @@ const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
                     Logout
                   </a>
                 </li>
+
               )}
+              <div>
+                <button onClick={toggleDropdown}>
+                  Select Language
+                </button>
+                {isOpen && (
+                  <div>
+                    {[...locales].sort().map((locale) => (
+                      <Link key={locale} href="/" locale={locale}>
+                        <div>{locale}</div>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             </ul>
           </div>
         </div>

@@ -13,13 +13,13 @@ import Offer from "@/components/landing/offer";
 import About from "@/components/landing/about";
 import Explore from "@/components/landing/explore";
 import Gallery from "@/components/landing/gallery";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home({ children }) {
+export default function Home({ children, dir }) {
   const [userType, setUserType] = useState("");
   const router = useRouter();
-
   // useLayoutEffect(() => {
   //   const checkUserType = getUserType();
   //   setUserType(checkUserType);
@@ -48,17 +48,24 @@ export default function Home({ children }) {
   //   content = children ? children : <Login />;
   // }
 
+  // <link rel="icon" href="/favicon.ico" hrefLang="x-default" />
+  // <link rel="icon" href="/favicon.ico" hrefLang="en" />
+  // <link rel="icon" href="/favicon.ico" hrefLang="ar" />
+
   return (
-    <main className="bg-white">
-      {/* <Header /> */}
-      {/* {content} */}
-      <Header/>
-      <Hero />
-      <Offer />
-      <About />
-      <Explore />
-      <Gallery />
-      <Footer />
-    </main>
+    <>
+      <main dir={dir} className="bg-white">
+        {/* <Header /> */}
+        {/* {content} */}
+        <Header />
+        <Hero />
+        <Offer />
+        <About />
+        <Explore />
+        <Gallery />
+        <Footer />
+      </main>
+    </>
+
   );
 }

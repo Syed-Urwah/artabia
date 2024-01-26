@@ -1,7 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: false,
-  output: 'export',
+  i18n: {
+    locales: ["en", "ar"],
+    defaultLocale: "en",
+    localeDetection: false
+  },
+  // output: 'export',
   // target: 'serverless',
 
   eslint: {
