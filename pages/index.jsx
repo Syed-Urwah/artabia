@@ -14,11 +14,14 @@ import About from "@/components/landing/about";
 import Explore from "@/components/landing/explore";
 import Gallery from "@/components/landing/gallery";
 import Link from "next/link";
+import { useLocalization } from "./_app";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({ children, dir }) {
   const [userType, setUserType] = useState("");
+  const { locale, getDirection } = useLocalization();
+  const direction = getDirection(locale);
   const router = useRouter();
   // useLayoutEffect(() => {
   //   const checkUserType = getUserType();
@@ -54,7 +57,7 @@ export default function Home({ children, dir }) {
 
   return (
     <>
-      <main dir={dir} className="bg-white">
+      <main dir={direction} className="bg-white">
         {/* <Header /> */}
         {/* {content} */}
         <Header />

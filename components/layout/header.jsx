@@ -18,7 +18,6 @@ const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
   const [isLogin, setIsLogin] = useState(false);
   const { locales } = useRouter();
   const intl = useIntl();
-  const title = intl.formatMessage({ id: "welcome" })
   // const payload = getPayload();
   const handleMobileMenuToggle = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
