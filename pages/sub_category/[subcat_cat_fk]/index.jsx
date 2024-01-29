@@ -16,6 +16,7 @@ import { useParams } from "next/navigation";
 import Link from "next/link";
 import Header from "@/components/layout/header";
 import Footerr from "@/components/layout/footer";
+import { useLocalization } from "@/pages/_app";
 
 const Category = () => {
   const router = useRouter();
@@ -23,6 +24,9 @@ const Category = () => {
   const categoryData = catData ? JSON.parse(decodeURIComponent(catData)) : null;
   const { subcat_cat_fk } = router.query;
   // const params = useParams();
+
+  const { locale, getDirection } = useLocalization();
+  const direction = getDirection(locale);
 
   const [cat_id, setCatID] = useState(null);
   const [subcat, setSubcat] = useState(null);
@@ -156,6 +160,9 @@ const Category = () => {
 
   return (
     <>
+    <div dir={direction}>
+
+    
       <Header />
       <div className="bg-white mt-0.5 color_home">
         <div className="grid grid-cols-12 lg:mx-auto mb-4">
@@ -267,6 +274,7 @@ const Category = () => {
         </Tabs>
       </div>
       <Footerr />
+      </div>
     </>
   );
 };
