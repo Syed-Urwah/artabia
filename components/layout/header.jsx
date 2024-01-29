@@ -120,8 +120,9 @@ const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
           </div>
 
           <div
-            className={`${isMobileMenuOpen ? "block" : "hidden"
-              } justify-between items-center w-full lg:flex lg:w-auto lg:order-1`}
+            className={`${
+              isMobileMenuOpen ? "block" : "hidden"
+            } justify-between items-center w-full lg:flex lg:w-auto lg:order-1`}
             id="mobile-menu-2"
           >
             <ul className="flex flex-col mt-4 font-bold gap-10 lg:flex-row lg:space-x-8 lg:mt-0">
@@ -130,7 +131,10 @@ const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
                   <li>
                     <Link href="/artist/artist_dashboard">
                       <div className="block py-2 pr-4 pl-3 text-black-700 border-b border-black-100 hover:bg-black-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0">
-                        <FormattedMessage id="DASHBOARD" values={{ b: (info) => <b>{info}</b> }} />
+                        <FormattedMessage
+                          id="DASHBOARD"
+                          values={{ b: (info) => <b>{info}</b> }}
+                        />
                       </div>
                     </Link>
                   </li>
@@ -150,7 +154,10 @@ const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
                       className="block py-2 pr-4 pl-3 text-black rounded bg-primary-700 lg:bg-transparent lg:text-primary-900 lg:p-0 "
                       aria-current="page"
                     >
-                      <FormattedMessage id="Shop" values={{ b: (info) => <b>{info}</b> }} />
+                      <FormattedMessage
+                        id="Shop"
+                        values={{ b: (info) => <b>{info}</b> }}
+                      />
                     </Link>
                   </li>
                   <li>
@@ -159,7 +166,10 @@ const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
                         className="block py-2 pr-4 pl-3 text-black rounded bg-primary-700 lg:bg-transparent lg:text-primary-900 lg:p-0 "
                         aria-current="page"
                       >
-                        Order History
+                        <FormattedMessage
+                          id="Order History"
+                          values={{ b: (info) => <b>{info}</b> }}
+                        />
                       </div>
                     </Link>
                   </li>
@@ -208,12 +218,9 @@ const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
                     Logout
                   </a>
                 </li>
-
               )}
               <div>
-                <button onClick={toggleDropdown}>
-                  Select Language
-                </button>
+                <button onClick={toggleDropdown}>Select Language</button>
                 {isOpen && (
                   <div>
                     {[...locales].sort().map((locale) => (
