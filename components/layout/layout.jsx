@@ -8,12 +8,16 @@ import {
   getUserType,
   userIsAuthenticated,
 } from "@/enviroment/auth";
+import { useLocalization } from "@/pages/_app";
 
 const Layout = ({ children }) => {
   const [userType, setUserType] = useState(false);
   const [userDetails, setUserDetails] = useState(null);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
+
+  const { locale, getDirection } = useLocalization();
+  const direction = getDirection(locale);
 
   useEffect(() => {
     console.log(getPayload());
@@ -40,7 +44,7 @@ const Layout = ({ children }) => {
   return loading ? (
     "loading"
   ) : (
-    <div className="overflow-x-hidden">
+    <div dir={direction} className="overflow-x-hidden">
       <Header
         userType={userType}
         setUserType={setUserType}

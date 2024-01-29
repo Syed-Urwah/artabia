@@ -4,6 +4,7 @@ import Footer from "@/components/layout/footer";
 import { useRouter } from "next/router";
 import { useEffect, useLayoutEffect, useState } from "react";
 import { getPayload, getUserType, userIsAuthenticated } from "@/enviroment/auth";
+import { useLocalization } from "@/pages/_app";
 
 const ArtistLayout = ({ children }) => {
 
@@ -11,6 +12,10 @@ const ArtistLayout = ({ children }) => {
   const [userDetails, setUserDetails] = useState(null);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
+
+  const { locale, getDirection } = useLocalization();
+  const direction = getDirection(locale);
+
 //   useLayoutEffect(() => {
 //     const checkUserType =  getUserType();
 //     setUserType(checkUserType);
@@ -52,7 +57,7 @@ const ArtistLayout = ({ children }) => {
   return (
     loading ? 'loading' :
   
-    <div>
+    <div dir={direction}>
       <Header userType={userType} setUserType={setUserType} userDetails={userDetails} setUserDetails={setUserDetails} />
       {children}
       <Footer />

@@ -6,12 +6,16 @@ import axios from "axios";
 import { getPayload } from "@/enviroment/auth";
 import Footerr from "@/components/layout/footer";
 import Header from "@/components/layout/header";
+import { useLocalization } from "@/pages/_app";
 
 const Product = () => {
   const router = useRouter();
   const [product_id, setProductID] = useState(null);
   const [artwork, setArtwork] = useState(null);
   const [isLoadingArtworks, setIsLoadingArtworks] = useState(false);
+
+  const { locale, getDirection } = useLocalization();
+  const direction = getDirection(locale);
 
   useEffect(() => {
     if (router.query.product_id) {
@@ -60,6 +64,7 @@ const Product = () => {
 
   return (
     <>
+      <div dir={direction}>
       <Header />
       {
         isLoadingArtworks ? (
@@ -75,6 +80,7 @@ const Product = () => {
         )}
 
       <Footerr />
+      </div>
     </>
   );
 };
