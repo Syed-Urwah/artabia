@@ -173,10 +173,10 @@ const EditArtwork = () => {
     if (!getPayload()) {
       router.push("/login");
       return;
-      
+
     }
     formData.id = formData.artw_pk;
-    console.log("formdata",formData);
+    console.log("formdata", formData);
 
     formData.cat_fk = catFk;
     formData.subcat_fk = subCatFk;
@@ -188,7 +188,7 @@ const EditArtwork = () => {
     });
     formData.api_password, process.env.REACT_APP_API_PASSWORD
 
-    console.log("check the formdata",formData);
+    console.log("check the formdata", formData);
     try {
       const { data } = await axios.post(
         "http://admin.artabiasa.com/api/edit-artwork",
@@ -264,7 +264,11 @@ const EditArtwork = () => {
                       for="first_name"
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >
-                      Title (Artwork Name)En
+                      
+                      <FormattedMessage
+                        id="Title (Artwork Name)En"
+                        values={{ b: (info) => <b>{info}</b> }}
+                      />
                     </label>
                     <input
                       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -285,7 +289,11 @@ const EditArtwork = () => {
                       for="first_name"
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >
-                      Title (Artwork Name) AR
+                      <FormattedMessage
+                        id="Title (Artwork Name) AR"
+                        values={{ b: (info) => <b>{info}</b> }}
+                      />
+                      
                     </label>
                     <input
                       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -309,7 +317,10 @@ const EditArtwork = () => {
                       for="countries"
                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >
-                      Art Material
+                      <FormattedMessage
+                                        id="Art Material"
+                                        values={{ b: (info) => <b>{info}</b> }}
+                                    />
                     </label>
                     <select
                       id="material_fk"
@@ -333,7 +344,10 @@ const EditArtwork = () => {
                       for="countries"
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >
-                      Frame
+                       <FormattedMessage
+                                        id="Frame"
+                                        values={{ b: (info) => <b>{info}</b> }}
+                                    />
                     </label>
                     <select
                       id="frame_fk"
@@ -353,7 +367,10 @@ const EditArtwork = () => {
                 </div>
 
                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                  Dimensions
+                <FormattedMessage
+                                        id="Dimensions"
+                                        values={{ b: (info) => <b>{info}</b> }}
+                                    />
                 </label>
                 <div className="grid gap-6 mb-6 md:grid-cols-12">
                   <div className="flex flex-row items-center">
@@ -373,7 +390,10 @@ const EditArtwork = () => {
                       htmlFor="artw_dimensions"
                       className="ms-2 text-sm font-medium text-gray-900"
                     >
-                      cm
+                      <FormattedMessage
+                                        id="cm"
+                                        values={{ b: (info) => <b>{info}</b> }}
+                                    />
                     </label>
                   </div>
                   <div className="flex flex-row items-center mt-2">
@@ -393,7 +413,10 @@ const EditArtwork = () => {
                       htmlFor="artw_dimensions"
                       className="ms-2 text-sm font-medium text-gray-900"
                     >
-                      in
+                       <FormattedMessage
+                                        id="in"
+                                        values={{ b: (info) => <b>{info}</b> }}
+                                    />
                     </label>
                   </div>
                 </div>
@@ -468,7 +491,10 @@ const EditArtwork = () => {
                 <div className="grid gap-6 mb-6 md:grid-cols-2">
                   <div className="mb-6">
                     <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                      Price (SAR)
+                    <FormattedMessage
+                                        id="Price (SAR)"
+                                        values={{ b: (info) => <b>{info}</b> }}
+                                    />
                     </label>
                     <input
 
@@ -487,7 +513,10 @@ const EditArtwork = () => {
                   </div>
                   <div className="mb-6">
                     <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                      Location
+                    <FormattedMessage
+                                        id="Location"
+                                        values={{ b: (info) => <b>{info}</b> }}
+                                    />
                     </label>
                     <input
 
@@ -512,7 +541,10 @@ const EditArtwork = () => {
                       for="message"
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >
-                      Specification Overview AR
+                      <FormattedMessage
+                                        id="Specification Overview AR"
+                                        values={{ b: (info) => <b>{info}</b> }}
+                                    />
                     </label>
                     <textarea
 
@@ -534,7 +566,10 @@ const EditArtwork = () => {
                       for="message"
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >
-                      Specification Overview EN
+                      <FormattedMessage
+                                        id="Specification Overview EN"
+                                        values={{ b: (info) => <b>{info}</b> }}
+                                    />
                     </label>
                     <textarea
 
@@ -558,7 +593,10 @@ const EditArtwork = () => {
                   type="submit"
                   className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 >
-                  Submit
+                  <FormattedMessage
+                                        id="Submit"
+                                        values={{ b: (info) => <b>{info}</b> }}
+                                    />
                 </button>
               </form>
             </div>

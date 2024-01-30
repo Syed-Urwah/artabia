@@ -68,13 +68,24 @@ const Artwork = () => {
       <div className="lg:px-16 px-4 py-16">
         <div className=" flex justify-between">
           <div className="flex gap-2">
-            <p className="col-span-full text-3xl ">ARTWORKS</p>
+            <p className="col-span-full text-3xl ">
+              <FormattedMessage
+                id="ARTWORKS"
+                values={{ b: (info) => <b>{info}</b> }}
+              />
+
+            </p>
             <Link href="/artist/artwork/add_artwork">
               <button
                 type="button"
                 className="text-white bg-black  font-medium  text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
-                Add New
+                <FormattedMessage
+                id="Add New"
+                values={{ b: (info) => <b>{info}</b> }}
+              />
+
+                
                 <HiOutlinePlus className="w-5 h-5 ms-2" />
               </button>
             </Link>
@@ -83,7 +94,11 @@ const Artwork = () => {
             type="button"
             className="text-black bg-[#E3E3E3]  font-medium  text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
-            Instructions
+            <FormattedMessage
+                id="Instructions"
+                values={{ b: (info) => <b>{info}</b> }}
+              />
+            
           </button>
         </div>
         <hr className="border-t border-gray-400 my-2" />
@@ -93,7 +108,11 @@ const Artwork = () => {
             for="default-search"
             className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
           >
-            Search
+            
+            <FormattedMessage
+                id="Search"
+                values={{ b: (info) => <b>{info}</b> }}
+              />
           </label>
           <div className="relative">
             <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">

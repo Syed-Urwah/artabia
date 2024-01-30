@@ -4,6 +4,7 @@ import { getLocalToken } from "@/enviroment/auth";
 import axios from "axios";
 import { Button, Table, Tabs } from "flowbite-react";
 import { useEffect, useState } from "react";
+import { FormattedMessage } from "react-intl";
 import Swal from "sweetalert2";
 
 const DashboardTab = () => {
@@ -96,7 +97,7 @@ const DashboardTab = () => {
             const { data } = await axios.post(
                 "http://admin.artabiasa.com/api/approved-order-artist",
                 {
-                    id:id,
+                    id: id,
                     api_password: process.env.REACT_APP_API_PASSWORD,
                 },
                 {
@@ -117,7 +118,7 @@ const DashboardTab = () => {
                         getActiveOrder();
                     }
                 });
-                
+
             }
         } catch (error) {
             console.error("Error fetching data:", error);
@@ -139,28 +140,56 @@ const DashboardTab = () => {
                             <Table.HeadCell
                                 style={{ backgroundColor: "lightgray", borderRadius: 0 }}
                             >
-                                Order Id
+                                <FormattedMessage
+                                    id="Order Id"
+                                    values={{ b: (info) => <b>{info}</b> }}
+                                />
+                                
                             </Table.HeadCell>
                             <Table.HeadCell style={{ backgroundColor: "lightgray" }}>
-                                Customer Name
+                            <FormattedMessage
+                                    id="Customer Name"
+                                    values={{ b: (info) => <b>{info}</b> }}
+                                />
+                                
                             </Table.HeadCell>
                             <Table.HeadCell style={{ backgroundColor: "lightgray" }}>
-                                Sub Total
+                            <FormattedMessage
+                                    id="Sub Total"
+                                    values={{ b: (info) => <b>{info}</b> }}
+                                />
+                                
                             </Table.HeadCell>
                             <Table.HeadCell style={{ backgroundColor: "lightgray" }}>
-                                Delivery Price
+                            <FormattedMessage
+                                    id="Delivery Price"
+                                    values={{ b: (info) => <b>{info}</b> }}
+                                />
+                                
                             </Table.HeadCell>
                             <Table.HeadCell style={{ backgroundColor: "lightgray" }}>
-                                Total
+                            <FormattedMessage
+                                    id="Total"
+                                    values={{ b: (info) => <b>{info}</b> }}
+                                />
+                                
                             </Table.HeadCell>
 
                             <Table.HeadCell
                                 style={{ backgroundColor: "lightgray", borderRadius: 0 }}
                             >
-                                Order Status
+                                <FormattedMessage
+                                    id="Order Status"
+                                    values={{ b: (info) => <b>{info}</b> }}
+                                />
+                                
                             </Table.HeadCell>
                             <Table.HeadCell style={{ backgroundColor: "lightgray" }}>
-                                Action
+                            <FormattedMessage
+                                    id="Action"
+                                    values={{ b: (info) => <b>{info}</b> }}
+                                />
+                                
                             </Table.HeadCell>
                         </Table.Head>
 
@@ -179,7 +208,7 @@ const DashboardTab = () => {
                                             </span>
                                         </Table.Cell>
                                         <Table.Cell>
-                                            <Button  onClick={() => ApprovedOrderArtist(order.id)} color="light">Change Status</Button>
+                                            <Button onClick={() => ApprovedOrderArtist(order.id)} color="light">Change Status</Button>
                                         </Table.Cell>
                                     </Table.Row>
                                 ))
@@ -197,24 +226,42 @@ const DashboardTab = () => {
                             <Table.HeadCell
                                 style={{ backgroundColor: "lightgray", borderRadius: 0 }}
                             >
-                                Order Id
+                              <FormattedMessage
+                                    id="Order Id"
+                                    values={{ b: (info) => <b>{info}</b> }}
+                                />
                             </Table.HeadCell>
                             <Table.HeadCell style={{ backgroundColor: "lightgray" }}>
-                                Customer Name
+                            <FormattedMessage
+                                    id="Customer Name"
+                                    values={{ b: (info) => <b>{info}</b> }}
+                                />
                             </Table.HeadCell>
                             <Table.HeadCell style={{ backgroundColor: "lightgray" }}>
-                                Sub Total
+                            <FormattedMessage
+                                    id="Sub Total"
+                                    values={{ b: (info) => <b>{info}</b> }}
+                                />
                             </Table.HeadCell>
                             <Table.HeadCell style={{ backgroundColor: "lightgray" }}>
-                                Delivery Price
+                            <FormattedMessage
+                                    id="Delivery Price"
+                                    values={{ b: (info) => <b>{info}</b> }}
+                                />
                             </Table.HeadCell>
                             <Table.HeadCell style={{ backgroundColor: "lightgray" }}>
-                                Total
+                            <FormattedMessage
+                                    id="Total"
+                                    values={{ b: (info) => <b>{info}</b> }}
+                                />
                             </Table.HeadCell>
                             <Table.HeadCell
                                 style={{ backgroundColor: "lightgray", borderRadius: 0 }}
                             >
-                                Order Status
+                                <FormattedMessage
+                                    id="Order Status"
+                                    values={{ b: (info) => <b>{info}</b> }}
+                                />
                             </Table.HeadCell>
                         </Table.Head>
 

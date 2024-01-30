@@ -15,6 +15,7 @@ import Category from "@/components/Artwork/category";
 import { getLocalToken, getPayload } from "@/enviroment/auth";
 import { useRouter } from "next/router";
 import ArtistLayout from "@/components/layout/artistLayout";
+import { FormattedMessage } from "react-intl";
 
 const AddArtwork = () => {
     const router = useRouter();
@@ -137,13 +138,13 @@ const AddArtwork = () => {
         formData.subcat_fk = subCatFk;
         formData.artw_cover_image = artwCoverImage;
         formData.images = [];
-        console.log("-------",imageFile);
+        console.log("-------", imageFile);
         imageFile.forEach((image) => {
             formData.images.push(image);
         });
         formData.api_password, process.env.REACT_APP_API_PASSWORD
 
-        console.log("form Data",formData);
+        console.log("form Data", formData);
         try {
             const { data } = await axios.post(
                 "http://admin.artabiasa.com/api/add-artwork",
@@ -193,13 +194,23 @@ const AddArtwork = () => {
             <div className="lg:px-16 px-4 py-16">
                 <div className=" flex justify-between">
                     <div className="flex gap-2">
-                        <p className="col-span-full text-3xl ">ADD AN ARTWORK</p>
+                        <p className="col-span-full text-3xl ">
+                            <FormattedMessage
+                                id="ADD AN ARTWORK"
+                                values={{ b: (info) => <b>{info}</b> }}
+                            />
+
+                        </p>
                     </div>
                     <button
                         type="button"
                         className="text-black bg-[#E3E3E3]  font-medium  text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                     >
-                        Instructions
+                        <FormattedMessage
+                            id="Instructions"
+                            values={{ b: (info) => <b>{info}</b> }}
+                        />
+
                     </button>
                 </div>
                 <hr className="border-t border-gray-400 my-2" />
@@ -207,7 +218,7 @@ const AddArtwork = () => {
                 <div>
                     <ImageFile setImagefile={setImagefile} setArtwCoverImage={setArtwCoverImage} />
                     <h1 className="text-[#F21079] my-4">Artwork photos are required</h1>
-                    <Category  setCatFk={setCatFk} setSubCatFk={setSubCatFk} />
+                    <Category setCatFk={setCatFk} setSubCatFk={setSubCatFk} />
                     <form onSubmit={handleFormSubmit}>
                         <div className="grid gap-6 mb-6 md:grid-cols-2">
                             <div className=" mb-6">
@@ -215,7 +226,11 @@ const AddArtwork = () => {
                                     for="first_name"
                                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                 >
-                                    Title (Artwork Name)En
+                                    <FormattedMessage
+                                        id="Title (Artwork Name)En"
+                                        values={{ b: (info) => <b>{info}</b> }}
+                                    />
+
                                 </label>
                                 <input
                                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -235,7 +250,11 @@ const AddArtwork = () => {
                                     for="first_name"
                                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                 >
-                                    Title (Artwork Name) AR
+                                    <FormattedMessage
+                                        id="Title (Artwork Name) AR"
+                                        values={{ b: (info) => <b>{info}</b> }}
+                                    />
+                                    
                                 </label>
                                 <input
                                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -258,7 +277,11 @@ const AddArtwork = () => {
                                     for="countries"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                 >
-                                    Art Material
+                                    <FormattedMessage
+                                        id="Art Material"
+                                        values={{ b: (info) => <b>{info}</b> }}
+                                    />
+                                    
                                 </label>
                                 <select
                                     id="material_fk"
@@ -282,7 +305,11 @@ const AddArtwork = () => {
                                     for="countries"
                                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                 >
-                                    Frame
+                                    <FormattedMessage
+                                        id="Frame"
+                                        values={{ b: (info) => <b>{info}</b> }}
+                                    />
+                                    
                                 </label>
                                 <select
                                     id="frame_fk"
@@ -302,7 +329,10 @@ const AddArtwork = () => {
                         </div>
 
                         <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                            Dimensions
+                        <FormattedMessage
+                                        id="Dimensions"
+                                        values={{ b: (info) => <b>{info}</b> }}
+                                    />
                         </label>
                         <div className="grid gap-6 mb-6 md:grid-cols-12">
                             <div className="flex flex-row items-center">
@@ -321,7 +351,10 @@ const AddArtwork = () => {
                                     htmlFor="artw_dimensions"
                                     className="ms-2 text-sm font-medium text-gray-900"
                                 >
-                                    cm
+                                    <FormattedMessage
+                                        id="cm"
+                                        values={{ b: (info) => <b>{info}</b> }}
+                                    />
                                 </label>
                             </div>
                             <div className="flex flex-row items-center mt-2">
@@ -340,7 +373,11 @@ const AddArtwork = () => {
                                     htmlFor="artw_dimensions"
                                     className="ms-2 text-sm font-medium text-gray-900"
                                 >
-                                    in
+                                    <FormattedMessage
+                                        id="in"
+                                        values={{ b: (info) => <b>{info}</b> }}
+                                    />
+                                    
                                 </label>
                             </div>
                         </div>
@@ -411,7 +448,10 @@ const AddArtwork = () => {
                         <div className="grid gap-6 mb-6 md:grid-cols-2">
                             <div className="mb-6">
                                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                    Price (SAR)
+                                <FormattedMessage
+                                        id="Price (SAR)"
+                                        values={{ b: (info) => <b>{info}</b> }}
+                                    />
                                 </label>
                                 <input
 
@@ -429,7 +469,11 @@ const AddArtwork = () => {
                             </div>
                             <div className="mb-6">
                                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                    Location
+                                <FormattedMessage
+                                        id="Location"
+                                        values={{ b: (info) => <b>{info}</b> }}
+                                    />
+                                    
                                 </label>
                                 <input
 
@@ -453,7 +497,11 @@ const AddArtwork = () => {
                                     for="message"
                                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                 >
-                                    Specification Overview AR
+                                    <FormattedMessage
+                                        id="Specification Overview AR"
+                                        values={{ b: (info) => <b>{info}</b> }}
+                                    />
+                                    
                                 </label>
                                 <textarea
 
@@ -474,7 +522,11 @@ const AddArtwork = () => {
                                     for="message"
                                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                 >
-                                    Specification Overview EN
+                                    <FormattedMessage
+                                        id="Specification Overview EN"
+                                        values={{ b: (info) => <b>{info}</b> }}
+                                    />
+                                    
                                 </label>
                                 <textarea
 
@@ -497,7 +549,11 @@ const AddArtwork = () => {
                             type="submit"
                             className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                         >
-                            Submit
+                            <FormattedMessage
+                                        id="Submit"
+                                        values={{ b: (info) => <b>{info}</b> }}
+                                    />
+                            
                         </button>
                     </form>
                 </div>

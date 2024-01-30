@@ -6,6 +6,7 @@ import {
   HiX,
 } from "react-icons/hi";
 import { useRouter } from "next/router";
+import { FormattedMessage } from "react-intl";
 
 function ArtworkView({ artwork }) {
 
@@ -85,22 +86,42 @@ function ArtworkView({ artwork }) {
           <div className="flex flex-col text-left gap-1 mt-16 lg:ml-16 mr-18">
             <h5 className="text-2xl font-bold">THAT ANIMAL LOVE</h5>
             <h3 className="text-gray-600 text-sm font-bold mb-2">
-              BY {artwork.user_id.pers_etext}
+              <FormattedMessage
+                id="BY"
+                values={{ b: (info) => <b>{info}</b> }}
+              />
+              {artwork.user_id.pers_etext}
             </h3>
             <p className="text-gray-600 text-sm font-semibold">
-              Size : {`${artwork.artw_width} X  ${artwork.artw_length} cm`}
+              <FormattedMessage
+                id="Size"
+                values={{ b: (info) => <b>{info}</b> }}
+              />
+              : {`${artwork.artw_width} X  ${artwork.artw_length} cm`}
             </p>
             <p className="text-gray-600 text-sm font-semibold">
-              Weight : {artwork.artw_weight}
+            <FormattedMessage
+                id="Weight"
+                values={{ b: (info) => <b>{info}</b> }}
+              />
+               : {artwork.artw_weight}
             </p>
             <p className="text-gray-600 text-sm font-semibold">
-              Material : {artwork.material_fk.matr_etext}
+            <FormattedMessage
+                id="Material"
+                values={{ b: (info) => <b>{info}</b> }}
+              />
+               : {artwork.material_fk.matr_etext}
             </p>
 
             <div className="box bg-[#F0F0F0] pt-2 mt-4 rounded-md">
               <div className="flex flex-row items-center px-4 ">
                 <Blockquote className="text-md not-italic font-semibold text-gray-600">
-                  Artist:{" "}
+                <FormattedMessage
+                id="Artist"
+                values={{ b: (info) => <b>{info}</b> }}
+              />
+                  :{" "}
                 </Blockquote>
                 <Blockquote className="text-sm not-italic font-semibold ml-1">
                   {artwork.user_id.pers_etext}
@@ -108,10 +129,18 @@ function ArtworkView({ artwork }) {
               </div>
               <div className="flex flex-row items-center justify-between px-4 ">
                 <Blockquote className="text-sm not-italic font-normal text-gray-600">
-                  Availability:
+                <FormattedMessage
+                id="Availability"
+                values={{ b: (info) => <b>{info}</b> }}
+              />
+                  :
                 </Blockquote>
                 <Blockquote className="text-sm not-italic font-semibold text-[#F21079]">
-                  In Stock
+                <FormattedMessage
+                id="In Stock"
+                values={{ b: (info) => <b>{info}</b> }}
+              />
+                  
                 </Blockquote>
               </div>
               <div className="bg-gray-300 h-0.5 w-full mt-2"></div>

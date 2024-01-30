@@ -120,9 +120,8 @@ const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
           </div>
 
           <div
-            className={`${
-              isMobileMenuOpen ? "block" : "hidden"
-            } justify-between items-center w-full lg:flex lg:w-auto lg:order-1`}
+            className={`${isMobileMenuOpen ? "block" : "hidden"
+              } justify-between items-center w-full lg:flex lg:w-auto lg:order-1`}
             id="mobile-menu-2"
           >
             <ul className="flex flex-col mt-4 font-bold gap-10 lg:flex-row lg:space-x-8 lg:mt-0">
@@ -141,11 +140,11 @@ const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
                   <li>
                     <Link href="/artist/artwork">
                       <div className="block py-2 pr-4 pl-3 text-black-700 border-b border-black-100 hover:bg-black-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0">
-                      <FormattedMessage
+                        <FormattedMessage
                           id="ARTISTS"
                           values={{ b: (info) => <b>{info}</b> }}
                         />
-                      
+
                       </div>
                     </Link>
                   </li>
@@ -210,10 +209,10 @@ const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
                     // onClick={handleLogin}
                     className="block py-2 pr-4 pl-3 text-black-700 border-b border-black-100 hover:bg-black-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0"
                   >
-                     <FormattedMessage
-                          id="login"
-                          values={{ b: (info) => <b>{info}</b> }}
-                        />
+                    <FormattedMessage
+                      id="login"
+                      values={{ b: (info) => <b>{info}</b> }}
+                    />
                   </Link>
                 </li>
               ) : (
@@ -222,25 +221,50 @@ const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
                     onClick={handleLogout}
                     className="block py-2 pr-4 pl-3 text-black-700 border-b border-black-100 hover:bg-black-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0"
                   >
-                     <FormattedMessage
-                          id="Logout"
-                          values={{ b: (info) => <b>{info}</b> }}
-                        />
+                    <FormattedMessage
+                      id="Logout"
+                      values={{ b: (info) => <b>{info}</b> }}
+                    />
 
                   </a>
                 </li>
               )}
               <div>
-                <button onClick={toggleDropdown}>Select Language</button>
-                {isOpen && (
-                  <div>
-                    {[...locales].sort().map((locale) => (
-                      <Link key={locale} href="/" locale={locale}>
-                        <div>{locale}</div>
-                      </Link>
-                    ))}
+                {loginUser.user_type === "artist" ? (
+                  isOpen && (
+                    <div>
+                    {[...locales].sort().map((locale) => {
+                      let artistDashboardUrl;
+                      if (locale === 'ar') {
+                        // Keep 'ar' in the URL for Arabic
+                        artistDashboardUrl = `/ar/artist/artist_dashboard`;
+                      } else {
+                        // For other locales, remove 'ar' from the URL
+                        artistDashboardUrl = `/${locale}/artist/artist_dashboard`;
+                      }
+                      return (
+                        <Link key={locale} href={artistDashboardUrl}>
+                          <div>{locale}</div>
+                        </Link>
+                      );
+                    })}
                   </div>
+                  
+                  
+                  )
+                ) : (
+                  isOpen && (
+                    <div>
+                      {[...locales].sort().map((locale) => (
+                        <Link key={locale} href="/" locale={locale}>
+                          <div>{locale}</div>
+                        </Link>
+                      ))}
+                    </div>
+                  )
                 )}
+                <button onClick={toggleDropdown}>Select Language</button>
+
               </div>
             </ul>
           </div>

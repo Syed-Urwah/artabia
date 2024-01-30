@@ -7,6 +7,7 @@ import { getLocalToken } from "../../../enviroment/auth";
 import axios from "axios";
 import DashboardTab from "@/components/Dashboard/dashboard";
 import ArtistLayout from "@/components/layout/artistLayout";
+import { FormattedMessage } from "react-intl";
 const ReactApexChart = dynamic(() => import("react-apexcharts"), {
   ssr: false,
 });
@@ -272,7 +273,11 @@ const Dashboard = () => {
                 }`}
                 type="button"
               >
-                Month
+                <FormattedMessage
+                id="Month"
+                values={{ b: (info) => <b>{info}</b> }}
+              />
+                
               </button>
               {isDropdownOpen && (
                 <div className="absolute z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-24 py-2 m-6">
@@ -301,7 +306,11 @@ const Dashboard = () => {
                   chartType === "year" ? "bg-[#e676aa] text-white" : ""
                 }`}
               >
-                Year
+                
+                <FormattedMessage
+                id="Year"
+                values={{ b: (info) => <b>{info}</b> }}
+              />
               </button>
             </div>
           </div>
@@ -311,10 +320,18 @@ const Dashboard = () => {
       <div className="grid grid-cols-12  lg:mx-auto lg:pb-20 color_home">
         <div className="box col-span-12 text-center lg:ml-[85px]  mt-16 lg:text-left mb-3">
           <Blockquote className="text-2xl not-italic font-bold text-[#BE55A9]">
-            ORDERS
+            
+            <FormattedMessage
+                id="ORDERS"
+                values={{ b: (info) => <b>{info}</b> }}
+              />
           </Blockquote>
           <Blockquote className="text-lg mt-6 not-italic font-semibold">
-            My Orders
+          <FormattedMessage
+                id="My Orders"
+                values={{ b: (info) => <b>{info}</b> }}
+              />
+            
           </Blockquote>
         </div>
         <div className="box col-span-12 lg:mx-20">
