@@ -1,4 +1,5 @@
-'use client';
+"use client";
+import { FormattedMessage, useIntl } from "react-intl";
 
 import { Blockquote } from "flowbite-react";
 
@@ -8,10 +9,16 @@ const Offer = () => {
       <div className="grid grid-cols-12 text-center lg:mx-auto lg:mb-20 lg:mt-20 mb-10 mx-2">
         <div className="col-span-12 mt-16">
           <Blockquote className="text-lg not-italic font-bold">
-            WHAT ARTABIA OFFERS
+            <FormattedMessage
+              id="WHAT ARTABIA OFFERS"
+              values={{ b: (info) => <b>{info}</b> }}
+            />
           </Blockquote>
           <Blockquote className="text-sm not-italic font-semibold">
-            OFFERS
+            <FormattedMessage
+              id="OFFERS"
+              values={{ b: (info) => <b>{info}</b> }}
+            />
           </Blockquote>
         </div>
 
@@ -19,7 +26,12 @@ const Offer = () => {
           <button
             style={{ background: "#F1C4D9", color: "black" }}
             className=" px-5 py-2 mt-14 rounded-full  "
-          > Artistic Showcase
+          >
+            {" "}
+            <FormattedMessage
+              id="Artistic Showcase"
+              values={{ b: (info) => <b>{info}</b> }}
+            />
           </button>
         </div>
         <div className="box col-span-6 flex justify-center lg:justify-center lg:col-span-2 md:col-span-2">
@@ -27,7 +39,10 @@ const Offer = () => {
             style={{ background: "#F1C4D9", color: "black" }}
             className=" px-5 py-2 mt-14 rounded-full "
           >
-            Excellence Curation
+            <FormattedMessage
+              id="Excellence Curation"
+              values={{ b: (info) => <b>{info}</b> }}
+            />
           </button>
         </div>
         <div className="box col-span-6 flex justify-center lg:justify-start lg:col-span-2 md:col-span-3">
@@ -35,7 +50,10 @@ const Offer = () => {
             style={{ background: "#F1C4D9", color: "black" }}
             className=" px-5 py-2 mt-14 rounded-full "
           >
-           Connectivity & Elevation
+            <FormattedMessage
+              id="Connectivity & Elevation"
+              values={{ b: (info) => <b>{info}</b> }}
+            />
           </button>
         </div>
         <div className="box col-span-6 flex justify-center lg:justify-start lg:col-span-2 md:col-span-3">
@@ -43,8 +61,11 @@ const Offer = () => {
             style={{ background: "#F1C4D9", color: "black" }}
             className=" px-5 py-2 mt-14 rounded-full "
           >
-           Client Frinedly
-
+            
+            <FormattedMessage
+              id="Client Friendly"
+              values={{ b: (info) => <b>{info}</b> }}
+            />
           </button>
         </div>
 

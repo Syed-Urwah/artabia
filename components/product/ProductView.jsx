@@ -14,6 +14,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { getLocalToken, getPayload } from "@/enviroment/auth";
 import axios from "axios";
+import { FormattedMessage, useIntl } from "react-intl";
 
 function ProductView({ artwork }) {
   const [artworks, setArtworks] = useState([]);
@@ -168,22 +169,43 @@ function ProductView({ artwork }) {
           <div className="flex flex-col text-left gap-1 mt-16 lg:ml-16 mr-18">
             <h5 className="text-2xl font-bold">{artwork.artw_atext}</h5>
             <h3 className="text-gray-600 text-sm font-bold mb-2">
-              BY {artwork.user_id.pers_etext}
+              <FormattedMessage
+                id="By"
+                values={{ b: (info) => <b>{info}</b> }}
+              />{" "}
+              : {artwork.user_id.pers_etext}
             </h3>
             <p className="text-gray-600 text-sm font-semibold">
-              Size : {`${artwork.artw_width} X  ${artwork.artw_length} cm`}
+              <FormattedMessage
+                id="Size"
+                values={{ b: (info) => <b>{info}</b> }}
+              />
+              : {`${artwork.artw_width} X  ${artwork.artw_length} cm`}
             </p>
             <p className="text-gray-600 text-sm font-semibold">
-              Weight : {artwork.artw_weight}
+              <FormattedMessage
+                id="Weight"
+                values={{ b: (info) => <b>{info}</b> }}
+              />{" "}
+              : {artwork.artw_weight}
             </p>
             <p className="text-gray-600 text-sm font-semibold">
-              Material : {artwork.material_fk.matr_etext}
+              <FormattedMessage
+                id="Material"
+                values={{ b: (info) => <b>{info}</b> }}
+              />{" "}
+              : {artwork.material_fk.matr_etext}
             </p>
 
             <div className="box bg-[#F0F0F0] pt-2 mt-4 rounded-md">
               <div className="flex flex-row items-center px-4 ">
                 <Blockquote className="text-md not-italic font-semibold text-gray-600">
-                  Artist:{" "}
+                 
+                  <FormattedMessage
+                    id="Artist"
+                    values={{ b: (info) => <b>{info}</b> }}
+                  />
+                  :{" "}
                 </Blockquote>
                 <Blockquote className="text-sm not-italic font-semibold ml-1">
                   {artwork.user_id.pers_etext}
@@ -191,10 +213,17 @@ function ProductView({ artwork }) {
               </div>
               <div className="flex flex-row items-center justify-between px-4 ">
                 <Blockquote className="text-sm not-italic font-normal text-gray-600">
-                  Availability:
+                  <FormattedMessage
+                    id="Availability"
+                    values={{ b: (info) => <b>{info}</b> }}
+                  />
+                  :
                 </Blockquote>
                 <Blockquote className="text-sm not-italic font-semibold text-[#F21079]">
-                  In Stock
+                  <FormattedMessage
+                    id="In Stock"
+                    values={{ b: (info) => <b>{info}</b> }}
+                  />
                 </Blockquote>
               </div>
               <div className="bg-gray-300 h-0.5 w-full mt-2"></div>
@@ -210,7 +239,11 @@ function ProductView({ artwork }) {
                   className="bg-[#f19ec5] rounded-full text-black"
                 >
                   <HiOutlineShoppingCart className="mr-1 h-5 w-7 " />
-                  Add to cart
+
+                  <FormattedMessage
+                    id="Add to cart"
+                    values={{ b: (info) => <b>{info}</b> }}
+                  />
                 </Button>
                 <Modal show={openModal} onClose={() => setOpenModal(false)}>
                   <Modal.Header
@@ -237,7 +270,11 @@ function ProductView({ artwork }) {
                           />
                           <div className="ml-2 flex flex-col">
                             <h3 className="text-gray-600 text-sm font-bold mb-2">
-                              BY {artwork.user_id.pers_etext}
+                              <FormattedMessage
+                                id="By"
+                                values={{ b: (info) => <b>{info}</b> }}
+                              />{" "}
+                              {artwork.user_id.pers_etext}
                             </h3>
                             <p className="text-gray-600 text-sm font-semibold">
                               {artwork.artw_price} SAR
@@ -254,15 +291,23 @@ function ProductView({ artwork }) {
                         style={{ background: "#C38EBF" }}
                         className="px-4 py-1  mr-1 lg:rounded-full text-black text-[16px]"
                       >
-                        Continue Shopping
+                        <FormattedMessage
+                          id="Continue Shopping"
+                          values={{ b: (info) => <b>{info}</b> }}
+                        />
                       </button>
 
-                      <Link href={`${process.env.NEXT_PUBLIC_FRONT_END_URL}/customer/cart/${artwork.artw_pk}`}>
+                      <Link
+                        href={`${process.env.NEXT_PUBLIC_FRONT_END_URL}/customer/cart/${artwork.artw_pk}`}
+                      >
                         <button
                           style={{ background: "#f19ec5" }}
                           className="px-4 py-1  lg:rounded-full text-black text-[16px]"
                         >
-                          Proceed to checkout
+                          <FormattedMessage
+                            id="Proceed to checkout"
+                            values={{ b: (info) => <b>{info}</b> }}
+                          />
                         </button>
                       </Link>
                     </div>
@@ -274,7 +319,11 @@ function ProductView({ artwork }) {
               <Link href="/">
                 <Button className="bg-white rounded-full text-black border-black">
                   <HiOutlineQuestionMarkCircle className="mr-1 h-5 w-7 " />
-                  Back to Homepage
+
+                  <FormattedMessage
+                    id="Back to Homepage"
+                    values={{ b: (info) => <b>{info}</b> }}
+                  />
                 </Button>
               </Link>
             </div>
@@ -303,37 +352,37 @@ function ProductView({ artwork }) {
             <div className="box bg-[#F0F0F0] pt-4 mt-4  rounded-md">
               <div className="flex flex-row items-center justify-between px-8 mb-5 ">
                 <Blockquote className="text-md not-italic font-semibold ">
-                  Authenticity
+                  <FormattedMessage
+                    id="Authenticity"
+                    values={{ b: (info) => <b>{info}</b> }}
+                  />
                 </Blockquote>
                 <HiPlus className="font-bold" />
               </div>
               <div className="flex flex-row items-center justify-between px-8 mb-5 ">
                 <Blockquote className="text-md not-italic font-semibold ">
-                  Shipping, Delivery& Returns
+                  <FormattedMessage
+                    id="Shipping, Delivery"
+                    values={{ b: (info) => <b>{info}</b> }}
+                  />
                 </Blockquote>
                 <HiPlus className="font-bold" />
               </div>
               <div className="flex flex-row items-center justify-between px-8 mb-5 ">
                 <Blockquote className="text-md not-italic font-semibold ">
-                  Renting the Artwork
+                  <FormattedMessage
+                    id="Artwork"
+                    values={{ b: (info) => <b>{info}</b> }}
+                  />
                 </Blockquote>
                 <HiPlus className="font-bold" />
               </div>
               <div className="flex flex-row items-center justify-between px-8 mb-5 ">
                 <Blockquote className="text-md not-italic font-semibold ">
-                  Framing & Hanging
-                </Blockquote>
-                <HiPlus className="font-bold" />
-              </div>
-              <div className="flex flex-row items-center justify-between px-8 mb-5 ">
-                <Blockquote className="text-md not-italic font-semibold ">
-                  FAQs
-                </Blockquote>
-                <HiPlus className="font-bold" />
-              </div>
-              <div className="flex flex-row items-center justify-between px-8 mb-5 ">
-                <Blockquote className="text-md not-italic font-semibold ">
-                  More About the Artist
+                  <FormattedMessage
+                    id="Framing"
+                    values={{ b: (info) => <b>{info}</b> }}
+                  />
                 </Blockquote>
                 <HiPlus className="font-bold" />
               </div>
@@ -346,7 +395,10 @@ function ProductView({ artwork }) {
       <div className="grid grid-cols-12 text-center lg:mx-auto mb-14">
         <div className="col-span-12 mt-16">
           <Blockquote className="text-lg not-italic font-bold">
-            YOU MIGHT ALSO LIKE
+            <FormattedMessage
+              id="YOU MIGHT ALSO LIKE"
+              values={{ b: (info) => <b>{info}</b> }}
+            />
           </Blockquote>
         </div>
       </div>
@@ -386,7 +438,10 @@ function ProductView({ artwork }) {
           <img src="/img/google.png" className="w-[200px]   " alt="Search" />
           <Rating>
             <p className="mb-2 mr-2 text-2xl font-semibold  dark:text-gray-400">
-              Reviews
+              <FormattedMessage
+                id="Reviews"
+                values={{ b: (info) => <b>{info}</b> }}
+              />
             </p>
             <Rating.Star />
             <Rating.Star />
@@ -398,7 +453,10 @@ function ProductView({ artwork }) {
             style={{ border: "2px solid #F1C4D9", color: "black" }}
             className="px-5 py-1 mx-6 rounded-full "
           >
-            See all reviews
+            <FormattedMessage
+              id="See all reviews"
+              values={{ b: (info) => <b>{info}</b> }}
+            />
           </button>
         </div>
       </div>

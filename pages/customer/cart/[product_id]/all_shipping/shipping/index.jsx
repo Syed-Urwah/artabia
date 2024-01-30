@@ -6,7 +6,8 @@ import { useEffect, useState } from "react";
 import { HiOutlineArrowLeft } from "react-icons/hi";
 import { getLocalToken, getPayload } from "@/enviroment/auth";
 import { useRouter } from "next/router";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
+import { FormattedMessage, useIntl } from "react-intl";
 
 const Shipping = () => {
   const router = useRouter();
@@ -33,25 +34,24 @@ const Shipping = () => {
     setIsLoadingCity(true);
     try {
       const { data } = await axios.post(
-        'http://admin.artabiasa.com/api/get-city',
+        "http://admin.artabiasa.com/api/get-city",
         {
           city_country_fk: id,
           api_password: process.env.REACT_APP_API_PASSWORD,
         },
         {
           headers: {
-            Authorization: 'Bearer ' + getLocalToken(),
+            Authorization: "Bearer " + getLocalToken(),
           },
         }
-      )
-
+      );
 
       console.log(data);
 
       console.log("getCity ->", data.data);
 
       if (data.status === "true") {
-        console.log('check');
+        console.log("check");
         setCity(data.data);
       }
     } catch (error) {
@@ -60,7 +60,6 @@ const Shipping = () => {
       setIsLoadingCity(false);
     }
   };
-
 
   useEffect(() => {
     const getCountry = async () => {
@@ -84,23 +83,23 @@ const Shipping = () => {
   }, []);
 
   const [formData, setFormData] = useState({
-    addr_etext: '',
-    addr_atext: '',
-    addr_neighborhood: '',
-    addr_city_fk: '',
-    addr_country_fk: '',
-    addr_street: '',
-    addr_number: '',
-    addr_description: ''
+    addr_etext: "",
+    addr_atext: "",
+    addr_neighborhood: "",
+    addr_city_fk: "",
+    addr_country_fk: "",
+    addr_street: "",
+    addr_number: "",
+    addr_description: "",
   });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    if (name === 'addr_country_fk') {
-      console.log('aklsdfjlk');
+    if (name === "addr_country_fk") {
+      console.log("aklsdfjlk");
       getCity(value);
     }
-    console.log('Name:', name, 'Value:', value);
+    console.log("Name:", name, "Value:", value);
     setFormData((prevFormData) => ({
       ...prevFormData,
       [name]: value,
@@ -115,7 +114,7 @@ const Shipping = () => {
     addr_country_fk: [],
     addr_street: [],
     addr_number: [],
-    addr_description: []
+    addr_description: [],
   });
 
   const resetFormErrors = (field) => {
@@ -125,37 +124,35 @@ const Shipping = () => {
     }));
   };
 
-
-
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     if (!getPayload()) {
       router.push("/login");
       return;
     }
-    formData.addr_user_id = getPayload() && getPayload().sub
-    formData.api_password, process.env.REACT_APP_API_PASSWORD
+    formData.addr_user_id = getPayload() && getPayload().sub;
+    formData.api_password, process.env.REACT_APP_API_PASSWORD;
 
     console.log("form Data", formData);
     try {
       const { data } = await axios.post(
         "http://admin.artabiasa.com/api/save-address",
-        formData
-        , {
+        formData,
+        {
           headers: {
-            Authorization: 'Bearer ' + getLocalToken(),
-            Accept: 'application/json',
-            'Content-Type': 'multipart/form-data',
-            'Content-Language': 'en',
+            Authorization: "Bearer " + getLocalToken(),
+            Accept: "application/json",
+            "Content-Type": "multipart/form-data",
+            "Content-Language": "en",
           },
         }
       );
 
       if (data.status === "true") {
         Swal.fire({
-          icon: 'success',
-          title: 'Success',
-          text: 'Data successfully added!',
+          icon: "success",
+          title: "Success",
+          text: "Data successfully added!",
         }).then((result) => {
           if (result.isConfirmed || result.isDismissed) {
             router.push(`/customer/cart/${product_id}/all_shipping`);
@@ -166,7 +163,7 @@ const Shipping = () => {
         console.log("errors ->", data.error);
         setFormErrors({
           ...formErrors,
-          ...data.error
+          ...data.error,
         });
       }
     } catch (error) {
@@ -175,16 +172,22 @@ const Shipping = () => {
     }
   };
 
-
-
   return (
     <Layout>
       <div className="lg:px-16 px-4 py-16">
-        <p className="col-span-full text-3xl font-bold">Shipping Address</p>
+        <p className="col-span-full text-3xl font-bold">
+          <FormattedMessage
+            id="Shipping Address"
+            values={{ b: (info) => <b>{info}</b> }}
+          />
+        </p>
         <form onSubmit={handleFormSubmit}>
           <div className="py-8 w-full">
             <p className="col-span-full  font-bold bg-[#8C0D81] bg-opacity-30 px-4 py-2 rounded-full relative z-20">
-              Personal Data
+              <FormattedMessage
+                id="Personal Data"
+                values={{ b: (info) => <b>{info}</b> }}
+              />
             </p>
             <div className="relative overflow-x-auto rounded-lg mt-[-15px]">
               <div className="p-6 bg-[#F8F8F8] border border-gray-200 rounded-3xl shadow dark:bg-gray-800 dark:border-gray-700 ">
@@ -195,7 +198,10 @@ const Shipping = () => {
                         for="first_name"
                         className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                       >
-                        Address Name En
+                        <FormattedMessage
+                          id="Address Name En"
+                          values={{ b: (info) => <b>{info}</b> }}
+                        />
                       </label>
                       <input
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -205,13 +211,16 @@ const Shipping = () => {
                         placeholder=""
                         onChange={(e) => {
                           handleInputChange(e);
-                          resetFormErrors('addr_etext');
+                          resetFormErrors("addr_etext");
                         }}
                         required
                       />
                       {formErrors.error &&
                         formErrors.error.map((err, i) => (
-                          <h1 key={i} className="text-red-500 mt-2  flex justify-center">
+                          <h1
+                            key={i}
+                            className="text-red-500 mt-2  flex justify-center"
+                          >
                             * {err}
                           </h1>
                         ))}
@@ -221,7 +230,10 @@ const Shipping = () => {
                         for="first_name"
                         className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                       >
-                        Address Name AR
+                        <FormattedMessage
+                          id="Address Name AR"
+                          values={{ b: (info) => <b>{info}</b> }}
+                        />
                       </label>
                       <input
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -231,7 +243,7 @@ const Shipping = () => {
                         placeholder=""
                         onChange={(e) => {
                           handleInputChange(e);
-                          resetFormErrors('addr_atext');
+                          resetFormErrors("addr_atext");
                         }}
                         required
                       />
@@ -242,7 +254,10 @@ const Shipping = () => {
             </div>
 
             <p className="col-span-full  font-bold bg-[#8C0D81] bg-opacity-30 px-4 py-2 rounded-full relative z-20 mt-8">
-              Shipping Data
+              <FormattedMessage
+                id="Shipping Data"
+                values={{ b: (info) => <b>{info}</b> }}
+              />
             </p>
             <div className="relative overflow-x-auto rounded-lg mt-[-15px]">
               <div className="p-6 bg-[#F8F8F8] border border-gray-200 rounded-3xl shadow dark:bg-gray-800 dark:border-gray-700 ">
@@ -253,7 +268,10 @@ const Shipping = () => {
                         htmlFor="country"
                         className="text-gray-500 font-normal text-lg mr-6 lg:mr-6 "
                       >
-                        Country
+                        <FormattedMessage
+                          id="Country"
+                          values={{ b: (info) => <b>{info}</b> }}
+                        />
                       </label>
                       <select
                         id="addr_country_fk"
@@ -262,7 +280,12 @@ const Shipping = () => {
                         onChange={handleInputChange}
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       >
-                        <option value="0" selected >Choose a Contry</option>
+                        <option value="0" selected>
+                          <FormattedMessage
+                            id="Choose a Country"
+                            values={{ b: (info) => <b>{info}</b> }}
+                          />
+                        </option>
                         {country &&
                           country.map((data, index) => (
                             <option key={index} value={data.country_pk}>
@@ -276,7 +299,10 @@ const Shipping = () => {
                         htmlFor="street"
                         className="text-gray-500 font-normal text-lg mr-10 lg:mr-10 "
                       >
-                        Street Name
+                        <FormattedMessage
+                          id="Street Name"
+                          values={{ b: (info) => <b>{info}</b> }}
+                        />
                       </label>
                       <input
                         type="text"
@@ -285,7 +311,7 @@ const Shipping = () => {
                         placeholder=""
                         onChange={(e) => {
                           handleInputChange(e);
-                          resetFormErrors('addr_street');
+                          resetFormErrors("addr_street");
                         }}
                         aria-describedby="helper-text-explanation"
                         className=" bg-[#E8F0FE] border border-[#CCC] text-black-900 text-sm block p-2 w-full lg:w-[466px]"
@@ -297,33 +323,45 @@ const Shipping = () => {
                         htmlFor="city"
                         className="text-gray-500 font-normal text-lg mr-14 lg:mr-[55px] "
                       >
-                        City
+                        <FormattedMessage
+                          id="City"
+                          values={{ b: (info) => <b>{info}</b> }}
+                        />
                       </label>
                       {isLoadingCity ? (
                         <p>Loading Sub Category...</p>
-                      ) : (<select
-                        id="addr_city_fk"
-                        name="addr_city_fk"
-                        value={formData.addr_city_fk}
-                        onChange={handleInputChange}
-                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      >
-                        <option value="0" defaultValue>Choose a City</option>
-                        {city &&
-                          city.map((data, index) => (
-                            <option key={index} value={data.city_pk}>
-                              {data.city_etext}
-                            </option>
-                          ))}
-                      </select>)}
-
+                      ) : (
+                        <select
+                          id="addr_city_fk"
+                          name="addr_city_fk"
+                          value={formData.addr_city_fk}
+                          onChange={handleInputChange}
+                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        >
+                          <option value="0" defaultValue>
+                            <FormattedMessage
+                              id="Choose a City"
+                              values={{ b: (info) => <b>{info}</b> }}
+                            />
+                          </option>
+                          {city &&
+                            city.map((data, index) => (
+                              <option key={index} value={data.city_pk}>
+                                {data.city_etext}
+                              </option>
+                            ))}
+                        </select>
+                      )}
                     </div>
                     <div className="box col-span-12 lg:col-span-6 md:col-span-6 flex flex-row items-center">
                       <label
                         htmlFor="street"
                         className="text-gray-500 font-normal text-lg mr-3 lg:mr-4 "
                       >
-                        Neighborhood
+                        <FormattedMessage
+                          id="Neighborhood"
+                          values={{ b: (info) => <b>{info}</b> }}
+                        />
                       </label>
                       <input
                         type="text"
@@ -332,7 +370,7 @@ const Shipping = () => {
                         placeholder=""
                         onChange={(e) => {
                           handleInputChange(e);
-                          resetFormErrors('addr_neighborhood');
+                          resetFormErrors("addr_neighborhood");
                         }}
                         aria-describedby="helper-text-explanation"
                         className=" bg-[#E8F0FE] border border-[#CCC] text-black-900 text-sm block p-2 w-full lg:w-[466px]"
@@ -344,7 +382,10 @@ const Shipping = () => {
             </div>
 
             <p className="col-span-full  text-2xl font-bold px-1 py-2 mt-6">
-              Your Description
+              <FormattedMessage
+                id="Your Description"
+                values={{ b: (info) => <b>{info}</b> }}
+              />
             </p>
             <div className="relative overflow-x-auto  rounded-3xl ">
               <div className="p-6 bg-[#F8F8F8] border border-gray-200  rounded-3xl  shadow dark:bg-gray-800 dark:border-gray-700">
@@ -356,7 +397,7 @@ const Shipping = () => {
                     placeholder=""
                     onChange={(e) => {
                       handleInputChange(e);
-                      resetFormErrors('addr_description');
+                      resetFormErrors("addr_description");
                     }}
                     rows="4"
                     class="block p-2.5 w-full text-sm text-gray-900 bg-[#FFF]  rounded-3xl  border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -368,18 +409,19 @@ const Shipping = () => {
 
           <div className="flex flex-row justify-center gap-4 mt-5">
             {/* <Link href="/all_shipping"> */}
-            <button type="submit"
+            <button
+              type="submit"
               style={{ border: "2px solid #F1C4D9", color: "black" }}
               className="px-10 py-1 rounded-full flex items-center"
             >
-              Save
-
+              <FormattedMessage
+                id="Save"
+                values={{ b: (info) => <b>{info}</b> }}
+              />
             </button>
             {/* </Link> */}
-
           </div>
         </form>
-
       </div>
     </Layout>
   );

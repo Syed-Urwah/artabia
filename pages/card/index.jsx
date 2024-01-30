@@ -3,6 +3,7 @@ import Layout from "@/components/layout/layout";
 import Link from "next/link";
 import { HiOutlineArrowLeft, HiOutlineTrash } from "react-icons/hi";
 import { useState } from "react";
+import { FormattedMessage, useIntl } from "react-intl";
 
 const Card = () => {
   const [selectedCard, setSelectedCard] = useState(null);
@@ -17,7 +18,12 @@ const Card = () => {
   return (
     <Layout>
       <div className="lg:px-16 px-4 py-16">
-        <p className="col-span-full text-3xl font-bold">Payment & Delivery</p>
+        <p className="col-span-full text-3xl font-bold">
+          <FormattedMessage
+            id="Payment & Delivery"
+            values={{ b: (info) => <b>{info}</b> }}
+          />
+        </p>
 
         <div className="py-3 w-full">
           <div
@@ -35,7 +41,12 @@ const Card = () => {
                 className="mr-2"
               />
               {/* Card Text */}
-              <p>Cash On Delivery</p>
+              <p>
+                <FormattedMessage
+                  id="Cash On Delivery"
+                  values={{ b: (info) => <b>{info}</b> }}
+                />
+              </p>
             </label>
           </div>
           <div
@@ -53,7 +64,12 @@ const Card = () => {
                 className="mr-2"
               />
               {/* Card Text */}
-              <p>Card</p>
+              <p>
+                <FormattedMessage
+                  id="Card"
+                  values={{ b: (info) => <b>{info}</b> }}
+                />
+              </p>
             </label>
           </div>
 
@@ -139,7 +155,10 @@ const Card = () => {
                       style={{ border: "2px solid #F1C4D9", color: "black" }}
                       className="px-10 rounded-full flex items-center"
                     >
-                      Comming Soon{" "}
+                      <FormattedMessage
+                        id="Comming Soon"
+                        values={{ b: (info) => <b>{info}</b> }}
+                      />{" "}
                       <span className="font-bold text-2xl ml-1 mb-1">-</span>
                     </button>
                   </Link>
@@ -152,13 +171,19 @@ const Card = () => {
         <div className="flex flex-row justify-between gap-4 mt-5">
           <Link href="/all_shipping">
             <button className="flex flex-row bg-opacity-20 lg:rounded-full px-4 py-2 border border-black bg-[#b9b4b4] items-center">
-              <HiOutlineArrowLeft className="mr-1 h-5 w-7 " /> Back to the
-              Shipping Address
+              <HiOutlineArrowLeft className="mr-1 h-5 w-7 " />
+              <FormattedMessage
+                id="Back to the Shipping Address"
+                values={{ b: (info) => <b>{info}</b> }}
+              />
             </button>
           </Link>
           <Link href="/order">
             <button className="bg-opacity-20 lg:rounded-full px-6 py-2  bg-[#F21079]">
-              Continue to Review Your Order
+              <FormattedMessage
+                id="Continue to Review Your Order"
+                values={{ b: (info) => <b>{info}</b> }}
+              />
             </button>
           </Link>
         </div>

@@ -17,6 +17,7 @@ import Link from "next/link";
 import Header from "@/components/layout/header";
 import Footerr from "@/components/layout/footer";
 import { useLocalization } from "@/pages/_app";
+import { FormattedMessage, useIntl } from "react-intl";
 
 const Category = () => {
   const router = useRouter();
@@ -160,120 +161,125 @@ const Category = () => {
 
   return (
     <>
-    <div dir={direction}>
-
-    
-      <Header />
-      <div className="bg-white mt-0.5 color_home">
-        <div className="grid grid-cols-12 lg:mx-auto mb-4">
-          <div className=" box col-span-12 ml-5 mt-10 flex flex-col justify-center items-start lg:col-span-6  lg:ml-32 lg:-mt-6 md:col-span-6 ">
-            <h1 className=" text-6xl font-semibold text-[#F2097A] mb-3">
-              {categoryData.cat_etext}
-            </h1>
-            <h2 className=" text-2xl font-semibold">
-              Elevate Your Walls with Artabia: Where Every Stroke Speaks
-              Sophistication and Every Canvas Echoes Timeless Beauty.
-            </h2>
-
-          
-          </div>
-          <div className="box col-span-12 lg:col-span-6 md:col-span-6 mt-12 flex flex-col items-center  mb-14">
-            <img
-              src={`http://admin.artabiasa.com/storage/${categoryData.cat_image}`}
-              className="mr-2 h-[333px] w-[332px] rounded-md"
-              alt="Search"
-            />
+      <div dir={direction}>
+        <Header />
+        <div className="bg-white mt-0.5 color_home">
+          <div className="grid grid-cols-12 lg:mx-auto mb-4">
+            <div className=" box col-span-12 ml-5 mt-10 flex flex-col justify-center items-start lg:col-span-6  lg:ml-32 lg:-mt-6 md:col-span-6 ">
+              <h1 className=" text-6xl font-semibold text-[#F2097A] mb-3">
+                {categoryData.cat_etext}
+              </h1>
+              <h2 className=" text-2xl font-semibold">
+                <FormattedMessage
+                  id="Elevate Your Walls with Artabia: Where Every Stroke Speaks Sophistication and Every Canvas Echoes Timeless Beauty."
+                  values={{ b: (info) => <b>{info}</b> }}
+                />
+              </h2>
+            </div>
+            <div className="box col-span-12 lg:col-span-6 md:col-span-6 mt-12 flex flex-col items-center  mb-14">
+              <img
+                src={`http://admin.artabiasa.com/storage/${categoryData.cat_image}`}
+                className="mr-2 h-[333px] w-[332px] rounded-md"
+                alt="Search"
+              />
+            </div>
           </div>
         </div>
-      </div>
-      <div>
-        <Tabs className="mx-2">
-          {subcat &&
-            subcat.map((subcat_data, index1) => (
-              <Tabs.Item
-                key={index1}
-                active={index1 === activeTab}
-                title={
-                  <CustomTabTitle subcatData={subcat_data} index={index1} />
-                }
-                className="m-0"
-              >
-                {isLoadingProducts ? (
-                  <p>Loading products...</p>
-                ) : (
-                  <div className="grid grid-cols-12 gap-y-8 mx-4 lg:mx-32 mb-12 lg:mt-2 mt-8 ">
-                    {products &&
-                      products.map((product_data, index) => (
-                        <div
-                          key={index}
-                          className="box col-span-6 lg:col-span-4 md:col-span-4 mr-2 lg:mx-auto relative lg:mb-5"
-                        >
+        <div>
+          <Tabs className="mx-2">
+            {subcat &&
+              subcat.map((subcat_data, index1) => (
+                <Tabs.Item
+                  key={index1}
+                  active={index1 === activeTab}
+                  title={
+                    <CustomTabTitle subcatData={subcat_data} index={index1} />
+                  }
+                  className="m-0"
+                >
+                  {isLoadingProducts ? (
+                    <p>Loading products...</p>
+                  ) : (
+                    <div className="grid grid-cols-12 gap-y-8 mx-4 lg:mx-32 mb-12 lg:mt-2 mt-8 ">
+                      {products &&
+                        products.map((product_data, index) => (
                           <div
-                            style={{
-                              position: "absolute",
-                              top: "10px",
-                              right: "10px",
-                              background: "white",
-                              padding: "8px",
-                              borderRadius: "50%",
-                              cursor: "pointer",
-                              color: isFavorite[index] ? "red" : "black",
-                            }}
-                            onClick={() =>
-                              handleFavorite(product_data.artw_pk, index1)
-                            }
+                            key={index}
+                            className="box col-span-6 lg:col-span-4 md:col-span-4 mr-2 lg:mx-auto relative lg:mb-5"
                           >
-                            <HiOutlineHeart />
-                          </div>
-                          <Link href={`/product/${product_data.artw_pk}`}>
-                            <img
-                              src={
-                                product_data.artw_cover_image
-                                  ? `http://admin.artabiasa.com/storage/${product_data.artw_cover_image}`
-                                  : ""
+                            <div
+                              style={{
+                                position: "absolute",
+                                top: "10px",
+                                right: "10px",
+                                background: "white",
+                                padding: "8px",
+                                borderRadius: "50%",
+                                cursor: "pointer",
+                                color: isFavorite[index] ? "red" : "black",
+                              }}
+                              onClick={() =>
+                                handleFavorite(product_data.artw_pk, index1)
                               }
-                              className="w-[185px] h-[222px] lg:mx-auto"
-                              alt="Search"
-                            />
-                          </Link>
-
-                          <div className="flex  flex-col text-left gap-1 mt-1">
-                            <h5 className="text-1xl font-bold">
-                              {product_data.artw_atext}
-                            </h5>
-                            <h5 className="text-1xl font-bold">
-                              By:{product_data.owner_id.pers_etext}
-                            </h5>
-                            <h5 className="text-1xl font-bold ">
-                              {product_data.isFavorite &&
-                                product_data.isFavorite.pers_fk}
-                            </h5>
-                            <div className="flex flex-row justify-between items-center">
-                              <p className="text-gray-600 text-sm font-semibold">
-                                {`${product_data.artw_width} X  ${product_data.artw_length} cm`}
-                              </p>
-                              <p className="text-gray-600 text-sm font-semibold">
-                                {`${product_data.artw_price} SAR`}
-                              </p>
+                            >
+                              <HiOutlineHeart />
                             </div>
-                            <div className="flex flex-row justify-between items-center">
-                              <p className="text-gray-600 text-sm font-semibold">
-                                Favorite Count:
-                              </p>
-                              <p className="text-gray-600 text-sm font-semibold">
-                                {product_data.isFavoriteCount}
-                              </p>
+                            <Link href={`/product/${product_data.artw_pk}`}>
+                              <img
+                                src={
+                                  product_data.artw_cover_image
+                                    ? `http://admin.artabiasa.com/storage/${product_data.artw_cover_image}`
+                                    : ""
+                                }
+                                className="w-[185px] h-[222px] lg:mx-auto"
+                                alt="Search"
+                              />
+                            </Link>
+
+                            <div className="flex  flex-col text-left gap-1 mt-1">
+                              <h5 className="text-1xl font-bold">
+                                {product_data.artw_atext}
+                              </h5>
+                              <h5 className="text-1xl font-bold">
+                                <FormattedMessage
+                                  id="By"
+                                  values={{ b: (info) => <b>{info}</b> }}
+                                />
+                                :{product_data.owner_id.pers_etext}
+                              </h5>
+                              <h5 className="text-1xl font-bold ">
+                                {product_data.isFavorite &&
+                                  product_data.isFavorite.pers_fk}
+                              </h5>
+                              <div className="flex flex-row justify-between items-center">
+                                <p className="text-gray-600 text-sm font-semibold">
+                                  {`${product_data.artw_width} X  ${product_data.artw_length} cm`}
+                                </p>
+                                <p className="text-gray-600 text-sm font-semibold">
+                                  {`${product_data.artw_price} SAR`}
+                                </p>
+                              </div>
+                              <div className="flex flex-row justify-between items-center">
+                                <p className="text-gray-600 text-sm font-semibold">
+                                  <FormattedMessage
+                                    id="Favorite Count:"
+                                    values={{ b: (info) => <b>{info}</b> }}
+                                  />
+                                </p>
+                                <p className="text-gray-600 text-sm font-semibold">
+                                  {product_data.isFavoriteCount}
+                                </p>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      ))}
-                  </div>
-                )}
-              </Tabs.Item>
-            ))}
-        </Tabs>
-      </div>
-      <Footerr />
+                        ))}
+                    </div>
+                  )}
+                </Tabs.Item>
+              ))}
+          </Tabs>
+        </div>
+        <Footerr />
       </div>
     </>
   );

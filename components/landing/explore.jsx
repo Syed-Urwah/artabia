@@ -4,6 +4,7 @@ import { Blockquote } from "flowbite-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { FormattedMessage, useIntl } from "react-intl";
 
 const Explore = () => {
   const [categories, setCategories] = useState([]);
@@ -49,10 +50,18 @@ const Explore = () => {
       <div id="exploreSection" className="grid grid-cols-12  lg:mx-auto ">
         <div className="box col-span-12 text-center lg:ml-[85px]  mt-16 lg:text-left mb-10">
           <Blockquote className="text-lg not-italic font-bold">
-            EXPLORE
+            
+            <FormattedMessage
+              id="EXPLORE"
+              values={{ b: (info) => <b>{info}</b> }}
+            />
           </Blockquote>
           <Blockquote className="text-sm not-italic font-semibold">
-            UNIQUE NEW ART COLLECTIONS
+            
+            <FormattedMessage
+              id="UNIQUE NEW ART COLLECTIONS"
+              values={{ b: (info) => <b>{info}</b> }}
+            />
           </Blockquote>
         </div>
       </div>

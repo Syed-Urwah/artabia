@@ -141,7 +141,11 @@ const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
                   <li>
                     <Link href="/artist/artwork">
                       <div className="block py-2 pr-4 pl-3 text-black-700 border-b border-black-100 hover:bg-black-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0">
-                        ARTISTS
+                      <FormattedMessage
+                          id="ARTISTS"
+                          values={{ b: (info) => <b>{info}</b> }}
+                        />
+                      
                       </div>
                     </Link>
                   </li>
@@ -206,7 +210,10 @@ const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
                     // onClick={handleLogin}
                     className="block py-2 pr-4 pl-3 text-black-700 border-b border-black-100 hover:bg-black-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0"
                   >
-                    login
+                     <FormattedMessage
+                          id="login"
+                          values={{ b: (info) => <b>{info}</b> }}
+                        />
                   </Link>
                 </li>
               ) : (
@@ -215,7 +222,11 @@ const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
                     onClick={handleLogout}
                     className="block py-2 pr-4 pl-3 text-black-700 border-b border-black-100 hover:bg-black-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0"
                   >
-                    Logout
+                     <FormattedMessage
+                          id="Logout"
+                          values={{ b: (info) => <b>{info}</b> }}
+                        />
+
                   </a>
                 </li>
               )}

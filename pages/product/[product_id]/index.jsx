@@ -7,6 +7,8 @@ import { getPayload } from "@/enviroment/auth";
 import Footerr from "@/components/layout/footer";
 import Header from "@/components/layout/header";
 import { useLocalization } from "@/pages/_app";
+import { FormattedMessage, useIntl } from "react-intl";
+
 
 const Product = () => {
   const router = useRouter();

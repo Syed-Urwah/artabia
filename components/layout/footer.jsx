@@ -1,6 +1,7 @@
 "use client";
 import { Footer } from "flowbite-react";
 import { BsFacebook, BsInstagram, BsLinkedin, BsYoutube } from "react-icons/bs";
+import { FormattedMessage, useIntl } from "react-intl";
 
 function Footerr() {
   const iconColor = "#8C0D81";
@@ -33,8 +34,10 @@ function Footerr() {
                 alt="Search"
               /> */}
               <p className=" font-normal mr-10 text-center">
-                Be the first to know about exclusive deals and join the
-                collective.
+                <FormattedMessage
+                  id="Be the first to know about exclusive deals and join the collective."
+                  values={{ b: (info) => <b>{info}</b> }}
+                />
               </p>
             </div>
           </div>
@@ -42,31 +45,106 @@ function Footerr() {
           <div className="box col-span-12 flex flex-row justify-center lg:col-span-6 md:col-span-6">
             <div className="flex justify-center mt-8 mx-1 lg:mx-8">
               <div className="flex flex-col gap-2">
-                <h5 className="text-[18px] font-bold text-left">FOR CLIENT</h5>
-                <p className="font-normal">Curated Excellence</p>
-                <p className="font-normal">Unique Artworks</p>
-                <p className="font-normal">Client-Friendly</p>
-                <p className="font-normal">Tailored Experience</p>
+                <h5 className="text-[18px] font-bold text-left">
+                  <FormattedMessage
+                    id="FOR CLIENT"
+                    values={{ b: (info) => <b>{info}</b> }}
+                  />
+                </h5>
+                <p className="font-normal">
+                  <FormattedMessage
+                    id="Curated Excellence"
+                    values={{ b: (info) => <b>{info}</b> }}
+                  />
+                </p>
+                <p className="font-normal">
+                  <FormattedMessage
+                    id="Unique Artworks"
+                    values={{ b: (info) => <b>{info}</b> }}
+                  />
+                </p>
+                <p className="font-normal">
+                  <FormattedMessage
+                    id="Client-Friendly"
+                    values={{ b: (info) => <b>{info}</b> }}
+                  />
+                </p>
+                <p className="font-normal">
+                  <FormattedMessage
+                    id="Tailored Experience"
+                    values={{ b: (info) => <b>{info}</b> }}
+                  />
+                </p>
               </div>
             </div>
 
             <div className="flex justify-center gap-1 mt-8 mx-1 lg:mx-8">
               <div className="flex flex-col gap-2">
-                <h5 className="text-[18px] font-bold text-left">FOR ARTISTS</h5>
-                <p className="font-normal">Showcase Brilliance</p>
-                <p className="font-normal">Connect & Elevate</p>
-                <p className="font-normal"> Opportunities</p>
-                <p className="font-normal">Global Exposure</p>
+                <h5 className="text-[18px] font-bold text-left">
+                  <FormattedMessage
+                    id="FOR ARTISTS"
+                    values={{ b: (info) => <b>{info}</b> }}
+                  />
+                </h5>
+                <p className="font-normal">
+                  <FormattedMessage
+                    id="Showcase Brilliance"
+                    values={{ b: (info) => <b>{info}</b> }}
+                  />
+                </p>
+                <p className="font-normal">
+                  <FormattedMessage
+                    id="Connect & Elevate"
+                    values={{ b: (info) => <b>{info}</b> }}
+                  />
+                </p>
+                <p className="font-normal">
+                  <FormattedMessage
+                    id="Opportunities"
+                    values={{ b: (info) => <b>{info}</b> }}
+                  />
+                </p>
+                <p className="font-normal">
+                  <FormattedMessage
+                    id="Global Exposure"
+                    values={{ b: (info) => <b>{info}</b> }}
+                  />
+                </p>
               </div>
             </div>
 
             <div className="flex justify-center gap-1 mt-8 mx-1 lg:mx-8">
               <div className="flex flex-col gap-2">
-                <h5 className="text-[18px] font-bold text-left">ABOUT US</h5>
-                <p className="font-normal">Artistic Convergence</p>
-                <p className="font-normal">Connect </p>
-                <p className="font-normal">Commitment</p>
-                <p className="font-normal">Passion </p>
+                <h5 className="text-[18px] font-bold text-left">
+                  <FormattedMessage
+                    id="ABOUT US"
+                    values={{ b: (info) => <b>{info}</b> }}
+                  />
+                </h5>
+                <p className="font-normal">
+                  <FormattedMessage
+                    id="Artistic Convergence"
+                    values={{ b: (info) => <b>{info}</b> }}
+                  />
+                </p>
+                <p className="font-normal">
+                  <FormattedMessage
+                    id="Connect"
+                    values={{ b: (info) => <b>{info}</b> }}
+                  />{" "}
+                </p>
+                <p className="font-normal">
+                  <FormattedMessage
+                    id="Commitment"
+                    values={{ b: (info) => <b>{info}</b> }}
+                  />
+                </p>
+                <p className="font-normal">
+                  <FormattedMessage
+                    id="Passion"
+                    values={{ b: (info) => <b>{info}</b> }}
+                  />{" "}
+                </p>
               </div>
             </div>
           </div>
@@ -74,7 +152,10 @@ function Footerr() {
           <div className="box col-span-12 lg:col-span-3 md:col-span-3">
             <div className="mt-8 ">
               <h5 className="text-[18px] font-bold text-left lg:ml-14">
-                FOLLOW US
+                <FormattedMessage
+                  id="FOLLOW US"
+                  values={{ b: (info) => <b>{info}</b> }}
+                />
               </h5>
 
               <div className="mt-2 flex space-x-4 lg:ml-12">

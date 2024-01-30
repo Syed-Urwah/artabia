@@ -99,9 +99,9 @@ function CartTable({ cart, removeArtworkFromCart, setTotalQuantity,setCart, cart
             <td className="px-6 py-4 text-start">
               <div className="flex flex-col">
                 <span className="mb-1">{cart_data.artwork_id.artw_atext}</span>
-                <span className="mb-1">
+                {/* <span className="mb-1">
                   Availability: <span className="text-[#FF0078]">In Stock</span>
-                </span>
+                </span> */}
               </div>
             </td>
             <td className="px-6 py-4 text-center">{cart_data.price} SAR</td>

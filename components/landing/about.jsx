@@ -1,4 +1,5 @@
 "use client";
+import { FormattedMessage, useIntl } from "react-intl";
 import { Blockquote } from "flowbite-react";
 const About = () => {
   return (
@@ -7,44 +8,61 @@ const About = () => {
         <div className="grid grid-cols-12 mx-2">
           <div className="col-span-12 mt-16 text-center">
             <Blockquote className="text-lg not-italic font-bold">
-              ABOUT ARTABIA
+              
+              <FormattedMessage
+                id="ABOUT ARTABIA"
+                values={{ b: (info) => <b>{info}</b> }}
+              />
             </Blockquote>
             {/* <h2 className="text-4xl font-bold mb-3">ABOUT ARTABIA</h2> */}
             <p className="text-lg font-semibold">
-              Explore the history and mission behind Artabia's artistic journey.
+              
+              <FormattedMessage
+                id="Explore the history and mission behind Artabia's artistic journey."
+                values={{ b: (info) => <b>{info}</b> }}
+              />
             </p>
           </div>
 
           <div className="box col-span-12 lg:col-span-6 md:col-span-6 flex flex-col justify-center items-start lg:ml-20">
             <h2 className="text-3xl font-bold mb-3">
-              Artabia: Where Art Flourishes
+              
+              <FormattedMessage
+                id="Artabia: Where Art Flourishes"
+                values={{ b: (info) => <b>{info}</b> }}
+              />
             </h2>
 
             <p className="text-sm font-bold italic mb-3">
-              Welcome to Artabia, a platform that transcends artistic
-              boundaries, uniting talented creators in paintings and sculptures.
+              
+              <FormattedMessage
+                id="Welcome to Artabia, a platform that transcends artistic boundaries, uniting talented creators in paintings and sculptures."
+                values={{ b: (info) => <b>{info}</b> }}
+              />
             </p>
 
             <p className="text-sm font-normal mb-3">
-              Based in Saudi Arabia, Artabia extends its reach to the UAE and
-              Jordan, fostering a vibrant community where tradition and
-              innovation converge.
+              
+              <FormattedMessage
+                id="Based in Saudi Arabia, Artabia extends its reach to the UAE and Jordan, fostering a vibrant community where tradition and innovation converge."
+                values={{ b: (info) => <b>{info}</b> }}
+              />
             </p>
 
             <p className="text-sm font-normal mb-3">
-              At Artabia, we celebrate the richness of Middle Eastern artistry—a
-              captivating intersection of cultures through brush strokes and
-              sculpted forms.
+              
+              <FormattedMessage
+                id="At Artabia, we celebrate the richness of Middle Eastern artistry—a captivating intersection of cultures through brush strokes and sculpted forms."
+                values={{ b: (info) => <b>{info}</b> }}
+              />
             </p>
 
             <p className="text-sm font-normal mb-3">
-              For artists seeking to elevate their craft and connect with
-              discerning connoisseurs, Artabia offers a sophisticated and
-              user-friendly environment.Our commitment to the end user
-              experience is paramount, ensuring seamless navigation through a
-              curated collection of extraordinary paintings and sculptures.
-              Artabia is more than a marketplace; it's a curated gallery where
-              each creation tells a unique story.
+              .
+              <FormattedMessage
+                id="Forartists"
+                values={{ b: (info) => <b>{info}</b> }}
+              />
             </p>
 
             {/* Additional content can be added here, such as a timeline or additional information */}

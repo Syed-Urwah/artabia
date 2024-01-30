@@ -5,6 +5,7 @@ import { Rating } from "flowbite-react";
 import { Blockquote } from "flowbite-react";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { FormattedMessage, useIntl } from "react-intl";
 
 const Gallery = () => {
   const [artworks, setArtworks] = useState([]);
@@ -46,10 +47,16 @@ const Gallery = () => {
       <div className="grid grid-cols-12 text-center lg:mx-auto mb-14">
         <div className="col-span-12 mt-16">
           <Blockquote className="text-lg not-italic font-bold">
-            THE LATEST
+            <FormattedMessage
+              id="THE LATEST"
+              values={{ b: (info) => <b>{info}</b> }}
+            />
           </Blockquote>
           <Blockquote className="text-sm not-italic font-semibold">
-            IN OUR ART GALLERY
+            <FormattedMessage
+              id="IN OUR ART GALLERY"
+              values={{ b: (info) => <b>{info}</b> }}
+            />
           </Blockquote>
         </div>
         <div className="col-span-12 mt-5 flex justify-center">
@@ -99,7 +106,10 @@ const Gallery = () => {
           <img src="/img/google.png" className="w-[200px]   " alt="Search" />
           <Rating>
             <p className="mb-2 mr-2 text-2xl font-semibold  dark:text-gray-400">
-              Reviews
+              <FormattedMessage
+                id="Reviews"
+                values={{ b: (info) => <b>{info}</b> }}
+              />
             </p>
             <Rating.Star />
             <Rating.Star />
