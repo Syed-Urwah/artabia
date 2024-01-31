@@ -10,6 +10,8 @@ import {
 } from "../../enviroment/auth";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/bootstrap.css";
+import { FormattedMessage } from "react-intl";
+
 const Login = () => {
   const [phone, setPhone] = useState("");
   const router = useRouter();
@@ -91,7 +93,11 @@ const Login = () => {
       <div className="lg:px-16 px-4 py-16">
         <div className="flex items-center justify-center">
           <p className="col-span-full text-3xl font-semibold bg-[#8C0D81] bg-opacity-30 px-16 py-2 rounded-full">
-            LOG IN
+            
+            <FormattedMessage
+                  id="LOG IN"
+                  values={{ b: (info) => <b>{info}</b> }}
+                />
           </p>
         </div>
         <form onSubmit={handleFormSubmit}>
@@ -101,7 +107,11 @@ const Login = () => {
                 htmlFor="email"
                 className="font-semibold text-lg w-full"
               >
-                Enter Phone Number
+                
+                <FormattedMessage
+                  id="Enter Phone Number"
+                  values={{ b: (info) => <b>{info}</b> }}
+                />
               </label>
               <div className="flex flex-col w-full">
                 <PhoneInput
@@ -128,7 +138,11 @@ const Login = () => {
                 htmlFor="email"
                 className="font-semibold text-lg w-full"
               >
-                Enter Password
+                
+                <FormattedMessage
+                  id="Enter Password"
+                  values={{ b: (info) => <b>{info}</b> }}
+                />
               </label>
               <div className="flex flex-col w-full">
                 <input
@@ -163,18 +177,30 @@ const Login = () => {
               type="submit"
               className="col-span-full text-lg font-semibold bg-[#F21079] bg-opacity-30 px-16 py-2 rounded-full lg:w-[469px]"
             >
-              Log In
+              
+              <FormattedMessage
+                  id="Log In"
+                  values={{ b: (info) => <b>{info}</b> }}
+                />
             </button>
             {/* </Link> */}
             <Link href="/register">
               {" "}
-              <p className="mt-2">Registration</p>
+              <p className="mt-2">
+              <FormattedMessage
+                  id="Registration"
+                  values={{ b: (info) => <b>{info}</b> }}
+                /></p>
             </Link>
 
             <Link
               href={process.env.NEXT_PUBLIC_FRONT_END_URL + "/forget_password"}
             >
-              <p className="mt-2">I have forgotten my password.</p>
+              <p className="mt-2">
+              <FormattedMessage
+                  id="I have forgotten my password."
+                  values={{ b: (info) => <b>{info}</b> }}
+                /></p>
             </Link>
           </div>
         </form>

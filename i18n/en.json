@@ -107,8 +107,6 @@
   "Send the Order with Payment Obligation": "Send the Order with Payment Obligation",
   "Your Art Journey Just Started": "Your Art Journey Just Started",
   "Thank You FOR YOUR ORDER! GREAT CHOICE!": "Thank You FOR YOUR ORDER! GREAT CHOICE!",
-
-
   "Your Sales for this":"Your Sales for this",
   "Month":"Month",
   "Year":"Year",
@@ -138,5 +136,33 @@
   "Specification Overview AR":"Specification Overview AR",
   "Specification Overview EN":"Specification Overview EN",
   "Submit":"Submit",
-  "BY":"BY"
+  "BY": "BY",
+  "Total Price":"Total Price",
+  "Back to Order History":"Back to Order History",
+  "Deliver Price":"Deliver Price",
+  "Date":"Date",
+  "Order Delivered":"Order Delivered",
+  "ORDERS HISTORY":"ORDERS HISTORY",
+  "No Complete orders":"No Complete orders",
+  "No active orders":"No active orders",
+  "Detail":"Detail",
+  "View":"View",
+  "I have forgotten my password.":"I have forgotten my password.",
+  "Registration":"Registration",
+  "Log In":"Log In",
+  "Enter Password":"Enter Password",
+  "Enter Phone Number":"Enter Phone Number",
+  "LOG IN":"LOG IN",
+  "Already have an account. Log In!":"Already have an account. Log In!",
+  "Join As Artist":"Join As Artist",
+  "Join As Customer":"Join As Customer",
+  "Enter Your Password":"Enter Your Password",
+  "Select your country":"Select your country",
+  "Enter Your Country":"Enter Your Country",
+  "Your Phone Number":"Your Phone Number",
+  "Enter Username":"Enter Username",
+  "Enter Your Email":"Enter Your Email"
+ 
+
+  
 }

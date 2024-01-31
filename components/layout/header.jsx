@@ -235,13 +235,15 @@ const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
                     <div>
                     {[...locales].sort().map((locale) => {
                       let artistDashboardUrl;
-                      if (locale === 'ar') {
-                        // Keep 'ar' in the URL for Arabic
-                        artistDashboardUrl = `/ar/artist/artist_dashboard`;
-                      } else {
-                        // For other locales, remove 'ar' from the URL
-                        artistDashboardUrl = `/${locale}/artist/artist_dashboard`;
-                      }
+                      // if (locale === 'ar') {
+                      //   // Keep 'ar' in the URL for Arabic
+                      //   artistDashboardUrl = `/ar/artist/artist_dashboard`;
+                      // } 
+                      // else {
+                      //   // For other locales, remove 'ar' from the URL
+                      //   artistDashboardUrl = `/${locale}/artist/artist_dashboard`;
+                      // }
+                      { artistDashboardUrl = `/${locale}/artist/artist_dashboard`;}
                       return (
                         <Link key={locale} href={artistDashboardUrl}>
                           <div>{locale}</div>

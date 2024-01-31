@@ -6,6 +6,8 @@ import { Button, Table, Tabs } from "flowbite-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
+import { FormattedMessage, useIntl } from "react-intl";
+
 
 const OrderHistory = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -85,28 +87,56 @@ const OrderHistory = () => {
               <Table.HeadCell
                 style={{ backgroundColor: "lightgray", borderRadius: 0 }}
               >
-                Order Id
+                
+                <FormattedMessage
+                            id="Order Id"
+                            values={{ b: (info) => <b>{info}</b> }}
+                        />
               </Table.HeadCell>
               <Table.HeadCell style={{ backgroundColor: "lightgray" }}>
-                Customer Name
+                
+                <FormattedMessage
+                            id="Customer Name"
+                            values={{ b: (info) => <b>{info}</b> }}
+                        />
               </Table.HeadCell>
               <Table.HeadCell style={{ backgroundColor: "lightgray" }}>
-                Sub Total
+                
+                <FormattedMessage
+                            id="Sub Total"
+                            values={{ b: (info) => <b>{info}</b> }}
+                        />
               </Table.HeadCell>
               <Table.HeadCell style={{ backgroundColor: "lightgray" }}>
-                Delivery Price
+               
+                <FormattedMessage
+                            id="Delivery Price"
+                            values={{ b: (info) => <b>{info}</b> }}
+                        />
               </Table.HeadCell>
               <Table.HeadCell style={{ backgroundColor: "lightgray" }}>
-                Total
+                
+                <FormattedMessage
+                            id="Total"
+                            values={{ b: (info) => <b>{info}</b> }}
+                        />
               </Table.HeadCell>
 
               <Table.HeadCell
                 style={{ backgroundColor: "lightgray", borderRadius: 0 }}
               >
-                Order Status
+                
+                <FormattedMessage
+                            id="Order Status"
+                            values={{ b: (info) => <b>{info}</b> }}
+                        />
               </Table.HeadCell>
               <Table.HeadCell style={{ backgroundColor: "lightgray" }}>
-                View
+                
+                <FormattedMessage
+                            id="View"
+                            values={{ b: (info) => <b>{info}</b> }}
+                        />
               </Table.HeadCell>
             </Table.Head>
 
@@ -126,14 +156,22 @@ const OrderHistory = () => {
                     </Table.Cell>
                     <Table.Cell>
                       <Link href={`order_history/${order.id}`}>
-                        <Button color="light">Detail </Button>
+                        <Button color="light"> 
+                        <FormattedMessage
+                            id="Detail"
+                            values={{ b: (info) => <b>{info}</b> }}
+                        /></Button>
                       </Link>
                     </Table.Cell>
                   </Table.Row>
                 ))
               ) : (
                 <Table.Row>
-                  <Table.Cell colSpan={6}>No active orders</Table.Cell>
+                  <Table.Cell colSpan={6}>
+                  <FormattedMessage
+                            id="No active orders"
+                            values={{ b: (info) => <b>{info}</b> }}
+                        /></Table.Cell>
                 </Table.Row>
               )}
             </Table.Body>
@@ -145,24 +183,48 @@ const OrderHistory = () => {
               <Table.HeadCell
                 style={{ backgroundColor: "lightgray", borderRadius: 0 }}
               >
-                Order Id
+                
+                <FormattedMessage
+                            id="Order Id"
+                            values={{ b: (info) => <b>{info}</b> }}
+                        />
               </Table.HeadCell>
               <Table.HeadCell style={{ backgroundColor: "lightgray" }}>
-                Customer Name
+                
+                <FormattedMessage
+                            id="Customer Name"
+                            values={{ b: (info) => <b>{info}</b> }}
+                        />
               </Table.HeadCell>
               <Table.HeadCell style={{ backgroundColor: "lightgray" }}>
-                Sub Total
+                
+                <FormattedMessage
+                            id="Sub Total"
+                            values={{ b: (info) => <b>{info}</b> }}
+                        />
               </Table.HeadCell>
               <Table.HeadCell style={{ backgroundColor: "lightgray" }}>
-                Delivery Price
+                
+                <FormattedMessage
+                            id="Delivery Price"
+                            values={{ b: (info) => <b>{info}</b> }}
+                        />
               </Table.HeadCell>
               <Table.HeadCell style={{ backgroundColor: "lightgray" }}>
-                Total
+                
+                <FormattedMessage
+                            id="Total"
+                            values={{ b: (info) => <b>{info}</b> }}
+                        />
               </Table.HeadCell>
               <Table.HeadCell
                 style={{ backgroundColor: "lightgray", borderRadius: 0 }}
               >
-                Order Status
+                
+                <FormattedMessage
+                            id="Order Status"
+                            values={{ b: (info) => <b>{info}</b> }}
+                        />
               </Table.HeadCell>
             </Table.Head>
 
@@ -184,7 +246,11 @@ const OrderHistory = () => {
                 ))
               ) : (
                 <Table.Row>
-                  <Table.Cell colSpan={6}>No Complete orders</Table.Cell>
+                  <Table.Cell colSpan={6}>
+                  <FormattedMessage
+                            id="No Complete orders"
+                            values={{ b: (info) => <b>{info}</b> }}
+                        /></Table.Cell>
                 </Table.Row>
               )}
             </Table.Body>

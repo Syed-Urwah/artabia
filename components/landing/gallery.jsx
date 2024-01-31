@@ -92,7 +92,11 @@ const Gallery = () => {
             <div className="flex flex-col text-left gap-1 mt-1">
               <h5 className="text-1xl font-bold">{artwork.artw_atext}</h5>
               <h5 className="text-1xl font-bold">
-                By:{artwork.owner_id.pers_etext}
+                <FormattedMessage
+                  id="By"
+                  values={{ b: (info) => <b>{info}</b> }}
+                />
+                :{artwork.owner_id.pers_etext}
               </h5>
               <p className="text-gray-600 text-sm font-semibold">{`${artwork.artw_width} X  ${artwork.artw_length} cm`}</p>
               <p className="text-gray-600 text-sm font-semibold">{`${artwork.artw_price} SAR`}</p>

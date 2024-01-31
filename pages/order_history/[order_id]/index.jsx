@@ -8,6 +8,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import QRCode from "react-qr-code";
+import { FormattedMessage } from "react-intl";
 
 const Shipping = () => {
   const router = useRouter();
@@ -39,7 +40,6 @@ const Shipping = () => {
           }
         );
 
-       
         console.log("Order ->", data);
         if (data.status === "true") setOrder(data.data);
         setIsLoading(false);
@@ -53,14 +53,21 @@ const Shipping = () => {
   return (
     <Layout>
       <div className="lg:px-16 px-4 py-16">
-        <p className="col-span-full text-3xl font-bold">Order History</p>
+        <p className="col-span-full text-3xl font-bold">
+          <FormattedMessage
+            id="Order History"
+            values={{ b: (info) => <b>{info}</b> }}
+          />
+        </p>
 
         <div className="py-8 w-full">
           <div className="col-span-full flex justify-between font-bold bg-[#8C0D81] bg-opacity-30 px-4 py-2 rounded-full relative z-20">
-            <p className="ml-5">Order Delivered</p>
-            <span className="font-bold mr-10">
-              Cash:<span className="ml-2">2000</span>
-            </span>
+            <p className="ml-5">
+              <FormattedMessage
+                id="Order Delivered"
+                values={{ b: (info) => <b>{info}</b> }}
+              />
+            </p>
           </div>
           <div className="relative overflow-x-auto rounded-lg mt-[-15px]">
             {isLoading ? (
@@ -101,23 +108,35 @@ const Shipping = () => {
                     </span>
                     <span className="">
                       {" "}
-                      Date: <span>{order?.artw_fk?.created_at ?? ""}</span>{" "}
+                      <FormattedMessage
+                        id="Date"
+                        values={{ b: (info) => <b>{info}</b> }}
+                      />
+                      :<span>{order?.artw_fk?.created_at ?? ""}</span>{" "}
                     </span>
                     <span className="">
                       {" "}
-                      Sub Total: <span>
-                        {order?.sub_total ?? ""}
-                      </span>{" "}
+                      <FormattedMessage
+                        id="Sub Total"
+                        values={{ b: (info) => <b>{info}</b> }}
+                      />
+                      : <span>{order?.sub_total ?? ""}</span>{" "}
                     </span>
                     <span className="">
                       {" "}
-                      Deliver Price:{" "}
-                      <span>{order?.delivery_price ?? ""}</span>{" "}
+                      <FormattedMessage
+                        id="Deliver Price"
+                        values={{ b: (info) => <b>{info}</b> }}
+                      />
+                      : <span>{order?.delivery_price ?? ""}</span>{" "}
                     </span>
                     <span className="">
                       {" "}
-                      Total Price:{" "}
-                      <span>{order?.final_total ?? ""}</span>{" "}
+                      <FormattedMessage
+                        id="Total Price"
+                        values={{ b: (info) => <b>{info}</b> }}
+                      />
+                      : <span>{order?.final_total ?? ""}</span>{" "}
                     </span>
                   </div>
                   <div>
@@ -142,7 +161,12 @@ const Shipping = () => {
           /> */}
 
           <Link href="/order_history">
-            <Button color="light">Back to Order History </Button>
+            <Button color="light">
+              <FormattedMessage
+                id="Back to Order History"
+                values={{ b: (info) => <b>{info}</b> }}
+              />{" "}
+            </Button>
           </Link>
         </div>
       </div>

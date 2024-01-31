@@ -11,6 +11,8 @@ import { getLocalToken, getPayload } from "../../../enviroment/auth";
 import axios from "axios";
 import { useRouter } from "next/router";
 import ArtistLayout from "@/components/layout/artistLayout";
+import { FormattedMessage, useIntl } from "react-intl";
+
 
 const Artwork = () => {
   const router = useRouter();

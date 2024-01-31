@@ -7,6 +7,8 @@ import Header from "@/components/layout/header";
 import Footerr from "@/components/layout/footer";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/bootstrap.css";
+import { FormattedMessage } from "react-intl";
+
 
 const Register = () => {
   const [phone, setPhone] = useState("");
@@ -144,7 +146,11 @@ const Register = () => {
         <form onSubmit={handleFormSubmit}>
           <div className="flex items-center justify-center lg:mb-5 lg:mr-24">
             <p className="col-span-full text-3xl font-semibold bg-[#8C0D81] bg-opacity-30 px-16 py-2 rounded-full">
-              Registration
+              
+              <FormattedMessage
+                  id="Registration"
+                  values={{ b: (info) => <b>{info}</b> }}
+                />
             </p>
           </div>
 
@@ -154,7 +160,11 @@ const Register = () => {
                 htmlFor="email"
                 className=" font-semibold text-lg lg:w-1/6 lg:mb-6 "
               >
-                Enter Your Email
+                
+                <FormattedMessage
+                  id="Enter Your Email"
+                  values={{ b: (info) => <b>{info}</b> }}
+                />
               </label>
               <div className="flex flex-col w-[300px]  ">
                 <input
@@ -180,7 +190,11 @@ const Register = () => {
                 htmlFor="email"
                 className="font-semibold text-lg lg:w-1/6 lg:mb-6"
               >
-                Enter Username
+                
+                <FormattedMessage
+                  id="Enter Username"
+                  values={{ b: (info) => <b>{info}</b> }}
+                />
               </label>
               <div className="flex flex-col w-[300px]">
                 <input
@@ -207,7 +221,11 @@ const Register = () => {
                 htmlFor="phone-input"
                 className="font-semibold text-lg lg:w-1/6 lg:mb-6 "
               >
-                Enter Phone Number
+                
+                <FormattedMessage
+                  id="Enter Phone Number"
+                  values={{ b: (info) => <b>{info}</b> }}
+                />
               </label>
               <div className="flex flex-col w-[300px]">
                 <div className="flex items-center lg:ml-16 relative w-full">
@@ -225,7 +243,11 @@ const Register = () => {
                     htmlFor="phone-input"
                     className="mb-2 text-sm font-medium text-gray-900 sr-only"
                   >
-                    Your Phone Number
+                    
+                    <FormattedMessage
+                  id="Your Phone Number"
+                  values={{ b: (info) => <b>{info}</b> }}
+                />
                   </label>
                 </div>
                 {formErrors.pers_phone &&
@@ -241,7 +263,11 @@ const Register = () => {
                 htmlFor="country"
                 className="font-semibold text-lg lg:w-1/6 lg:mb-6"
               >
-                Enter Your Country
+                
+                <FormattedMessage
+                  id="Enter Your Country"
+                  values={{ b: (info) => <b>{info}</b> }}
+                />
               </label>
               <div className="flex flex-col w-[300px]">
                 <select
@@ -253,7 +279,11 @@ const Register = () => {
                   defaultValue="" // or value=""
                 >
                   <option value="" disabled>
-                    Select your country
+                    
+                    <FormattedMessage
+                  id="Select your country"
+                  values={{ b: (info) => <b>{info}</b> }}
+                />
                   </option>
                   {countryOptions}
                 </select>
@@ -270,7 +300,11 @@ const Register = () => {
                 htmlFor="email"
                 className="font-semibold text-lg lg:w-1/6 lg:mb-6"
               >
-                Enter Your Password
+                
+                <FormattedMessage
+                  id="Enter Your Password"
+                  values={{ b: (info) => <b>{info}</b> }}
+                />
               </label>
               <div className="flex flex-col w-[300px]">
                 <input
@@ -305,7 +339,11 @@ const Register = () => {
               htmlFor="customer-radio"
               className="ms-2 text-sm font-medium text-gray-900"
             >
-              Join As Customer
+              
+              <FormattedMessage
+                  id="Join As Customer"
+                  values={{ b: (info) => <b>{info}</b> }}
+                />
             </label>
           </div>
           <div className="flex items-center mt-2">
@@ -321,7 +359,11 @@ const Register = () => {
               htmlFor="artist-radio"
               className="ms-2 text-sm font-medium text-gray-900"
             >
-              Join As Artist
+              
+              <FormattedMessage
+                  id="Join As Artist"
+                  values={{ b: (info) => <b>{info}</b> }}
+                />
             </label>
           </div>
 
@@ -338,17 +380,29 @@ const Register = () => {
               htmlFor="default-checkbox"
               className="ms-2 text-sm font-medium text-gray-900"
             >
-              I agree with the terms and conditions.
+              
+              <FormattedMessage
+                  id="I agree with the terms and conditions."
+                  values={{ b: (info) => <b>{info}</b> }}
+                />
             </label>
           </div>
 
           <div className="flex items-center justify-center flex-col">
             <button className="col-span-full text-lg font-semibold bg-[#F21079] bg-opacity-30 px-16 py-2 rounded-full lg:w-[569px]">
-              Submit
+              
+              <FormattedMessage
+                  id="Submit"
+                  values={{ b: (info) => <b>{info}</b> }}
+                />
             </button>
 
             <Link href="/login">
-              <p className="mt-2">Already have an account. Log In!</p>
+              <p className="mt-2">
+              <FormattedMessage
+                  id="Already have an account. Log In!"
+                  values={{ b: (info) => <b>{info}</b> }}
+                /></p>
             </Link>
           </div>
         </form>
