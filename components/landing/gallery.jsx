@@ -89,7 +89,7 @@ const Gallery = () => {
               />
             </Link>
 
-            <div className="flex flex-col text-left gap-1 mt-1">
+            <div className="flex flex-col  gap-1 mt-1">
               <h5 className="text-1xl font-bold">{artwork.artw_atext}</h5>
               <h5 className="text-1xl font-bold">
                 <FormattedMessage
@@ -105,7 +105,7 @@ const Gallery = () => {
         ))}
       </div>
 
-      <div className="col-span-12  mt-8 flex  justify-center lg:py-1 mb-8">
+      <div className="col-span-12  mt-12 flex  justify-center lg:py-1 mb-8">
         <div className=" flex-col">
           <img src="/img/google.png" className="w-[200px]   " alt="Search" />
           <Rating>

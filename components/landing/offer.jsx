@@ -6,7 +6,7 @@ import { Blockquote } from "flowbite-react";
 const Offer = () => {
   return (
     <>
-      <div className="grid grid-cols-12 text-center lg:mx-auto lg:mb-20 lg:mt-20 mb-10 mx-2">
+      <div className="grid grid-cols-12 text-center lg:mx-48 lg:mb-20 lg:mt-20 mb-10 mx-2">
         <div className="col-span-12 mt-16">
           <Blockquote className="text-lg not-italic font-bold">
             <FormattedMessage
@@ -22,10 +22,10 @@ const Offer = () => {
           </Blockquote>
         </div>
 
-        <div className="box col-span-6 flex justify-center   lg:justify-end lg:col-span-4 md:col-span-4">
+        <div className="box col-span-6  lg:col-span-3 md:col-span-4">
           <button
             style={{ background: "#F1C4D9", color: "black" }}
-            className=" px-5 py-2 mt-14 rounded-full  "
+            className=" px-10 py-2 mt-14 rounded-full  "
           >
             {" "}
             <FormattedMessage
@@ -34,10 +34,10 @@ const Offer = () => {
             />
           </button>
         </div>
-        <div className="box col-span-6 flex justify-center lg:justify-center lg:col-span-2 md:col-span-2">
+        <div className="box col-span-6  lg:col-span-3 md:col-span-2">
           <button
             style={{ background: "#F1C4D9", color: "black" }}
-            className=" px-5 py-2 mt-14 rounded-full "
+            className=" px-10 py-2 mt-14 rounded-full "
           >
             <FormattedMessage
               id="Excellence Curation"
@@ -45,10 +45,10 @@ const Offer = () => {
             />
           </button>
         </div>
-        <div className="box col-span-6 flex justify-center lg:justify-start lg:col-span-2 md:col-span-3">
+        <div className="box col-span-6  lg:col-span-3 md:col-span-3">
           <button
             style={{ background: "#F1C4D9", color: "black" }}
-            className=" px-5 py-2 mt-14 rounded-full "
+            className=" px-10 py-2 mt-14 rounded-full "
           >
             <FormattedMessage
               id="Connectivity & Elevation"
@@ -56,12 +56,11 @@ const Offer = () => {
             />
           </button>
         </div>
-        <div className="box col-span-6 flex justify-center lg:justify-start lg:col-span-2 md:col-span-3">
+        <div className="box col-span-6  lg:col-span-3 md:col-span-3">
           <button
             style={{ background: "#F1C4D9", color: "black" }}
-            className=" px-5 py-2 mt-14 rounded-full "
+            className=" px-10 py-2 mt-14 rounded-full "
           >
-            
             <FormattedMessage
               id="Client Friendly"
               values={{ b: (info) => <b>{info}</b> }}

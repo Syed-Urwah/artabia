@@ -8,9 +8,8 @@ import { FormattedMessage, useIntl } from "react-intl";
 
 const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
   const [isOpen, setIsOpen] = useState(false);
-
   const toggleDropdown = () => setIsOpen(!isOpen);
-  console.log(userType);
+
   const router = useRouter();
   const path = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -18,43 +17,32 @@ const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
   const [isLogin, setIsLogin] = useState(false);
   const { locales } = useRouter();
   const intl = useIntl();
-  // const payload = getPayload();
+
   const handleMobileMenuToggle = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   useEffect(() => {
     const payload = getPayload();
-    console.log(path);
-    console.log(payload);
     setLoginUser(payload);
-    if (!payload) {
-      setIsLogin(false);
-      // return;
-    } else {
-      setIsLogin(true);
-    }
+    setIsLogin(!!payload);
   }, [path]);
 
   const handleLogout = (e) => {
     e.preventDefault();
-    console.log("logout");
     logout(setUserDetails, setUserType, "/login", router);
   };
+
   const handleLogin = (e) => {
     e.preventDefault();
     router.push("/login");
   };
-
+  const handleLanguageSelect = () => {
+    setIsOpen(false); // Close the dropdown when a language is selected
+  };
   return (
     <header>
-      <nav
-        className="bg-white border-gray-200 px-4 lg:px-16 py-2.5 shadow-lg"
-        style={{
-          backgroundImage: `url("/img/backnav.png")`,
-          backgroundSize: "cover",
-        }}
-      >
+      <nav className="bg-white border-gray-200 px-4 lg:px-16 py-2.5 shadow-lg">
         <div className="flex flex-wrap justify-between items-center mx-auto">
           <a href="/" className="flex items-center">
             <img
@@ -64,28 +52,6 @@ const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
             />
           </a>
           <div className="flex items-center lg:order-2 gap-12">
-            <div className="lighten-icon">
-              <a href="#search">
-                <img
-                  src="/img/search.png"
-                  className="mr-2 h-5 w-5"
-                  alt="Search"
-                />
-              </a>
-            </div>
-            {/* <div className="lighten-icon">
-              <img
-                src="/img/icon_1.png"
-                className="mr-2 h-5 w-5"
-                alt="Subtract"
-              />
-            </div> */}
-            {/* <div className="flex gap-1">
-              <div className="flex items-center lighten-icon">
-                <img src="/img/cart.png" className="h-5 w-5" alt="Cart" />
-              </div>
-              <span className="text-base font-bold text-gray-500">(0)</span>
-            </div> */}
             <button
               onClick={handleMobileMenuToggle}
               type="button"
@@ -120,8 +86,9 @@ const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
           </div>
 
           <div
-            className={`${isMobileMenuOpen ? "block" : "hidden"
-              } justify-between items-center w-full lg:flex lg:w-auto lg:order-1`}
+            className={`${
+              isMobileMenuOpen ? "block" : "hidden"
+            } justify-between items-center w-full lg:flex lg:w-auto lg:order-1`}
             id="mobile-menu-2"
           >
             <ul className="flex flex-col mt-4 font-bold gap-10 lg:flex-row lg:space-x-8 lg:mt-0">
@@ -129,22 +96,15 @@ const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
                 <>
                   <li>
                     <Link href="/artist/artist_dashboard">
-                      <div className="block py-2 pr-4 pl-3 text-black-700 border-b border-black-100 hover:bg-black-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0">
-                        <FormattedMessage
-                          id="DASHBOARD"
-                          values={{ b: (info) => <b>{info}</b> }}
-                        />
+                      <div className="nav-item">
+                        {intl.formatMessage({ id: "DASHBOARD" })}
                       </div>
                     </Link>
                   </li>
                   <li>
                     <Link href="/artist/artwork">
-                      <div className="block py-2 pr-4 pl-3 text-black-700 border-b border-black-100 hover:bg-black-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0">
-                        <FormattedMessage
-                          id="ARTISTS"
-                          values={{ b: (info) => <b>{info}</b> }}
-                        />
-
+                      <div className="nav-item">
+                        {intl.formatMessage({ id: "ARTISTS" })}
                       </div>
                     </Link>
                   </li>
@@ -152,121 +112,59 @@ const Header = ({ userType, setUserType, userDetails, setUserDetails }) => {
               ) : (
                 <>
                   <li>
-                    <Link
-                      href="/"
-                      className="block py-2 pr-4 pl-3 text-black rounded bg-primary-700 lg:bg-transparent lg:text-primary-900 lg:p-0 "
-                      aria-current="page"
-                    >
-                      <FormattedMessage
-                        id="Shop"
-                        values={{ b: (info) => <b>{info}</b> }}
-                      />
+                    <Link href="/" className="nav-item" aria-current="page">
+                      {intl.formatMessage({ id: "Shop" })}
                     </Link>
                   </li>
                   <li>
                     <Link href="/order_history">
-                      <div
-                        className="block py-2 pr-4 pl-3 text-black rounded bg-primary-700 lg:bg-transparent lg:text-primary-900 lg:p-0 "
-                        aria-current="page"
-                      >
-                        <FormattedMessage
-                          id="Order History"
-                          values={{ b: (info) => <b>{info}</b> }}
-                        />
+                      <div className="nav-item">
+                        {intl.formatMessage({ id: "Order History" })}
                       </div>
                     </Link>
                   </li>
                 </>
               )}
-              {/* <li>
-                <a
-                  href="#"
-                  className="block py-2 pr-4 pl-3 text-black-700 border-b border-black-100 hover:bg-black-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0"
-                >
-                  SERVICES
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block py-2 pr-4 pl-3 text-black-700 border-b border-black-100 hover:bg-black-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0"
-                >
-                  ART BLOGS
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block py-2 pr-4 pl-3 text-black-700 border-b border-black-100 hover:bg-black-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0"
-                >
-                  ABOUT
-                </a>
-              </li> */}
               {!isLogin ? (
                 <li>
-                  <Link
-                    href="/login"
-                    // onClick={handleLogin}
-                    className="block py-2 pr-4 pl-3 text-black-700 border-b border-black-100 hover:bg-black-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0"
-                  >
-                    <FormattedMessage
-                      id="login"
-                      values={{ b: (info) => <b>{info}</b> }}
-                    />
+                  <Link href="/login" className="nav-item">
+                    {intl.formatMessage({ id: "login" })}
                   </Link>
                 </li>
               ) : (
                 <li>
-                  <a
-                    onClick={handleLogout}
-                    className="block py-2 pr-4 pl-3 text-black-700 border-b border-black-100 hover:bg-black-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0"
-                  >
-                    <FormattedMessage
-                      id="Logout"
-                      values={{ b: (info) => <b>{info}</b> }}
-                    />
-
+                  <a onClick={handleLogout} className="nav-item">
+                    {intl.formatMessage({ id: "Logout" })}
                   </a>
                 </li>
               )}
               <div>
-                {loginUser.user_type === "artist" ? (
-                  isOpen && (
-                    <div>
-                    {[...locales].sort().map((locale) => {
-                      let artistDashboardUrl;
-                      // if (locale === 'ar') {
-                      //   // Keep 'ar' in the URL for Arabic
-                      //   artistDashboardUrl = `/ar/artist/artist_dashboard`;
-                      // } 
-                      // else {
-                      //   // For other locales, remove 'ar' from the URL
-                      //   artistDashboardUrl = `/${locale}/artist/artist_dashboard`;
-                      // }
-                      { artistDashboardUrl = `/${locale}/artist/artist_dashboard`;}
-                      return (
-                        <Link key={locale} href={artistDashboardUrl}>
-                          <div>{locale}</div>
-                        </Link>
-                      );
-                    })}
+                {/* Language dropdown */}
+                {isOpen && (
+                  <div>
+                    {[...locales].sort().map((locale) => (
+                      <Link
+                        key={locale}
+                        href={
+                          loginUser.user_type === "artist"
+                            ? `/${locale}/artist/artist_dashboard`
+                            : `/${locale}`
+                        }
+                      >
+                        <div
+                          className="nav-item"
+                          onClick={handleLanguageSelect}
+                        >
+                          {locale}
+                        </div>
+                      </Link>
+                    ))}
                   </div>
-                  
-                  
-                  )
-                ) : (
-                  isOpen && (
-                    <div>
-                      {[...locales].sort().map((locale) => (
-                        <Link key={locale} href="/" locale={locale}>
-                          <div>{locale}</div>
-                        </Link>
-                      ))}
-                    </div>
-                  )
                 )}
-                <button onClick={toggleDropdown}>Select Language</button>
-
+                {/* Language dropdown toggle button */}
+                <button onClick={toggleDropdown} className="nav-item">
+                  {intl.formatMessage({ id: "Select Language" })}
+                </button>
               </div>
             </ul>
           </div>

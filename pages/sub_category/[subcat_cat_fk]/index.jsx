@@ -165,16 +165,18 @@ const Category = () => {
         <Header />
         <div className="bg-white mt-0.5 color_home">
           <div className="grid grid-cols-12 lg:mx-auto mb-4">
-            <div className=" box col-span-12 ml-5 mt-10 flex flex-col justify-center items-start lg:col-span-6  lg:ml-32 lg:-mt-6 md:col-span-6 ">
-              <h1 className=" text-6xl font-semibold text-[#F2097A] mb-3">
+            <div className=" box col-span-12  mt-10 flex  justify-center  items-center lg:col-span-6   md:col-span-6 ">
+             <div className="flex-col">
+              <h1 className=" text-6xl font-semibold text-[#F2097A] mb-3 mx-10">
                 {categoryData.cat_etext}
               </h1>
-              <h2 className=" text-2xl font-semibold">
+              <h2 className=" text-2xl font-semibold mx-10 lg:mb-20">
                 <FormattedMessage
                   id="Elevate Your Walls with Artabia: Where Every Stroke Speaks Sophistication and Every Canvas Echoes Timeless Beauty."
                   values={{ b: (info) => <b>{info}</b> }}
                 />
               </h2>
+              </div>
             </div>
             <div className="box col-span-12 lg:col-span-6 md:col-span-6 mt-12 flex flex-col items-center  mb-14">
               <img
